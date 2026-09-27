@@ -1,0 +1,333 @@
+﻿docker :  Image ecoradar/sensor-simulator:1.0.0 Building 
+At line:1 char:397
++ ... Location C:\dev\APS; docker compose --profile seed build 2>&1 | Out-F ...
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image ecoradar...1.0.0 Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image ecoradar/ocorrencias-service:1.0.0 Building 
+ Image ecoradar/ocorrencias-service:1.0.0 Building 
+ Image ecoradar/auth-service:1.0.0 Building 
+ Image ecoradar/seed:1.0.0 Building 
+ Image ecoradar/alertas-service:1.0.0 Building 
+ Image ecoradar/ambiental-service:1.0.0 Building 
+ Image ecoradar/relatorios-service:1.0.0 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 4.27kB done
+#1 DONE 0.0s
+
+#2 [alertas-service internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.38kB done
+#2 DONE 0.0s
+
+#3 [ocorrencias-service-2] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.6s
+
+#4 [ambiental-service] docker-image://docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+#4 resolve docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32 0.0s done
+#4 CACHED
+
+#5 [seed internal] load metadata for docker.io/library/node:24-alpine
+#5 DONE 0.5s
+
+#6 [relatorios-service internal] load .dockerignore
+#6 transferring context: 114B done
+#6 DONE 0.0s
+
+#7 [relatorios-service base 1/2] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+#7 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 0.0s done
+#7 DONE 0.0s
+
+#8 [relatorios-service base 2/2] WORKDIR /app
+#8 CACHED
+
+#9 [relatorios-service internal] load build context
+#9 transferring context: 7.75kB 0.0s done
+#9 DONE 0.0s
+
+#10 [ocorrencias-service-2 deps  1/10] COPY package.json package-lock.json ./
+#10 CACHED
+
+#11 [ocorrencias-service-2 deps  9/10] COPY seed/package.json seed/
+#11 CACHED
+
+#12 [ocorrencias-service-2 deps  5/10] COPY services/ambiental-service/package.json services/ambiental-service/
+#12 CACHED
+
+#13 [ocorrencias-service-2 deps  6/10] COPY services/alertas-service/package.json services/alertas-service/
+#13 CACHED
+
+#14 [ocorrencias-service-2 deps  7/10] COPY services/relatorios-service/package.json services/relatorios-service/
+#14 CACHED
+
+#15 [ocorrencias-service-2 deps  4/10] COPY services/ocorrencias-service/package.json services/ocorrencias-service/
+#15 CACHED
+
+#16 [ocorrencias-service-2 deps  3/10] COPY services/auth-service/package.json services/auth-service/
+#16 CACHED
+
+#17 [ocorrencias-service-2 deps 10/10] RUN npm ci --no-audit --no-fund
+#17 CACHED
+
+#18 [ocorrencias-service-2 deps  2/10] COPY packages/shared/package.json packages/shared/
+#18 CACHED
+
+#19 [ocorrencias-service-2 deps  8/10] COPY services/sensor-simulator/package.json services/sensor-simulator/
+#19 CACHED
+
+#20 [ocorrencias-service-2 prod-deps 1/1] RUN npm prune --omit=dev --no-audit --no-fund
+#20 CACHED
+
+#21 [relatorios-service build 6/7] RUN test -n "services/relatorios-service" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#21 CACHED
+
+#22 [relatorios-service build 7/7] RUN cd "/app/services/relatorios-service" && node /app/scripts/build.mjs
+#22 CACHED
+
+#23 [ocorrencias-service-1 build 6/7] RUN test -n "services/ocorrencias-service" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#23 CACHED
+
+#24 [ocorrencias-service-1 build 7/7] RUN cd "/app/services/ocorrencias-service" && node /app/scripts/build.mjs
+#24 CACHED
+
+#25 [auth-service build 6/7] RUN test -n "services/auth-service" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#25 CACHED
+
+#26 [alertas-service build 6/7] RUN test -n "services/alertas-service" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#26 CACHED
+
+#27 [sensor-simulator build 6/7] RUN test -n "services/sensor-simulator" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#27 CACHED
+
+#28 [auth-service build 7/7] RUN cd "/app/services/auth-service" && node /app/scripts/build.mjs
+#28 CACHED
+
+#29 [sensor-simulator build 7/7] RUN cd "/app/services/sensor-simulator" && node /app/scripts/build.mjs
+#29 CACHED
+
+#30 [alertas-service build 7/7] RUN cd "/app/services/alertas-service" && node /app/scripts/build.mjs
+#30 CACHED
+
+#31 [seed build 6/7] RUN test -n "seed" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#31 CACHED
+
+#32 [relatorios-service build 3/7] COPY packages ./packages
+#32 CACHED
+
+#33 [relatorios-service build 4/7] COPY services ./services
+#33 CACHED
+
+#34 [relatorios-service build 1/7] COPY tsconfig.base.json ./
+#34 CACHED
+
+#35 [relatorios-service build 5/7] COPY seed ./seed
+#35 CACHED
+
+#36 [relatorios-service build 2/7] COPY scripts ./scripts
+#36 CACHED
+
+#37 [ambiental-service build 6/7] RUN test -n "services/ambiental-service" || (echo "Informe --build-arg PACOTE=services/<nome>" && exit 1)
+#37 CACHED
+
+#38 [seed build 7/7] RUN cd "/app/seed" && node /app/scripts/build.mjs
+#38 CACHED
+
+#39 [ambiental-service build 7/7] RUN cd "/app/services/ambiental-service" && node /app/scripts/build.mjs
+#39 CACHED
+
+#40 [ocorrencias-service-1 final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#40 ...
+
+#41 [sensor-simulator final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#41 DONE 0.4s
+
+#42 [alertas-service final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#42 DONE 0.4s
+
+#40 [ocorrencias-service-1 final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#40 DONE 0.5s
+
+#43 [ambiental-service final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#43 DONE 0.5s
+
+#44 [seed final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#44 DONE 0.6s
+
+#45 [relatorios-service final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#45 DONE 0.6s
+
+#46 [auth-service final 1/3] RUN mkdir -p /data/uploads && chown node:node /data/uploads
+#46 DONE 0.6s
+
+#47 [relatorios-service final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#47 ...
+
+#48 [sensor-simulator final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#48 DONE 4.3s
+
+#49 [auth-service final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#49 DONE 4.0s
+
+#50 [ambiental-service final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#50 DONE 4.1s
+
+#51 [seed final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#51 DONE 4.1s
+
+#52 [ocorrencias-service-1 final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#52 DONE 4.2s
+
+#53 [alertas-service final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#53 DONE 4.3s
+
+#47 [relatorios-service final 2/3] COPY --from=prod-deps /app/node_modules ./node_modules
+#47 DONE 4.1s
+
+#54 [ocorrencias-service-1 final 3/3] COPY --from=build /app/services/ocorrencias-service/dist ./dist
+#54 ...
+
+#55 [auth-service final 3/3] COPY --from=build /app/services/auth-service/dist ./dist
+#55 DONE 0.9s
+
+#56 [sensor-simulator final 3/3] COPY --from=build /app/services/sensor-simulator/dist ./dist
+#56 DONE 1.0s
+
+#57 [seed final 3/3] COPY --from=build /app/seed/dist ./dist
+#57 DONE 1.0s
+
+#58 [ambiental-service final 3/3] COPY --from=build /app/services/ambiental-service/dist ./dist
+#58 DONE 1.0s
+
+#59 [relatorios-service final 3/3] COPY --from=build /app/services/relatorios-service/dist ./dist
+#59 DONE 0.9s
+
+#54 [ocorrencias-service-2 final 3/3] COPY --from=build /app/services/ocorrencias-service/dist ./dist
+#54 DONE 1.0s
+
+#60 [alertas-service final 3/3] COPY --from=build /app/services/alertas-service/dist ./dist
+#60 DONE 1.0s
+
+#61 [ocorrencias-service-1] exporting to image
+#61 exporting layers
+#61 exporting layers 3.1s done
+#61 exporting manifest sha256:2aaea1a1e7f546b69e94399ac1b49747016e9de8a35e68cf7a42f840dcccfc6f
+#61 exporting manifest sha256:2aaea1a1e7f546b69e94399ac1b49747016e9de8a35e68cf7a42f840dcccfc6f 0.1s done
+#61 exporting config sha256:228294244be48bd4a0f2f0f29f281e920fe90c71fa692c40224d204c3e0d4c94
+#61 exporting config sha256:228294244be48bd4a0f2f0f29f281e920fe90c71fa692c40224d204c3e0d4c94 0.1s done
+#61 exporting attestation manifest sha256:e0e089eef59b812a73bd9868d7214409952620dc028b7095fcf3fd8fafb7ab1b
+#61 exporting attestation manifest sha256:e0e089eef59b812a73bd9868d7214409952620dc028b7095fcf3fd8fafb7ab1b 0.1s done
+#61 exporting manifest list sha256:52ae7029cb38d93189213834b7c44b279a72447f0ec498f4268b86f54f09a5bf
+#61 exporting manifest list sha256:52ae7029cb38d93189213834b7c44b279a72447f0ec498f4268b86f54f09a5bf 0.0s done
+#61 naming to docker.io/ecoradar/ocorrencias-service:1.0.0 0.0s done
+#61 unpacking to docker.io/ecoradar/ocorrencias-service:1.0.0
+#61 ...
+
+#62 [alertas-service] exporting to image
+#62 exporting layers 3.1s done
+#62 exporting manifest sha256:db8226831d3d7468537a5dafa34252d706784c6291830622b952e593ccbe336a 0.1s done
+#62 exporting config sha256:e8dc7686f0b9aef29caf50010d4f30f4761923df03e5d83fb60052a945d918f9 0.1s done
+#62 exporting attestation manifest sha256:065b7247ae48a603f8d910325b338e4522b7cb2b63633e8d2f3e64efdcecd5f8 0.1s done
+#62 exporting manifest list sha256:12dcbe31309ae21b5e40b4abe90dd8820a357e3c16f9849ab32be98fa477b04c 0.1s done
+#62 naming to docker.io/ecoradar/alertas-service:1.0.0 0.0s done
+#62 unpacking to docker.io/ecoradar/alertas-service:1.0.0
+#62 ...
+
+#63 [auth-service] exporting to image
+#63 exporting layers 2.6s done
+#63 exporting manifest sha256:152095b53537b27ad4210127aba35c062c209da0a52fa005dea037cfe36ce955 0.4s done
+#63 exporting config sha256:606c6e654cdde4097e792c27816e78e5e7332e9151ba37502683e29ec92e179b 0.0s done
+#63 exporting attestation manifest sha256:02a5813a94f12811d64413c4f41f7aa17d43ff4fe2eb72f82395f5ff449a9d5d 0.1s done
+#63 exporting manifest list sha256:f79a400e08781332d7261d171dc98245c29e9e01930df1c67b51a15d82158552 0.1s done
+#63 naming to docker.io/ecoradar/auth-service:1.0.0 0.0s done
+#63 unpacking to docker.io/ecoradar/auth-service:1.0.0 3.0s done
+#63 DONE 6.5s
+
+#64 [ocorrencias-service-2] exporting to image
+#64 exporting layers 3.1s done
+#64 exporting manifest sha256:2e6298fa2db4c5ea770a8b9939d0ac5335b8ce80b9ce5b9a43540c21a5176956 0.1s done
+#64 exporting config sha256:85b627712f45d1d1a275f34956bc5921e614d92aba18b7b6ea96a58bfb9dbbd3 0.1s done
+#64 exporting attestation manifest sha256:9b79db2bdd050e4cb34c530fb41b1e9242ea977e6af39c06b3bb7760ae98697a 0.1s done
+#64 exporting manifest list sha256:d33364b40381dfdc0d2bab7d68a84fdd2622bff1575d35af64fda0a9b9ec8c37 0.1s done
+#64 naming to docker.io/ecoradar/ocorrencias-service:1.0.0 0.0s done
+#64 unpacking to docker.io/ecoradar/ocorrencias-service:1.0.0 2.8s done
+#64 DONE 6.5s
+
+#65 [sensor-simulator] exporting to image
+#65 exporting layers 3.0s done
+#65 exporting manifest sha256:d9813e57d7d488c44cf9e0c1744a76ae12d534592f3ba01f24b3a1fd2131cfa2 0.1s done
+#65 exporting config sha256:5f135c401c65df700e22b98426d00ce2f28f5496d5c62e2e855a8e8bac02c442 0.0s done
+#65 exporting attestation manifest sha256:bf4b2bcb9b87faadc682cbe8a8dfc8ba4356b33340aa665c15f26f9de7a0453f 0.2s done
+#65 exporting manifest list sha256:d4262c9c02754f9e46be491369ba72613ffd55bb2aacb370769bb334f0e0c2a6 0.1s done
+#65 naming to docker.io/ecoradar/sensor-simulator:1.0.0 0.0s done
+#65 unpacking to docker.io/ecoradar/sensor-simulator:1.0.0 2.9s done
+#65 DONE 6.5s
+
+#66 [seed] exporting to image
+#66 exporting layers 3.1s done
+#66 exporting manifest sha256:60b7d7b0db74f31f51eb10e6e36eb843994d01d406874c824bba92ec5743aa8d 0.1s done
+#66 exporting config sha256:fca78f66132cb81e8a899c48ffa7297c5447fa3821d9776453036e9b02ee9a7d 0.1s done
+#66 exporting attestation manifest sha256:08a3716439d99806df57e8f91cb0ddcc3d285c33ca4ec29cb2d77cc241947192 0.1s done
+#66 exporting manifest list sha256:1654a8ededfa08ad85ca94f43dbcc7bbafbbaaca2b96e20998d7b13de45fa532 0.1s done
+#66 naming to docker.io/ecoradar/seed:1.0.0 0.0s done
+#66 unpacking to docker.io/ecoradar/seed:1.0.0 2.8s done
+#66 DONE 6.5s
+
+#67 [relatorios-service] exporting to image
+#67 exporting layers 3.1s done
+#67 exporting manifest sha256:6d3ffea4196fb8f1bfc05fb0f5f98d73c05c3135add3db943296c61fbf057aad 0.1s done
+#67 exporting config sha256:4ea14a87a3d0a1a91e59041a8ea9b1f33b78935ef4f6ea1d94b57180931c647a 0.1s done
+#67 exporting attestation manifest sha256:4cf3ec081e37ed69cddd7e619d10f5196e38ee200429235170db0b179affa1f1 0.1s done
+#67 exporting manifest list sha256:40c7a0abfa89566a01087f19b60e4c6986e249a9bcd2923be6b7732f72883d20 0.1s done
+#67 naming to docker.io/ecoradar/relatorios-service:1.0.0 0.0s done
+#67 unpacking to docker.io/ecoradar/relatorios-service:1.0.0 2.8s done
+#67 DONE 6.5s
+
+#68 [ambiental-service] exporting to image
+#68 exporting layers 3.1s done
+#68 exporting manifest sha256:28efe466da959cb8abe7cbed50fa07e3e234d5034d17c60df38408961ca7b7b0 0.1s done
+#68 exporting config sha256:ab8d1eed621f0b037d0847969e86bac72ae185458df77dadcc37dc35a67fb633 0.1s done
+#68 exporting attestation manifest sha256:caf5b722e26c03d3d6eccbbb4b39576769d360c6c7ae730e1978eb42fe144091 0.1s done
+#68 exporting manifest list sha256:74570af2b5c1b6d63ebcd06b074b83f8d007d452bfe4dae0026d33a8b047fa2b 0.1s done
+#68 naming to docker.io/ecoradar/ambiental-service:1.0.0 0.0s done
+#68 unpacking to docker.io/ecoradar/ambiental-service:1.0.0 2.8s done
+#68 DONE 6.5s
+
+#62 [alertas-service] exporting to image
+#62 unpacking to docker.io/ecoradar/alertas-service:1.0.0 2.7s done
+#62 DONE 6.5s
+
+#61 [ocorrencias-service-1] exporting to image
+#61 unpacking to docker.io/ecoradar/ocorrencias-service:1.0.0 2.8s done
+#61 DONE 6.5s
+
+#69 [sensor-simulator] resolving provenance for metadata file
+#69 DONE 0.6s
+
+#70 [ocorrencias-service-2] resolving provenance for metadata file
+#70 DONE 0.5s
+
+#71 [seed] resolving provenance for metadata file
+#71 DONE 0.5s
+
+#72 [ambiental-service] resolving provenance for metadata file
+#72 DONE 0.3s
+
+#73 [auth-service] resolving provenance for metadata file
+#73 DONE 0.1s
+
+#74 [relatorios-service] resolving provenance for metadata file
+#74 DONE 0.1s
+
+#75 [alertas-service] resolving provenance for metadata file
+#75 DONE 0.3s
+
+#76 [ocorrencias-service-1] resolving provenance for metadata file
+#76 DONE 0.0s
+ Image ecoradar/ambiental-service:1.0.0 Built 
+ Image ecoradar/ocorrencias-service:1.0.0 Built 
+ Image ecoradar/ocorrencias-service:1.0.0 Built 
+ Image ecoradar/alertas-service:1.0.0 Built 
+ Image ecoradar/auth-service:1.0.0 Built 
+ Image ecoradar/seed:1.0.0 Built 
+ Image ecoradar/relatorios-service:1.0.0 Built 
+ Image ecoradar/sensor-simulator:1.0.0 Built 

@@ -1,40 +1,65 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "EcoRadar Urbano",
+    "slug": "ecoradar-urbano",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mobile",
+    "scheme": "ecoradar",
     "userInterfaceStyle": "automatic",
+    "description": "Gerenciamento colaborativo de informações ambientais urbanas (APS UNIP 2026).",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "supportsTablet": true,
+      "bundleIdentifier": "br.unip.aps.ecoradar",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "O EcoRadar usa sua localização para registrar ocorrências e mostrar o que acontece perto de você.",
+        "NSCameraUsageDescription": "O EcoRadar usa a câmera para fotografar ocorrências ambientais.",
+        "NSPhotoLibraryUsageDescription": "O EcoRadar acessa suas fotos para anexar imagens às ocorrências."
+      }
     },
     "android": {
+      "package": "br.unip.aps.ecoradar",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0f766e",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION", "CAMERA", "POST_NOTIFICATIONS"],
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "single",
+      "favicon": "./assets/images/favicon.png",
+      "name": "EcoRadar Urbano",
+      "shortName": "EcoRadar",
+      "themeColor": "#0f766e",
+      "backgroundColor": "#f6f7f5"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#0f766e",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 160,
+          "dark": { "backgroundColor": "#0b3d3a", "image": "./assets/images/splash-icon.png" }
         }
       ],
-      "expo-secure-store",
-      "expo-sharing"
+      [
+        "expo-location",
+        { "locationWhenInUsePermission": "O EcoRadar usa sua localização para registrar ocorrências e mostrar o que acontece perto de você." }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O EcoRadar acessa suas fotos para anexar imagens às ocorrências.",
+          "cameraPermission": "O EcoRadar usa a câmera para fotografar ocorrências ambientais."
+        }
+      ],
+      ["expo-notifications", { "color": "#0f766e" }],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
