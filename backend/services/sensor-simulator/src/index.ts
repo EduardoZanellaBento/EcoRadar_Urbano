@@ -92,7 +92,7 @@ async function main() {
   await registrarJwt(app);
 
   app.get('/api/simulador/estado', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: { tags: ['Simulador'], summary: 'Estado do simulador e cenário ativo', security: seguranca },
     handler: async () => ({
       intervaloMs,
@@ -106,7 +106,7 @@ async function main() {
   });
 
   app.post('/api/simulador/cenario', {
-    preHandler: exigirPerfil('ADMIN'),
+    onRequest: exigirPerfil('ADMIN'),
     schema: {
       tags: ['Simulador'],
       summary: 'Força um cenário (ALAGAMENTO, POLUICAO_CRITICA, INVERSAO_TERMICA ou NORMAL) — somente ADMIN',

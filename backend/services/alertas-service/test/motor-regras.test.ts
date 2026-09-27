@@ -150,6 +150,7 @@ describe('regra 6 › deduplicação (mesmo alerta, mesma área, 30 min)', () =>
   const [candidatoEstacao] = avaliarEvento(limite({ indicador: 'IQAR', valor: 150, limite: 80, classe: 'MUITO_RUIM' }), { agora: AGORA, ocorrenciasRecentes: [] });
   const existente = (p: Partial<AlertaExistente>): AlertaExistente => ({
     tipo: 'POLUICAO',
+    severidade: 'ALTA',
     chaveArea: 'estacao:est-se',
     categoria: null,
     latitude: -23.55,
@@ -169,10 +170,17 @@ describe('regra 6 › deduplicação (mesmo alerta, mesma área, 30 min)', () =>
     expect(ehDuplicado(candidatoEstacao, [], AGORA)).toBe(false);
   });
 
+  it('situação que piorou (severidade maior) não é repetição: o alerta é emitido', () => {
+    // candidato MUITO_RUIM -> ALTA; existente MEDIA (Ruim) -> escalonamento
+    expect(ehDuplicado(candidatoEstacao, [existente({ severidade: 'MEDIA' })], AGORA)).toBe(false);
+    // existente já CRITICA -> o candidato ALTA é repetição
+    expect(ehDuplicado(candidatoEstacao, [existente({ severidade: 'CRITICA' })], AGORA)).toBe(true);
+  });
+
   it('alertas de ocorrências são deduplicados por proximidade (1 km) e categoria', () => {
     const o = ocorrencia({ categoria: 'DESMATAMENTO', emAreaDeManancial: true, manancialNome: 'Represa Guarapiranga' });
     const [c] = avaliarEvento(eventoOcorrencia(o), { agora: AGORA, ocorrenciasRecentes: [] });
-    const base = { tipo: 'PRIORITARIO_MANANCIAL' as const, chaveArea: 'manancial:Represa Guarapiranga', categoria: 'DESMATAMENTO' as const, criadoEm: min(5) };
+    const base = { tipo: 'PRIORITARIO_MANANCIAL' as const, severidade: 'ALTA' as const, chaveArea: 'manancial:Represa Guarapiranga', categoria: 'DESMATAMENTO' as const, criadoEm: min(5) };
     expect(ehDuplicado(c, [{ ...base, latitude: -23.5553, longitude: -46.6339 }], AGORA)).toBe(true); // ~560 m
     expect(ehDuplicado(c, [{ ...base, latitude: -23.58, longitude: -46.6339 }], AGORA)).toBe(false); // ~3,3 km
     expect(ehDuplicado(c, [{ ...base, categoria: 'INVASAO_MANANCIAL', latitude: -23.5503, longitude: -46.6339 }], AGORA)).toBe(false);

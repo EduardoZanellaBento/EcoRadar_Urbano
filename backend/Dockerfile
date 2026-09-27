@@ -39,10 +39,12 @@ RUN npm prune --omit=dev --no-audit --no-fund
 FROM base AS final
 ENV NODE_ENV=production
 ARG PACOTE
+# Pasta de uploads (volume compartilhado entre as réplicas do ocorrencias-service).
+# Código e dependências ficam com o root (somente leitura para o usuário "node");
+# só a pasta de uploads precisa de escrita.
+RUN mkdir -p /data/uploads && chown node:node /data/uploads
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/${PACOTE}/dist ./dist
-# Pasta de uploads (volume compartilhado entre as réplicas do ocorrencias-service)
-RUN mkdir -p /data/uploads && chown -R node:node /data /app
 USER node
 EXPOSE 3000
 # SIGTERM chega direto ao Node (PID 1), que faz o encerramento gracioso

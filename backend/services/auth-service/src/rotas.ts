@@ -115,7 +115,7 @@ export async function registrarRotas(app: AppFastify, { db }: DependenciasRotas)
   });
 
   app.get('/api/auth/me', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Usuários'],
       summary: 'Dados do usuário autenticado',
@@ -130,7 +130,7 @@ export async function registrarRotas(app: AppFastify, { db }: DependenciasRotas)
   });
 
   app.patch('/api/auth/me', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Usuários'],
       summary: 'Atualiza nome e/ou bairro do próprio usuário',
@@ -154,7 +154,7 @@ export async function registrarRotas(app: AppFastify, { db }: DependenciasRotas)
   });
 
   app.get('/api/auth/usuarios', {
-    preHandler: exigirPerfil('ADMIN'),
+    onRequest: exigirPerfil('ADMIN'),
     schema: {
       tags: ['Usuários'],
       summary: 'Lista usuários (somente ADMIN)',
@@ -194,7 +194,7 @@ export async function registrarRotas(app: AppFastify, { db }: DependenciasRotas)
   });
 
   app.patch('/api/auth/usuarios/:id/perfil', {
-    preHandler: exigirPerfil('ADMIN'),
+    onRequest: exigirPerfil('ADMIN'),
     schema: {
       tags: ['Usuários'],
       summary: 'Altera o perfil de acesso de um usuário (somente ADMIN)',

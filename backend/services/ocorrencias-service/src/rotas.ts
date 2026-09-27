@@ -60,7 +60,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Criar ocorrência ---------------------------------------------------------
   app.post('/api/ocorrencias', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     // Aceita a chave de idempotência também pelo cabeçalho Idempotency-Key
     preValidation: async (req) => {
       const corpo = req.body as Record<string, unknown> | undefined;
@@ -171,7 +171,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Listar ---------------------------------------------------------------------
   app.get('/api/ocorrencias', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Ocorrências'],
       summary: 'Lista ocorrências com filtros (categoria, status, severidade, período, raio em km, busca) e paginação',
@@ -216,7 +216,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Estado do outbox (observabilidade / testes de consistência eventual) ---------
   app.get('/api/ocorrencias/sistema/outbox', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Sistema'],
       summary: 'Eventos pendentes/publicados no outbox e estatísticas do publicador desta réplica',
@@ -227,7 +227,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Detalhe ------------------------------------------------------------------------
   app.get('/api/ocorrencias/:id', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Ocorrências'],
       summary: 'Detalhe da ocorrência com histórico de status',
@@ -260,7 +260,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Confirmação colaborativa --------------------------------------------------------
   app.post('/api/ocorrencias/:id/confirmar', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Ocorrências'],
       summary: 'Confirma a ocorrência de outro cidadão (1 confirmação por usuário)',
@@ -296,7 +296,7 @@ export async function registrarRotas(app: AppFastify, { db, pastaUploads, public
 
   // ----- Alteração de status (agente/admin) ------------------------------------------------
   app.patch('/api/ocorrencias/:id/status', {
-    preHandler: exigirPerfil('AGENTE', 'ADMIN'),
+    onRequest: exigirPerfil('AGENTE', 'ADMIN'),
     schema: {
       tags: ['Ocorrências'],
       summary: 'Altera o status (somente AGENTE/ADMIN, comentário obrigatório) e grava o histórico',

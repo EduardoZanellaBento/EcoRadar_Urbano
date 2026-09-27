@@ -1,4 +1,5 @@
 import {
+  PESO_SEVERIDADE,
   ROTULOS_CATEGORIA,
   ROTULOS_CLASSE_IQAR,
   TIPOS_EVENTO,
@@ -60,6 +61,7 @@ export interface ContextoRegras {
 
 export interface AlertaExistente {
   tipo: TipoAlerta;
+  severidade: Severidade;
   chaveArea: string;
   categoria: Categoria | null;
   latitude: number | null;
@@ -204,10 +206,13 @@ export function avaliarEvento(evento: EnvelopeEvento, ctx: ContextoRegras): Aler
  * Regra 6 — deduplicação: um alerta é considerado repetido se já existe outro do mesmo
  * tipo, na mesma área, criado há menos de 30 minutos. "Mesma área" é a mesma estação
  * (alertas ambientais) ou um ponto a até 1 km com a mesma categoria (alertas de ocorrências).
+ * Exceção: se a situação PIOROU (severidade maior que a do alerta anterior), o novo alerta
+ * é emitido — é um escalonamento, não uma repetição.
  */
 export function ehDuplicado(candidato: AlertaCandidato, existentes: AlertaExistente[], agora: Date): boolean {
   return existentes.some((a) => {
     if (a.tipo !== candidato.tipo) return false;
+    if (PESO_SEVERIDADE[candidato.severidade] > PESO_SEVERIDADE[a.severidade]) return false;
     if (minutos(agora.getTime() - a.criadoEm.getTime()) >= PARAMETROS.deduplicacaoJanelaMin) return false;
     if (candidato.chaveArea.startsWith('estacao:')) return a.chaveArea === candidato.chaveArea;
     if ((a.categoria ?? null) !== (candidato.categoria ?? null)) return false;

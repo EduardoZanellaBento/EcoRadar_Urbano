@@ -126,6 +126,7 @@ export async function criarServidor(opcoes: OpcoesServidor): Promise<AppFastify>
     const fe = erro as FastifyError;
     switch (fe.code) {
       case 'FST_REQ_FILE_TOO_LARGE':
+        return responder(413, 'ARQUIVO_MUITO_GRANDE', 'A foto excede o tamanho máximo permitido de 5 MB.');
       case 'FST_ERR_CTP_BODY_TOO_LARGE':
       case 'FST_PARTS_LIMIT':
       case 'FST_FILES_LIMIT':

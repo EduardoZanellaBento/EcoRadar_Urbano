@@ -99,7 +99,7 @@ export async function registrarRotas(app: AppFastify, deps: DependenciasRotas) {
   });
 
   app.post('/api/ambiental/integracoes/simular-falha', {
-    preHandler: exigirPerfil('ADMIN'),
+    onRequest: exigirPerfil('ADMIN'),
     schema: {
       tags: ['Sistema'],
       summary: 'Liga/desliga a falha simulada da Open-Meteo (somente ADMIN) — demonstra o circuit breaker',

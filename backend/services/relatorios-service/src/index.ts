@@ -56,7 +56,7 @@ async function main() {
   await registrarJwt(app);
 
   app.get('/api/relatorios/estatisticas', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Relatórios'],
       summary: 'Totais por categoria/status/severidade, série de 30 dias, tempo médio de resolução, áreas críticas e confirmação',
@@ -75,7 +75,7 @@ async function main() {
   });
 
   app.get('/api/relatorios/exportar.csv', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: { tags: ['Relatórios'], summary: 'Exporta as ocorrências filtradas em CSV (separador ";", UTF-8)', security: seguranca, querystring: filtrosRelatorioSchema },
     handler: async (req, reply) => {
       const linhas = await buscarOcorrencias(db, req.query);
@@ -105,7 +105,7 @@ async function main() {
   });
 
   app.get('/api/relatorios/exportar.pdf', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: { tags: ['Relatórios'], summary: 'Exporta o relatório em PDF (cabeçalho, indicadores, gráficos e tabelas)', security: seguranca, querystring: filtrosRelatorioSchema },
     handler: async (req, reply) => {
       const [ocorrencias, alertas] = await Promise.all([buscarOcorrencias(db, req.query), resumoAlertas(db, req.query)]);

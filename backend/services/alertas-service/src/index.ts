@@ -95,7 +95,7 @@ async function main() {
   });
 
   app.get('/api/alertas', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: {
       tags: ['Alertas'],
       summary: 'Lista alertas ativos e/ou histórico',
@@ -111,13 +111,13 @@ async function main() {
   });
 
   app.get('/api/alertas/sistema/conexoes', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: { tags: ['Sistema'], summary: 'Clientes Socket.IO conectados e estatísticas do motor de regras', security: seguranca },
     handler: async () => ({ instancia: INSTANCIA_ID, clientesConectados: io.engine.clientsCount, estatisticas: servico.estatisticas }),
   });
 
   app.get('/api/alertas/:id', {
-    preHandler: autenticar,
+    onRequest: autenticar,
     schema: { tags: ['Alertas'], summary: 'Detalhe de um alerta', security: seguranca, params: z.object({ id: z.string().uuid() }), response: { 200: alertaSchema, 404: erroSchema } },
     handler: async (req) => {
       const a = await servico.buscar(req.params.id);
@@ -127,7 +127,7 @@ async function main() {
   });
 
   app.patch('/api/alertas/:id/encerrar', {
-    preHandler: exigirPerfil('AGENTE', 'ADMIN'),
+    onRequest: exigirPerfil('AGENTE', 'ADMIN'),
     schema: {
       tags: ['Alertas'],
       summary: 'Encerra um alerta ativo (somente AGENTE/ADMIN)',
