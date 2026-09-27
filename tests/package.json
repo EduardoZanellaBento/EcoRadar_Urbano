@@ -1,0 +1,32 @@
+{
+  "name": "ecoradar-testes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Testes de integração, E2E (Playwright), sistema distribuído e carga do EcoRadar Urbano",
+  "type": "module",
+  "scripts": {
+    "navegadores": "node scripts/instalar-navegadores.mjs",
+    "integracao": "vitest run --config integracao/vitest.config.ts",
+    "e2e": "node scripts/com-navegadores.mjs playwright test --config e2e/playwright.config.ts",
+    "distribuido": "tsx distribuido/executar.ts",
+    "carga": "tsx carga/executar.ts",
+    "prints-infra": "node scripts/com-navegadores.mjs tsx infra/prints.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.9",
+    "@playwright/test": "^1.63.0",
+    "@types/autocannon": "^7.12.7",
+    "@types/node": "^24.19.0",
+    "autocannon": "^8.0.0",
+    "pdfjs-dist": "^5.7.284",
+    "sharp": "^0.35.5",
+    "socket.io-client": "^4.8.4",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

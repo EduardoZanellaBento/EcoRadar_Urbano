@@ -40,13 +40,27 @@ Números atuais (execução real em 27/09/2026): **104 testes unitários passand
   cores oficiais da CETESB para o IQAr sempre acompanhadas de rótulo; paleta de referência validada para daltonismo.
 - Rede do PC: Ethernet, IP 192.168.68.104, perfil de rede **Público** (relevante para a regra de firewall).
 
+## Atualização — 27/09/2026 (após o reinício do PC)
+
+- Fases 2–6 **validadas com Docker**: 10 containers healthy, seed ok, balanceamento 10/10 entre réplicas,
+  idempotência, PostGIS, outbox (0 pendentes), CQRS, Open-Meteo ao vivo, Socket.IO, PDF/CSV, 413/415.
+  Correções feitas: autorização em `onRequest` (403 antes de 422), escalonamento na deduplicação, Dockerfile sem `chown -R`.
+- Fase 7 **concluída**: app com as 12 telas, `tsc` e `expo lint` limpos, `expo export --platform web` ok,
+  conferido na web (Playwright, claro e escuro). Painel do admin agora permite escolher a estação do cenário.
+- Fase 9 **em andamento**: infraestrutura de testes em `tests/` (Playwright com Chromium em `tests/.cache`,
+  utilitários em `tests/utils`). **Integração: 19/19 testes passando** (saída, JSON, JUnit, PDF/CSV e páginas do PDF em PNG em `registros/`).
+
 ## Próximo passo
 
-1. (Aluno) Reiniciar o PC, abrir o **Docker Desktop** uma vez e aceitar os termos; depois dizer **"continue"**.
-2. Rodar `scripts/iniciar.ps1` e validar as Fases 2–6 com a stack real (healthchecks, login via gateway,
-   alternância de `X-Instance-Id`, idempotência, leituras MQTT, `/resumo`, alerta via Socket.IO, PDF).
-3. Desenvolver o app móvel (Fase 7) contra a API real.
-4. Fases 9 e 10 (testes automatizados, evidências, guias).
+1. E2E com Playwright (`tests/e2e`): roteiro de prints do item 9.3 (Pixel 7 completo; iPhone 14 com as telas
+   principais), tempo real entre dois dispositivos, alerta, offline com idempotência, tema escuro, vídeos.
+2. Testes de sistema distribuído (`tests/distribuido`), carga (`tests/carga`), prints de infraestrutura
+   (Swagger, RabbitMQ, docker compose ps), logs dos serviços, cobertura dos testes unitários.
+3. Scripts `rodar-todos-testes` e `coletar-evidencias` (.ps1/.sh), `RELATORIO_DE_TESTES.md`, `registros/index.html`,
+   `registros/README.md`, `registros/manual/README.md`, métricas de código, `versoes.txt` final.
+4. Fase 10: `COMO_TESTAR.md` (IP 192.168.68.104, rede "Pública", firewall) e README final com diagrama Mermaid.
+5. Antes de gerar as evidências finais: `docker compose --profile seed run --rm seed node dist/index.js --forcar`
+   para dados limpos, e `scripts/util/atualizar-web.ps1` para o build web servido pelo gateway.
 
 ## Como retomar
 

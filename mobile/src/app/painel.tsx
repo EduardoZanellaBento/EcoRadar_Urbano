@@ -2,9 +2,9 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { Button, Card, SegmentedButtons, Snackbar, Switch, Text, useTheme } from 'react-native-paper';
+import { Button, Card, Chip, SegmentedButtons, Snackbar, Switch, Text, useTheme } from 'react-native-paper';
 import { mensagemDeErro } from '@/api/cliente';
-import { useListaOcorrencias } from '@/api/consultas';
+import { useEstacoes, useListaOcorrencias } from '@/api/consultas';
 import { ambiental, simulador, type TipoCenario } from '@/api/servicos';
 import { DialogoStatus } from '@/componentes/DialogoStatus';
 import { EsqueletoLista } from '@/componentes/Esqueleto';
@@ -14,24 +14,44 @@ import { Icone } from '@/componentes/Icone';
 import { temPerfil, useSessao } from '@/estado/sessao';
 import { CATEGORIA, SEVERIDADE } from '@/tema/cores';
 import type { TemaEcoRadar } from '@/tema/tema';
-import type { Ocorrencia, StatusOcorrencia } from '@/tipos';
+import type { Estacao, Ocorrencia, StatusOcorrencia } from '@/tipos';
 import { hora, tempoRelativo } from '@/utils/formatacao';
 
-const CENARIOS: { tipo: TipoCenario; rotulo: string; icone: string; estacaoId?: string }[] = [
-  { tipo: 'ALAGAMENTO', rotulo: 'Alagamento (Ipiranga)', icone: 'home-flood', estacaoId: 'est-ipiranga' },
-  { tipo: 'POLUICAO_CRITICA', rotulo: 'Poluição crítica (Pinheiros)', icone: 'smog', estacaoId: 'est-pinheiros' },
-  { tipo: 'INVERSAO_TERMICA', rotulo: 'Inversão térmica (Sé)', icone: 'thermometer-lines', estacaoId: 'est-se' },
-  { tipo: 'NORMAL', rotulo: 'Normalizar leituras', icone: 'restore' },
-];
+type CenarioAtivavel = Exclude<TipoCenario, 'NORMAL'>;
+const CENARIOS: Record<CenarioAtivavel, { rotulo: string; icone: string; requisito: Estacao['tipos'][number] | null }> = {
+  ALAGAMENTO: { rotulo: 'Alagamento', icone: 'home-flood', requisito: 'PLUVIOMETRICA' },
+  POLUICAO_CRITICA: { rotulo: 'Poluição crítica', icone: 'smog', requisito: null },
+  INVERSAO_TERMICA: { rotulo: 'Inversão térmica', icone: 'thermometer-lines', requisito: 'PERFIL_TERMICO' },
+};
 
 function PainelAdmin({ avisar }: { avisar: (m: string) => void }) {
   const tema = useTheme<TemaEcoRadar>();
   const qc = useQueryClient();
+  const [tipo, setTipo] = useState<CenarioAtivavel>('ALAGAMENTO');
+  const [estacaoId, setEstacaoId] = useState<string | null>(null);
   const [duracao, setDuracao] = useState('120');
   const [executando, setExecutando] = useState<TipoCenario | null>(null);
+  const estacoes = useEstacoes();
   const estado = useQuery({ queryKey: ['sistema', 'simulador'], queryFn: simulador.estado, refetchInterval: 5000 });
   const integracoes = useQuery({ queryKey: ['sistema', 'integracoes'], queryFn: ambiental.statusIntegracoes, refetchInterval: 10_000 });
   const falhaAtiva = integracoes.data?.openMeteo.simulandoFalha ?? false;
+  const requisito = CENARIOS[tipo].requisito;
+  const compativeis = (estacoes.data ?? []).filter((e) => !requisito || e.tipos.includes(requisito));
+  const estacaoEscolhida = compativeis.find((e) => e.id === estacaoId) ?? compativeis[0];
+
+  const executar = async (t: TipoCenario) => {
+    setExecutando(t);
+    try {
+      const r = await simulador.cenario(t, t === 'NORMAL' ? undefined : estacaoEscolhida?.id, Number(duracao));
+      avisar(r.mensagem);
+      void estado.refetch();
+      void qc.invalidateQueries({ queryKey: ['ambiental'] });
+    } catch (e) {
+      avisar(mensagemDeErro(e));
+    } finally {
+      setExecutando(null);
+    }
+  };
 
   return (
     <Card style={estilos.cartao} testID="painel-admin">
@@ -40,32 +60,37 @@ function PainelAdmin({ avisar }: { avisar: (m: string) => void }) {
         <Text variant="bodySmall" style={{ color: tema.extra.tintaSecundaria }} testID="estado-simulador">
           {estado.data?.cenarioAtivo ? `Cenário ativo: ${estado.data.cenarioAtivo.tipo} até ${hora(estado.data.cenarioAtivo.fim)}` : 'Nenhum cenário ativo — leituras normais.'}
         </Text>
+        <Text variant="labelLarge">Cenário</Text>
+        <View style={estilos.linha}>
+          {(Object.keys(CENARIOS) as CenarioAtivavel[]).map((t) => (
+            <Chip key={t} icon={CENARIOS[t].icone} selected={t === tipo} onPress={() => setTipo(t)} testID={`cenario-${t}`}>
+              {CENARIOS[t].rotulo}
+            </Chip>
+          ))}
+        </View>
+        <Text variant="labelLarge">Estação</Text>
+        <View style={estilos.linha}>
+          {compativeis.map((e) => (
+            <Chip key={e.id} selected={e.id === estacaoEscolhida?.id} onPress={() => setEstacaoId(e.id)} compact testID={`estacao-cenario-${e.id}`}>
+              {e.bairro}
+            </Chip>
+          ))}
+        </View>
+        <Text variant="labelLarge">Duração</Text>
         <SegmentedButtons value={duracao} onValueChange={setDuracao} density="small" buttons={['60', '120', '300'].map((d) => ({ value: d, label: `${d} s` }))} />
-        {CENARIOS.map((c) => (
-          <Button
-            key={c.tipo}
-            mode={c.tipo === 'NORMAL' ? 'outlined' : 'contained-tonal'}
-            icon={c.icone}
-            loading={executando === c.tipo}
-            disabled={Boolean(executando)}
-            onPress={async () => {
-              setExecutando(c.tipo);
-              try {
-                const r = await simulador.cenario(c.tipo, c.estacaoId, Number(duracao));
-                avisar(r.mensagem);
-                void estado.refetch();
-                void qc.invalidateQueries({ queryKey: ['ambiental'] });
-              } catch (e) {
-                avisar(mensagemDeErro(e));
-              } finally {
-                setExecutando(null);
-              }
-            }}
-            testID={`cenario-${c.tipo}`}
-          >
-            {c.rotulo}
-          </Button>
-        ))}
+        <Button
+          mode="contained"
+          icon={CENARIOS[tipo].icone}
+          loading={executando === tipo}
+          disabled={Boolean(executando) || !estacaoEscolhida}
+          onPress={() => executar(tipo)}
+          testID="botao-disparar-cenario"
+        >
+          Disparar {CENARIOS[tipo].rotulo.toLowerCase()} {estacaoEscolhida ? `em ${estacaoEscolhida.bairro}` : ''}
+        </Button>
+        <Button mode="outlined" icon="restore" loading={executando === 'NORMAL'} disabled={Boolean(executando)} onPress={() => executar('NORMAL')} testID="botao-normalizar">
+          Normalizar leituras
+        </Button>
         <View style={estilos.linha}>
           <Icone nome="lan-disconnect" cor={falhaAtiva ? '#d03b3b' : tema.extra.tintaFraca} />
           <Text variant="bodyMedium" style={{ flex: 1 }}>
