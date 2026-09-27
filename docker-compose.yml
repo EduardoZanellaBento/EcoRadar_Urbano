@@ -1,0 +1,288 @@
+# =============================================================================
+# EcoRadar Urbano — orquestração local com Docker Compose
+# Subir tudo:   scripts/iniciar.ps1 (Windows) ou scripts/iniciar.sh (Linux/macOS)
+# Único ponto de entrada da API: http://localhost:8080 (Nginx)
+# =============================================================================
+name: ${COMPOSE_PROJECT_NAME:-ecoradar}
+
+# ----- Blocos reaproveitados (âncoras YAML) ------------------------------------
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-healthcheck-node: &healthcheck-node
+  test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+  interval: 10s
+  timeout: 3s
+  retries: 6
+  start_period: 30s
+
+x-servico-node: &servico-node
+  restart: unless-stopped
+  logging: *logging
+  healthcheck: *healthcheck-node
+  stop_grace_period: 15s
+  networks: [interna]
+
+x-env-comum: &env-comum
+  NODE_ENV: production
+  PORTA: "3000"
+  LOG_NIVEL: ${LOG_NIVEL:-info}
+  CORS_ORIGEM: ${CORS_ORIGEM:-*}
+  JWT_SEGREDO: ${JWT_SEGREDO:?defina JWT_SEGREDO no .env}
+  JWT_VALIDADE: ${JWT_VALIDADE:-12h}
+  AMQP_URL: amqp://${RABBITMQ_USUARIO}:${RABBITMQ_SENHA}@rabbitmq:5672
+  CIDADE_PADRAO_NOME: ${CIDADE_PADRAO_NOME:-São Paulo/SP}
+  CIDADE_PADRAO_LAT: ${CIDADE_PADRAO_LAT:--23.5505}
+  CIDADE_PADRAO_LON: ${CIDADE_PADRAO_LON:--46.6333}
+  TZ: America/Sao_Paulo
+
+x-depende-infra: &depende-infra
+  postgres:
+    condition: service_healthy
+  rabbitmq:
+    condition: service_healthy
+
+x-ocorrencias: &ocorrencias
+  <<: *servico-node
+  image: ecoradar/ocorrencias-service:1.0.0
+  build:
+    context: ./backend
+    args:
+      PACOTE: services/ocorrencias-service
+  depends_on: *depende-infra
+  volumes:
+    - uploads:/data/uploads
+
+services:
+  # ---------------------------------------------------------------------------
+  # Infraestrutura
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgis/postgis:18-3.6-alpine
+    restart: unless-stopped
+    logging: *logging
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ecoradar}
+      POSTGRES_USER: ${POSTGRES_USER:-ecoradar_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      TZ: America/Sao_Paulo
+    volumes:
+      # Imagens do PostgreSQL 18+ usam /var/lib/postgresql como volume de dados
+      - pgdados:/var/lib/postgresql
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} && psql -U $${POSTGRES_USER} -d $${POSTGRES_DB} -tAc \"SELECT 1 FROM pg_namespace WHERE nspname='relatorios'\" | grep -q 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    networks: [interna]
+
+  rabbitmq:
+    image: rabbitmq:4.3-management-alpine
+    hostname: rabbitmq
+    restart: unless-stopped
+    logging: *logging
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USUARIO:-ecoradar}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_SENHA:?defina RABBITMQ_SENHA no .env}
+    volumes:
+      - ./infra/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+      - ./infra/rabbitmq/rabbitmq.conf:/etc/rabbitmq/conf.d/20-ecoradar.conf:ro
+      - rabbitdados:/var/lib/rabbitmq
+    ports:
+      # Apenas o painel de gerenciamento é exposto (demonstração)
+      - "${RABBITMQ_PAINEL_PORTA:-15672}:15672"
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q check_running && rabbitmq-diagnostics -q check_port_connectivity"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+    networks: [interna]
+
+  gateway:
+    image: nginx:1.30-alpine
+    restart: unless-stopped
+    logging: *logging
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./gateway/html:/usr/share/nginx/html/gateway:ro
+      - ./mobile/dist:/usr/share/nginx/html/app:ro
+    ports:
+      - "${GATEWAY_PORTA:-8080}:8080"
+    depends_on:
+      auth-service:
+        condition: service_healthy
+      ocorrencias-service-1:
+        condition: service_healthy
+      ocorrencias-service-2:
+        condition: service_healthy
+      ambiental-service:
+        condition: service_healthy
+      alertas-service:
+        condition: service_healthy
+      relatorios-service:
+        condition: service_healthy
+      sensor-simulator:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks: [interna]
+
+  # ---------------------------------------------------------------------------
+  # Microsserviços
+  # ---------------------------------------------------------------------------
+  auth-service:
+    <<: *servico-node
+    image: ecoradar/auth-service:1.0.0
+    hostname: auth-1
+    build:
+      context: ./backend
+      args:
+        PACOTE: services/auth-service
+    depends_on: *depende-infra
+    environment:
+      <<: *env-comum
+      SERVICO: auth-service
+      DATABASE_URL: postgres://svc_auth:${DB_SENHA_AUTH}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: auth
+
+  ocorrencias-service-1:
+    <<: *ocorrencias
+    hostname: ocorrencias-1
+    environment:
+      <<: *env-comum
+      SERVICO: ocorrencias-service
+      DATABASE_URL: postgres://svc_ocorrencias:${DB_SENHA_OCORRENCIAS}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: ocorrencias
+      UPLOADS_DIR: /data/uploads
+
+  ocorrencias-service-2:
+    <<: *ocorrencias
+    hostname: ocorrencias-2
+    environment:
+      <<: *env-comum
+      SERVICO: ocorrencias-service
+      DATABASE_URL: postgres://svc_ocorrencias:${DB_SENHA_OCORRENCIAS}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: ocorrencias
+      UPLOADS_DIR: /data/uploads
+
+  ambiental-service:
+    <<: *servico-node
+    image: ecoradar/ambiental-service:1.0.0
+    hostname: ambiental-1
+    build:
+      context: ./backend
+      args:
+        PACOTE: services/ambiental-service
+    depends_on: *depende-infra
+    environment:
+      <<: *env-comum
+      SERVICO: ambiental-service
+      DATABASE_URL: postgres://svc_ambiental:${DB_SENHA_AMBIENTAL}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: ambiental
+      MQTT_URL: mqtt://rabbitmq:1883
+      MQTT_USUARIO: ${RABBITMQ_USUARIO}
+      MQTT_SENHA: ${RABBITMQ_SENHA}
+      OPEN_METEO_AR_URL: ${OPEN_METEO_AR_URL:-https://air-quality-api.open-meteo.com/v1/air-quality}
+      OPEN_METEO_CLIMA_URL: ${OPEN_METEO_CLIMA_URL:-https://api.open-meteo.com/v1/forecast}
+      OPEN_METEO_CACHE_TTL_S: ${OPEN_METEO_CACHE_TTL_S:-600}
+      OPEN_METEO_TIMEOUT_MS: ${OPEN_METEO_TIMEOUT_MS:-5000}
+
+  alertas-service:
+    <<: *servico-node
+    image: ecoradar/alertas-service:1.0.0
+    hostname: alertas-1
+    build:
+      context: ./backend
+      args:
+        PACOTE: services/alertas-service
+    depends_on: *depende-infra
+    environment:
+      <<: *env-comum
+      SERVICO: alertas-service
+      DATABASE_URL: postgres://svc_alertas:${DB_SENHA_ALERTAS}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: alertas
+
+  relatorios-service:
+    <<: *servico-node
+    image: ecoradar/relatorios-service:1.0.0
+    hostname: relatorios-1
+    build:
+      context: ./backend
+      args:
+        PACOTE: services/relatorios-service
+    depends_on: *depende-infra
+    environment:
+      <<: *env-comum
+      SERVICO: relatorios-service
+      DATABASE_URL: postgres://svc_relatorios:${DB_SENHA_RELATORIOS}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      DB_SCHEMA: relatorios
+
+  sensor-simulator:
+    <<: *servico-node
+    image: ecoradar/sensor-simulator:1.0.0
+    hostname: simulador-1
+    build:
+      context: ./backend
+      args:
+        PACOTE: services/sensor-simulator
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      <<: *env-comum
+      SERVICO: sensor-simulator
+      MQTT_URL: mqtt://rabbitmq:1883
+      MQTT_USUARIO: ${RABBITMQ_USUARIO}
+      MQTT_SENHA: ${RABBITMQ_SENHA}
+      SIMULADOR_INTERVALO_MS: ${SIMULADOR_INTERVALO_MS:-5000}
+
+  # ---------------------------------------------------------------------------
+  # Carga de dados de demonstração (executado sob demanda pelo scripts/iniciar)
+  #   docker compose --profile seed run --rm seed
+  # ---------------------------------------------------------------------------
+  seed:
+    image: ecoradar/seed:1.0.0
+    profiles: ["seed"]
+    build:
+      context: ./backend
+      args:
+        PACOTE: seed
+    logging: *logging
+    networks: [interna]
+    volumes:
+      - uploads:/data/uploads
+    environment:
+      TZ: America/Sao_Paulo
+      DATABASE_URL: postgres://${POSTGRES_USER:-ecoradar_admin}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-ecoradar}
+      UPLOADS_DIR: /data/uploads
+      CIDADE_PADRAO_LAT: ${CIDADE_PADRAO_LAT:--23.5505}
+      CIDADE_PADRAO_LON: ${CIDADE_PADRAO_LON:--46.6333}
+    depends_on:
+      auth-service:
+        condition: service_healthy
+      ocorrencias-service-1:
+        condition: service_healthy
+      ambiental-service:
+        condition: service_healthy
+      alertas-service:
+        condition: service_healthy
+      relatorios-service:
+        condition: service_healthy
+
+volumes:
+  pgdados:
+  rabbitdados:
+  uploads:
+
+networks:
+  interna:
+    name: ecoradar-interna
