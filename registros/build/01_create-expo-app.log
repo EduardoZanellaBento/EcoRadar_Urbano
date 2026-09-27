@@ -1,0 +1,43 @@
+﻿node.exe : npm notice run npx
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\duduz\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run npx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run create-expo-app mobile --yes
+Creating mobile using the expo-template-default@sdk-57 template.
+
+- Locating project files.\ Locating project files.| Locating project files./ Locating project files.- Locating project 
+files.\ Locating project files.| Locating project files./ Locating project files.- Locating project files.\ Locating 
+project files.| Locating project files./ Locating project files.- Locating project files.\ Locating project files.| 
+Locating project files./ Locating project files.- Locating project files.\ Locating project files.| Locating project 
+files./ Locating project files.- Locating project files.\ Locating project files.| Locating project files./ Locating 
+project files.- Locating project files.\ Locating project files.| Locating project files./ Locating project files.- 
+Locating project files.\ Locating project files.| Locating project files./ Locating project files.- Locating project 
+files.\ Locating project files.√ Downloaded and extracted project files.
+> npm install
+npm warn deprecated uuid@7.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  
+For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+
+added 607 packages, and audited 608 packages in 46s
+
+48 packages are looking for funding
+  run `npm fund` for details
+
+14 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+✅ Your project is ready!
+
+To run your project, navigate to the directory and run one of the following npm commands.
+
+- cd mobile
+- npm run android
+- npm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
+- npm run web
+[?25l[2K[1G[36m?[39m [1mYou are creating a project inside of an existing Git repository. Skip initializing a new git repository?[22m [90m»[39m [90m(Y/n)[39m

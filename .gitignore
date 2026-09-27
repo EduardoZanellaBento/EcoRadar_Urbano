@@ -1,0 +1,36 @@
+# Dependências e builds
+node_modules/
+dist/
+/mobile/build/
+coverage/
+*.tsbuildinfo
+.expo/
+web-build/
+mobile/dist/
+mobile/.expo/
+mobile/ios/
+mobile/android/
+
+# Ambiente
+.env
+!.env.example
+mobile/.env
+*.local
+
+# Sistema/IDE
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Testes (artefatos temporários — as evidências finais ficam em registros/)
+tests/test-results/
+tests/playwright-report/
+tests/.cache/
+tests/**/.auth/
+
+# Logs soltos
+npm-debug.log*
+*.log
+!registros/**/*.log

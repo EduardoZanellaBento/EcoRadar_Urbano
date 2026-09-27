@@ -1,0 +1,18 @@
+﻿# Informações do sistema — gerado em 2026-09-27 16:22:49 -03:00
+Sistema operacional : Microsoft Windows 11 Home 10.0.26200 (build 26200) 64-bit
+Nome do computador  : DESKTOP-A7IRFGL
+CPU                 : AMD Ryzen 5 7600 6-Core Processor — 6 núcleos / 12 threads
+Virtualização (BIOS): True
+RAM total           : 30.9 GB
+IP(s) da rede local : Ethernet 2: 192.168.68.104
+Perfil de rede      : Ethernet 2: rede 'Rede' categoria Public
+
+## Ferramentas
+node            : v24.19.0
+npm             : 12.0.2
+git             : git version 2.55.0.windows.2
+docker          : Docker version 29.8.0, build 88096ef
+docker compose  : Docker Compose version v5.5.1
+python          : Python 3.10.11
+adb             : não instalado
+wsl             : WSL version: 2.7.14.0 | Kernel version: 6.18.33.2-2 | WSLg version: 1.0.73.2 | MSRDC version: 1.2.7214 | Direct3D version: 1.611.1-81528511 | DXCore version: 10.0.26100.1-240331-1435.ge-release | Windows version: 10.0.26200.9457

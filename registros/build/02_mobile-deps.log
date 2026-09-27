@@ -1,0 +1,49 @@
+﻿node.exe : npm notice run mobile@1.0.0 npx
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\duduz\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run mobile@1.0.0 npx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run expo install react-native-paper @expo/vector-icons react-native-maps expo-location expo-image-picker 
+expo-notifications expo-secure-store @react-native-community/netinfo @react-native-async-storage/async-storage 
+expo-sharing expo-file-system react-native-svg react-native-gifted-charts expo-linear-gradient expo-crypto 
+expo-haptics socket.io-client axios zustand @tanstack/react-query @tanstack/react-query-persist-client 
+@tanstack/query-async-storage-persister react-leaflet leaflet
+› Installing 14 SDK 57.0.0 compatible native modules and 10 other packages using npm
+> npm install --save react-native-paper react-native-gifted-charts socket.io-client axios zustand @tanstack/react-query @tanstack/react-query-persist-client @tanstack/query-async-storage-persister react-leaflet leaflet
+
+added 77 packages, and audited 685 packages in 15s
+
+66 packages are looking for funding
+  run `npm fund` for details
+
+15 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+› Added config plugins: expo-secure-store, expo-sharing
+node.exe : npm notice run mobile@1.0.0 npx
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\duduz\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run mobile@1.0.0 npx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run expo install --dev @types/leaflet
+› Installing 1 other package using npm
+> npm install --save-dev @types/leaflet
+
+added 1 package, and audited 686 packages in 3s
+
+66 packages are looking for funding
+  run `npm fund` for details
+
+15 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
