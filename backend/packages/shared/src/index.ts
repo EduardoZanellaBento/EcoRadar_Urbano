@@ -7,6 +7,7 @@ export * from './geo.js';
 export * from './cache.js';
 export * from './eventos.js';
 export * from './estacoes.js';
+export * from './bairros.js';
 export * from './amqp.js';
 export * from './banco.js';
 export * from './servidor.js';

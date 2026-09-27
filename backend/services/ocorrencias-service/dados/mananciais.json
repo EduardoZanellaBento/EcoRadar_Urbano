@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "observacao": "Polígonos APROXIMADOS e SIMPLIFICADOS das áreas de proteção dos mananciais Guarapiranga e Billings (São Paulo/SP), desenhados manualmente para FINS DIDÁTICOS. Não representam os limites legais das APRMs.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "guarapiranga",
+        "nome": "Represa Guarapiranga",
+        "descricao": "Área de proteção do manancial Guarapiranga (zona sul) — aproximada, para fins didáticos."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-46.700, -23.680], [-46.735, -23.672], [-46.775, -23.690], [-46.800, -23.720],
+          [-46.835, -23.760], [-46.860, -23.810], [-46.850, -23.860], [-46.810, -23.880],
+          [-46.765, -23.860], [-46.735, -23.820], [-46.715, -23.780], [-46.700, -23.740],
+          [-46.695, -23.705], [-46.700, -23.680]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "billings",
+        "nome": "Represa Billings",
+        "descricao": "Área de proteção do manancial Billings (zona sul/sudeste) — aproximada, para fins didáticos."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-46.660, -23.700], [-46.620, -23.690], [-46.575, -23.705], [-46.530, -23.730],
+          [-46.490, -23.765], [-46.470, -23.810], [-46.490, -23.855], [-46.540, -23.880],
+          [-46.600, -23.870], [-46.640, -23.840], [-46.665, -23.800], [-46.675, -23.750],
+          [-46.660, -23.700]
+        ]]
+      }
+    }
+  ]
+}
