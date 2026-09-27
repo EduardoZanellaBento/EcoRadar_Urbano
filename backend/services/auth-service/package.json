@@ -1,0 +1,22 @@
+{
+    "name":  "@ecoradar/auth-service",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Autenticação e perfis de acesso (JWT + bcrypt)",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "tsx watch src/index.ts",
+                    "build":  "node ../../scripts/build.mjs",
+                    "start":  "node dist/index.js",
+                    "db:gerar":  "drizzle-kit generate"
+                },
+    "dependencies":  {
+                         "@ecoradar/shared":  "1.0.0",
+                         "@fastify/rate-limit":  "^11.2.0",
+                         "bcryptjs":  "^3.0.3",
+                         "drizzle-orm":  "^0.45.3",
+                         "fastify":  "^5.12.5",
+                         "pg":  "^8.23.0",
+                         "zod":  "^4.6.5"
+                     }
+}

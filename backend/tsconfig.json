@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "packages/*/src/**/*.ts",
+    "packages/*/test/**/*.ts",
+    "services/*/src/**/*.ts",
+    "services/*/test/**/*.ts",
+    "services/*/drizzle.config.ts",
+    "seed/src/**/*.ts",
+    "vitest.config.ts"
+  ]
+}

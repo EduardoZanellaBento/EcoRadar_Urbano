@@ -1,0 +1,25 @@
+{
+    "name":  "@ecoradar/shared",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Código compartilhado entre os microsserviços: tipos, eventos, logger, AMQP resiliente, JWT, request-id, servidor Fastify padrão",
+    "type":  "module",
+    "main":  "./src/index.ts",
+    "types":  "./src/index.ts",
+    "exports":  {
+                    ".":  "./src/index.ts"
+                },
+    "dependencies":  {
+                         "@fastify/cors":  "^11.3.0",
+                         "@fastify/jwt":  "^10.2.2",
+                         "@fastify/swagger":  "^9.9.0",
+                         "@fastify/swagger-ui":  "^6.1.1",
+                         "amqplib":  "^2.0.1",
+                         "drizzle-orm":  "^0.45.3",
+                         "fastify":  "^5.12.5",
+                         "fastify-type-provider-zod":  "^7.0.0",
+                         "pg":  "^8.23.0",
+                         "pino":  "^10.3.1",
+                         "zod":  "^4.6.5"
+                     }
+}

@@ -1,0 +1,21 @@
+{
+    "name":  "@ecoradar/relatorios-service",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Visão de leitura (CQRS), estatísticas e exportação PDF/CSV",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "tsx watch src/index.ts",
+                    "build":  "node ../../scripts/build.mjs",
+                    "start":  "node dist/index.js",
+                    "db:gerar":  "drizzle-kit generate"
+                },
+    "dependencies":  {
+                         "@ecoradar/shared":  "1.0.0",
+                         "drizzle-orm":  "^0.45.3",
+                         "fastify":  "^5.12.5",
+                         "pdfkit":  "^0.20.2",
+                         "pg":  "^8.23.0",
+                         "zod":  "^4.6.5"
+                     }
+}
