@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EcoRadar Urbano — Gateway</title>
+<style>
+  :root { --verde:#0f766e; --azul:#1d4ed8; --tinta:#0b0b0b; --tinta2:#52514e; --fundo:#f6f7f5; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--fundo); color: var(--tinta); }
+  header { background: linear-gradient(90deg, var(--verde), var(--azul)); color:#fff; padding: 28px 20px; }
+  header h1 { margin: 0 0 4px; font-size: 26px; }
+  main { max-width: 760px; margin: 0 auto; padding: 20px 16px 40px; }
+  .card { background:#fff; border:1px solid #e1e0d9; border-radius: 12px; padding: 16px 18px; margin: 14px 0; }
+  a { color: var(--azul); }
+  code { background:#eef3f1; padding: 1px 6px; border-radius: 4px; }
+  li { margin: 6px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>EcoRadar Urbano</h1>
+  <div>API Gateway (Nginx) — ponto único de entrada do sistema distribuído</div>
+</header>
+<main>
+  <div class="card">
+    <strong>O app web ainda não foi gerado.</strong>
+    <p>Gere o build com <code>cd mobile &amp;&amp; npx expo export --platform web</code> (o script <code>scripts/iniciar</code> faz isso automaticamente) para acessar o aplicativo nesta mesma porta.</p>
+  </div>
+  <div class="card">
+    <strong>Documentação das APIs (Swagger/OpenAPI)</strong>
+    <ul>
+      <li><a href="/api/auth/docs">auth-service</a></li>
+      <li><a href="/api/ocorrencias/docs">ocorrencias-service</a> (2 réplicas)</li>
+      <li><a href="/api/ambiental/docs">ambiental-service</a></li>
+      <li><a href="/api/alertas/docs">alertas-service</a></li>
+      <li><a href="/api/relatorios/docs">relatorios-service</a></li>
+      <li><a href="/api/simulador/docs">sensor-simulator</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <strong>Saúde</strong> — <a href="/health">/health</a> do gateway e <code>/api/&lt;servico&gt;/health</code> de cada serviço.
+  </div>
+</main>
+</body>
+</html>

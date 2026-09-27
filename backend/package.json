@@ -18,7 +18,9 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:cobertura": "vitest run --coverage",
-    "seed": "npm run seed --workspace seed",
+    "seed": "docker compose -f ../docker-compose.yml --profile seed run --rm seed",
+    "seed:forcar": "docker compose -f ../docker-compose.yml --profile seed run --rm seed node --enable-source-maps dist/index.js --forcar",
+    "fotos:gerar": "node seed/scripts/gerar-fotos.mjs",
     "db:gerar": "npm run db:gerar --workspaces --if-present"
   },
   "devDependencies": {
@@ -32,6 +34,7 @@
     "esbuild": "^0.28.2",
     "eslint": "^10.11.0",
     "globals": "^17.12.0",
+    "sharp": "^0.35.5",
     "socket.io-client": "^4.8.4",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",

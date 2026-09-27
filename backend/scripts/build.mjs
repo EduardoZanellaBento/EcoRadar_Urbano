@@ -38,7 +38,7 @@ await build({
 });
 
 // Copia artefatos não-TypeScript necessários em tempo de execução
-for (const pasta of ['drizzle', 'dados', 'assets']) {
+for (const pasta of ['drizzle', 'dados', 'assets', 'fotos', 'usuarios-demo.json']) {
   const origem = resolve(raizPacote, pasta);
   if (existsSync(origem)) cpSync(origem, resolve(dist, pasta), { recursive: true });
 }

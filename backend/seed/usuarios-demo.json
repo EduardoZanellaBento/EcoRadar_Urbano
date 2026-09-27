@@ -1,0 +1,13 @@
+{
+  "aviso": "Credenciais APENAS para demonstração local (APS). Não reutilize estas senhas em nenhum outro sistema.",
+  "usuarios": [
+    { "nome": "Carla Mendes (Administradora)", "email": "admin@ecoradar.local", "senha": "Admin@2026", "perfil": "ADMIN", "bairro": "Sé" },
+    { "nome": "Rafael Souza (Agente)", "email": "agente1@ecoradar.local", "senha": "Agente@2026", "perfil": "AGENTE", "bairro": "Pinheiros" },
+    { "nome": "Juliana Prado (Agente)", "email": "agente2@ecoradar.local", "senha": "Agente@2026", "perfil": "AGENTE", "bairro": "Santo Amaro" },
+    { "nome": "Ana Beatriz Lima", "email": "ana@ecoradar.local", "senha": "Cidadao@2026", "perfil": "CIDADAO", "bairro": "Mooca" },
+    { "nome": "Bruno Carvalho", "email": "bruno@ecoradar.local", "senha": "Cidadao@2026", "perfil": "CIDADAO", "bairro": "Ipiranga" },
+    { "nome": "Camila Rocha", "email": "camila@ecoradar.local", "senha": "Cidadao@2026", "perfil": "CIDADAO", "bairro": "Itaquera" },
+    { "nome": "Diego Martins", "email": "diego@ecoradar.local", "senha": "Cidadao@2026", "perfil": "CIDADAO", "bairro": "Santana" },
+    { "nome": "Elisa Nakamura", "email": "elisa@ecoradar.local", "senha": "Cidadao@2026", "perfil": "CIDADAO", "bairro": "Parelheiros" }
+  ]
+}
