@@ -14,6 +14,7 @@ export default defineConfig({
       provider: 'v8',
       include: [
         'services/*/src/dominio/**/*.ts',
+        'services/ambiental-service/src/integracoes/open-meteo.ts',
         'packages/shared/src/backoff.ts',
         'packages/shared/src/cache.ts',
         'packages/shared/src/geo.ts',

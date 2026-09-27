@@ -1,0 +1,294 @@
+{
+  "id": "10219bf0-e7bd-47ce-8639-a8b140b80ebc",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.cache_integracoes": {
+      "name": "cache_integracoes",
+      "schema": "",
+      "columns": {
+        "chave": {
+          "name": "chave",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "dados": {
+          "name": "dados",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obtido_em": {
+          "name": "obtido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.estacoes": {
+      "name": "estacoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bairro": {
+          "name": "bairro",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "latitude": {
+          "name": "latitude",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "longitude": {
+          "name": "longitude",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipos": {
+          "name": "tipos",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "corrego": {
+          "name": "corrego",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cota_alerta_cm": {
+          "name": "cota_alerta_cm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "atualizado_em": {
+          "name": "atualizado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.leituras": {
+      "name": "leituras",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigint",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "leituras_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "9223372036854775807",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "estacao_id": {
+          "name": "estacao_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "medido_em": {
+          "name": "medido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "recebido_em": {
+          "name": "recebido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "pm25": {
+          "name": "pm25",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pm10": {
+          "name": "pm10",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "o3": {
+          "name": "o3",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no2": {
+          "name": "no2",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "co": {
+          "name": "co",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "temperatura": {
+          "name": "temperatura",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "umidade": {
+          "name": "umidade",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nivel_corrego_cm": {
+          "name": "nivel_corrego_cm",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "temp_superficie": {
+          "name": "temp_superficie",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "temp_300m": {
+          "name": "temp_300m",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "iqar": {
+          "name": "iqar",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "iqar_classe": {
+          "name": "iqar_classe",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poluente_dominante": {
+          "name": "poluente_dominante",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inversao": {
+          "name": "inversao",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "cenario": {
+          "name": "cenario",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "leituras_estacao_medido_idx": {
+          "name": "leituras_estacao_medido_idx",
+          "columns": [
+            {
+              "expression": "estacao_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "medido_em",
+              "isExpression": false,
+              "asc": false,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "leituras_estacao_id_estacoes_id_fk": {
+          "name": "leituras_estacao_id_estacoes_id_fk",
+          "tableFrom": "leituras",
+          "tableTo": "estacoes",
+          "columnsFrom": [
+            "estacao_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
