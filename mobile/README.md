@@ -1,56 +1,28 @@
-# Welcome to your Expo app 👋
+# EcoRadar Urbano — app móvel
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+App **Expo SDK 57** (React Native 0.86, TypeScript, Expo Router) que roda no **Expo Go** (Android/iOS) e na web.
 
 ```bash
-npm run reset-project
+npm install
+npx expo start --clear          # QR code para o Expo Go
+npx expo export --platform web  # build web (servido pelo gateway em http://localhost:8080/)
+npx tsc --noEmit                # checagem de tipos
+npx expo lint                   # lint
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+O endereço da API vem de `EXPO_PUBLIC_API_URL` em `mobile/.env`, gerado por `scripts/configurar-ip`.
+Passo a passo completo (firewall, credenciais, checklist): [../COMO_TESTAR.md](../COMO_TESTAR.md).
 
-### Other setup steps
+## Organização (`src/`)
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+| Pasta | Conteúdo |
+|---|---|
+| `app/` | Telas (rotas do Expo Router): onboarding, login, cadastro, abas (mapa, ocorrências, ambiente, alertas, perfil), registro, detalhe, relatórios, status, painel do agente, envios pendentes |
+| `componentes/` | Componentes visuais; `mapa/Mapa.native.tsx` (react-native-maps) e `mapa/Mapa.web.tsx` (react-leaflet + OpenStreetMap) |
+| `api/` | Cliente Axios (timeout 10 s, retry com backoff, logout em 401, mensagens amigáveis) e consultas TanStack Query |
+| `estado/` | Zustand: sessão (SecureStore / localStorage na web), preferências, fila offline, conexão e alertas |
+| `servicos/` | Tempo real (Socket.IO), conectividade (NetInfo) e sincronização da fila, notificações locais, mídia, exportação, localização |
+| `tema/` | Tema Material 3 claro/escuro, cores por severidade/status/IQAr e paleta dos gráficos |
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+O projeto foi criado com `npx create-expo-app@latest` e usa apenas bibliotecas incluídas no Expo Go
+(`npx expo-doctor`: 21/21 verificações sem problemas).
