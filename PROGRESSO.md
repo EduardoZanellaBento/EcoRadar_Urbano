@@ -47,7 +47,7 @@
 
 ## Limitações
 
-- Sem Android SDK/`adb` neste PC: os prints nativos (item 9.7, opcional) não foram gerados; o teste no celular real está no `COMO_TESTAR.md` (prints em `registros/manual/`).
+- Sem Android SDK/`adb` neste PC: os prints nativos (item 9.7, opcional) não foram gerados, mas os bundles nativos Android/iOS compilam (`registros/build/08_expo-export-nativo.log`); o teste no celular real está no `COMO_TESTAR.md` (prints em `registros/manual/`).
 - Notificações são locais (Expo Go); push remoto exigiria development build.
 - Teste de carga com todos os containers no mesmo computador (serve para comparar 1 × 2 réplicas).
 

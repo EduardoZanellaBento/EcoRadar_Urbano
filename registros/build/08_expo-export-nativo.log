@@ -1,0 +1,22 @@
+$ npx expo export --platform android --platform ios --output-dir build/verificacao-nativa
+# 27/09/2026 23:58:05 — verifica que o código nativo (react-native-maps etc.) compila para o Expo Go
+env: load .env
+env: export EXPO_PUBLIC_API_URL
+Using src/app as the root directory for Expo Router.
+React Compiler enabled
+Starting Metro Bundler
+
+
+› Assets (54):
+
+› android bundles (1):
+_expo/static/js/android/entry-90bced1d09ffc7db13c2be32b10e4863.hbc (6.1MB)
+
+› ios bundles (1):
+_expo/static/js/ios/entry-ef46f269731248888aadf86cd6963e35.hbc (5.9MB)
+
+› Files (1):
+metadata.json (5.9KB)
+
+Exported: build/verificacao-nativa
+código de saída: 0

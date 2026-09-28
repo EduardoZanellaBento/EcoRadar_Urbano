@@ -1,6 +1,6 @@
 # Evidências — EcoRadar Urbano
 
-Índice gerado em 27/09/2026, 23:56:38. Abra **[index.html](index.html)** no navegador para a galeria com legendas (funciona offline).
+Índice gerado em 28/09/2026, 00:00:28. Abra **[index.html](index.html)** no navegador para a galeria com legendas (funciona offline).
 O resumo dos testes com números reais está em **[RELATORIO_DE_TESTES.md](RELATORIO_DE_TESTES.md)**.
 
 | Pasta / arquivo | Conteúdo |

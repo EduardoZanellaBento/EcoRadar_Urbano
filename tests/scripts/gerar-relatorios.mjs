@@ -361,7 +361,7 @@ const md = [
   '',
   '## 7. Limitações e observações',
   '',
-  '- **Android nativo:** não há Android SDK/`adb` neste computador; os prints nativos (item 9.7, opcional) não foram gerados. O guia `COMO_TESTAR.md` descreve o teste no celular com o Expo Go (prints em `registros/manual/`).',
+  '- **Android nativo:** não há Android SDK/`adb` neste computador; os prints nativos (item 9.7, opcional) não foram gerados. O código nativo foi verificado de outra forma: `expo export --platform android --platform ios` gera os bundles Hermes sem erros (`build/08_expo-export-nativo.log`). O guia `COMO_TESTAR.md` descreve o teste no celular com o Expo Go (prints em `registros/manual/`).',
   '- **Notificações:** o app usa notificações **locais** (funcionam no Expo Go); notificações push remotas exigiriam um development build.',
   '- **IQAr:** a metodologia oficial usa médias de 24 h/8 h/1 h; para demonstração em tempo real, as faixas da CETESB são aplicadas à média móvel curta das leituras simuladas.',
   '- **Carga:** todos os containers e o gerador de carga rodam no mesmo computador; os números servem para comparar 1 × 2 réplicas, não como capacidade absoluta.',
