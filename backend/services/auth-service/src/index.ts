@@ -38,7 +38,10 @@ async function main() {
     ],
   });
   await registrarJwt(app);
-  await app.register(rateLimit, { global: false });
+  // hook "preHandler": o corpo já foi lido, então a chave do limite (IP + e-mail) inclui o e-mail.
+  // No padrão ("onRequest") o corpo ainda não existe e todos os usuários de um mesmo IP (ex.: rede
+  // de uma faculdade atrás de NAT) dividiriam um único limite — defeito encontrado nos testes.
+  await app.register(rateLimit, { global: false, hook: 'preHandler' });
   await registrarRotas(app, { db });
 
   configurarEncerramento(logger, [

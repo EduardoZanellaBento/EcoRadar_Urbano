@@ -252,6 +252,19 @@ describe('Respostas de erro padronizadas', () => {
     expect(outra.corpo.erro.codigo).toBe('IDEMPOTENCY_KEY_EM_USO');
   });
 
+  it('429 após 10 logins errados por minuto para o MESMO e-mail, sem bloquear outros usuários do mesmo IP', async () => {
+    const alvo = `forca-bruta.${Date.now()}@teste.ecoradar.local`;
+    const codigos: number[] = [];
+    for (let i = 0; i < 11; i++) {
+      codigos.push((await req('POST', '/api/auth/login', { corpo: { email: alvo, senha: 'Tentativa123' } })).status);
+    }
+    expect(codigos.slice(0, 10).every((c) => c === 401)).toBe(true);
+    expect(codigos[10]).toBe(429);
+    // Outro usuário, mesmo IP: continua conseguindo entrar
+    const outro = await req('POST', '/api/auth/login', { corpo: { email: contexto.email, senha: contexto.senha } });
+    expect(outro.status).toBe(200);
+  });
+
   it('todas as respostas trazem X-Request-Id e o formato { erro: { codigo, mensagem, requestId } }', async () => {
     const r = await req('GET', '/api/ocorrencias', { cabecalhos: { 'X-Request-Id': 'integracao-rastreio-123' } });
     expect(r.cabecalhos.get('x-request-id')).toBe('integracao-rastreio-123');
