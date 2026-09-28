@@ -22,9 +22,13 @@ mkdirSync(SAIDA, { recursive: true });
 
 const hora = () => new Date().toLocaleTimeString('pt-BR', { hour12: false }) + '.' + String(new Date().getMilliseconds()).padStart(3, '0');
 
+/** Registro do teste em andamento — salvo pelo main() se o teste lançar erro no meio. */
+let registroAtual: Registro | null = null;
+
 class Registro {
   readonly linhas: string[] = [];
   constructor(readonly titulo: string) {
+    registroAtual = this;
     this.log(`== ${titulo}`);
   }
   log(msg: string) {
@@ -120,6 +124,44 @@ async function teste2FalhaReplica() {
 }
 
 // ---------------------------------------------------------------------------------------------
+/**
+ * Escolhe um ponto dentro de um manancial (confirmado pelo PostGIS) a mais de 1,5 km de qualquer
+ * alerta PRIORITARIO_MANANCIAL dos últimos 31 minutos. Sem isso, o alerta do teste poderia ser
+ * suprimido pela deduplicação (regra 6: mesma categoria a até 1 km em 30 min) por causa de uma
+ * invasão registrada pouco antes pelo seed ou pelos testes E2E — foi o que aconteceu numa execução.
+ */
+async function escolherPontoDeManancial(token: string, reg: Registro) {
+  const r = await req('GET', '/api/alertas?status=TODOS&tipo=PRIORITARIO_MANANCIAL', { token });
+  const limite = Date.now() - 31 * 60_000;
+  const recentes = (r.corpo.itens as Array<{ latitude: number | null; longitude: number | null; criadoEm: string }>).filter(
+    (a) => a.latitude !== null && a.longitude !== null && new Date(a.criadoEm).getTime() >= limite,
+  );
+  // Grade de candidatos cobrindo Billings e Guarapiranga, em ordem aleatória
+  const candidatos: Array<{ latitude: number; longitude: number }> = [];
+  for (let lat = -23.72; lat >= -23.86; lat -= 0.02) {
+    for (let lon = -46.84; lon <= -46.5; lon += 0.02) candidatos.push({ latitude: +lat.toFixed(4), longitude: +lon.toFixed(4) });
+  }
+  candidatos.sort(() => Math.random() - 0.5);
+  for (const p of candidatos) {
+    if (recentes.some((a) => distanciaKm(p, { latitude: a.latitude!, longitude: a.longitude! }) <= 1.5)) continue;
+    const v = await req('GET', `/api/ocorrencias/verificar-manancial?lat=${p.latitude}&lon=${p.longitude}`);
+    if (!v.corpo.emAreaDeManancial) continue;
+    reg.log(
+      `Ponto da invasão: ${p.latitude}, ${p.longitude} (${v.corpo.manancial.nome}) — a mais de 1,5 km dos ${recentes.length} alerta(s) de manancial dos últimos 30 min, para não cair na deduplicação`,
+    );
+    return p;
+  }
+  throw new Error('Nenhum ponto de manancial livre de alertas recentes');
+}
+
+function distanciaKm(a: { latitude: number; longitude: number }, b: { latitude: number; longitude: number }) {
+  const rad = Math.PI / 180;
+  const dLat = (b.latitude - a.latitude) * rad;
+  const dLon = (b.longitude - a.longitude) * rad;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.latitude * rad) * Math.cos(b.latitude * rad) * Math.sin(dLon / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
+
 async function teste3QuedaBroker() {
   const reg = new Registro('Teste 3 — Queda do RabbitMQ e consistência eventual (Transactional Outbox)');
   const admin = await login('admin@ecoradar.local');
@@ -133,7 +175,7 @@ async function teste3QuedaBroker() {
 
   // Ocorrências criadas com o broker FORA: gravadas no banco + outbox, eventos pendentes
   const criadas: string[] = [];
-  const pontoInvasao = { latitude: -23.8 + (Math.random() - 0.5) * 0.02, longitude: -46.55 + (Math.random() - 0.5) * 0.02 };
+  const pontoInvasao = await escolherPontoDeManancial(admin, reg);
   for (let i = 0; i < 5; i++) {
     const dados =
       i === 0
@@ -276,21 +318,28 @@ async function teste5Rastreamento() {
 // ---------------------------------------------------------------------------------------------
 async function main() {
   const inicio = Date.now();
-  const etapas: Array<[string, () => Promise<void>]> = [
-    ['1', teste1Balanceamento],
-    ['2', teste2FalhaReplica],
-    ['3', teste3QuedaBroker],
-    ['4', teste4FalhaIntegracao],
-    ['5', teste5Rastreamento],
+  const etapas: Array<[string, string, () => Promise<void>]> = [
+    ['1', '1_balanceamento', teste1Balanceamento],
+    ['2', '2_falha_de_replica', teste2FalhaReplica],
+    ['3', '3_queda_do_broker', teste3QuedaBroker],
+    ['4', '4_falha_integracao_externa', teste4FalhaIntegracao],
+    ['5', '5_rastreamento_request_id', teste5Rastreamento],
   ];
   const filtro = process.argv.slice(2);
-  for (const [n, fn] of etapas) {
+  for (const [n, arquivo, fn] of etapas) {
     if (filtro.length && !filtro.includes(n)) continue;
+    registroAtual = null;
     try {
       await fn();
     } catch (e) {
       console.error(`Teste ${n} falhou com erro:`, e);
       resultados.push({ teste: `Teste ${n}`, ok: false, resumo: `erro: ${(e as Error).message.slice(0, 200)}` });
+      // Guarda o log parcial: o que aconteceu até o erro também é evidência
+      const reg = registroAtual as Registro | null;
+      if (reg) {
+        reg.log(`✗ FALHOU com erro: ${(e as Error).message}`);
+        await reg.salvar(arquivo).catch(() => undefined);
+      }
     }
   }
   await fecharNavegador();
@@ -305,6 +354,9 @@ async function main() {
     '',
   ].join('\n');
   writeFileSync(resolve(SAIDA, filtro.length ? `resumo-parcial-${filtro.join('-')}.md` : 'resumo.md'), md, 'utf-8');
+  if (!filtro.length) {
+    writeFileSync(resolve(SAIDA, 'resultado.json'), JSON.stringify({ executadoEm: new Date().toISOString(), duracaoS: Math.round((Date.now() - inicio) / 1000), resultados }, null, 2));
+  }
   console.log(md);
   process.exit(resultados.every((r) => r.ok) ? 0 : 1);
 }
