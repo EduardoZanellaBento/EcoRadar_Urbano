@@ -1,8 +1,8 @@
-import { router } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from 'react-native';
 import { Button, HelperText, Surface, Text, TextInput } from 'react-native-paper';
 import { mensagemDeErro } from '@/api/cliente';
+import { reiniciarNavegacao } from '@/utils/navegacao';
 import { autenticacao } from '@/api/servicos';
 import { CampoSenha } from '@/componentes/CampoSenha';
 import { useSessao } from '@/estado/sessao';
@@ -41,7 +41,7 @@ export default function Cadastro() {
         bairro: dados.bairro.trim() || undefined,
       });
       entrar(sessao);
-      router.replace('/(abas)');
+      reiniciarNavegacao('/(abas)');
     } catch (e) {
       setErro(mensagemDeErro(e));
     } finally {

@@ -1,6 +1,6 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import sharp from 'sharp';
+import sharp, { type OverlayOptions } from 'sharp';
 
 const escapar = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -37,7 +37,7 @@ export async function ladoALado(entradas: Array<{ caminho: string; rotulo?: stri
   const margem = 24;
   const topoRotulo = entradas.some((e) => e.rotulo) ? 44 : 0;
   let x = margem;
-  const camadas: sharp.OverlayOptions[] = [];
+  const camadas: OverlayOptions[] = [];
   const rotulos: string[] = [];
   imagens.forEach((img, i) => {
     camadas.push({ input: img.data, left: x, top: margem + topoRotulo });

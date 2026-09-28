@@ -1,9 +1,10 @@
-import { Link, router } from 'expo-router';
+import { Link } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { Button, HelperText, Surface, Text, TextInput, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { mensagemDeErro } from '@/api/cliente';
+import { reiniciarNavegacao } from '@/utils/navegacao';
 import { autenticacao } from '@/api/servicos';
 import { CampoSenha } from '@/componentes/CampoSenha';
 import { Logo } from '@/componentes/Logo';
@@ -31,7 +32,7 @@ export default function Login() {
     setCarregando(true);
     try {
       entrar(await autenticacao.login(email.trim(), senha));
-      router.replace('/(abas)');
+      reiniciarNavegacao('/(abas)');
     } catch (e) {
       setErro(mensagemDeErro(e));
     } finally {

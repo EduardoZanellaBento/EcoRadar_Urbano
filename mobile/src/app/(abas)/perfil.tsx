@@ -12,6 +12,7 @@ import { temPerfil, useSessao } from '@/estado/sessao';
 import { configurarNotificacoes, notificacaoDeTeste, notificacoesDisponiveis } from '@/servicos/notificacoes';
 import type { TemaEcoRadar } from '@/tema/tema';
 import { iniciais } from '@/utils/formatacao';
+import { reiniciarNavegacao } from '@/utils/navegacao';
 
 const ROTULO_PERFIL = { CIDADAO: 'Cidadão', AGENTE: 'Agente ambiental', ADMIN: 'Administrador' } as const;
 
@@ -145,7 +146,7 @@ export default function TelaPerfil() {
         onPress={() => {
           qc.clear();
           sair();
-          router.replace('/login');
+          reiniciarNavegacao('/login');
         }}
         testID="botao-sair"
       >
