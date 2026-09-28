@@ -10,7 +10,6 @@ contagem de páginas de cada seção (`verificacao_paginas.md`).
 |---|---|---|
 | Capa | `[NOME COMPLETO 1] – RA [RA1]`, `[NOME COMPLETO 2] – RA [RA2]`, `[NOME COMPLETO 3] – RA [RA3]` | Nome completo e RA de cada integrante |
 | Capa | `[CAMPUS]`, `[CIDADE]` | Campus da UNIP e cidade |
-| 4.7 Cronograma | `[REVISAR: complementar com as datas reais…]` | O cronograma vem do `git log` (27–28/09/2026). Se quiserem, acrescentem as datas de estudo, planejamento e reuniões |
 | 7.1 | `[REVISAR: se o grupo registrar os prints no celular real…]` | Opcional: tirar os prints no celular seguindo o `COMO_TESTAR.md`, salvar em `registros/manual/` e incluí-los na seção 7 |
 | 8.2 Contribuição para a formação | `[REVISAR: personalizar com a experiência real do grupo]` | **Os dois parágrafos em amarelo são um rascunho.** Reescrevam com a experiência real do grupo |
 | 10 Ficha | `[REVISAR]` (texto e coluna "Horas") | Preencher as horas reais de cada atividade e **anexar a ficha oficial da UNIP preenchida e assinada** |

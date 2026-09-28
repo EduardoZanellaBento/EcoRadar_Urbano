@@ -169,7 +169,7 @@ def secao_introducao(c):
         "A seção {S:objetivo} apresentou o objetivo e a motivação do trabalho. A seção {S:fundamentos} reúne os "
         "fundamentos das tecnologias móveis e dos conceitos de sistemas distribuídos usados, sempre ligados ao uso que "
         "tiveram no projeto. A seção {S:plano} descreve o plano de desenvolvimento: ferramentas e justificativas, "
-        "ambiente, metodologia, requisitos, casos de uso, cronograma, estratégia de testes e riscos. A seção "
+        "ambiente, metodologia, requisitos, casos de uso, estratégia de testes e riscos. A seção "
         "{S:projeto} detalha a estrutura do programa — arquitetura, microsserviços, eventos, fluxos, modelo de dados, "
         "organização do aplicativo e tratamento de erros. A seção {S:codigo} traz as métricas do código e trechos "
         "comentados dos pontos centrais. A seção {S:apresentacao} mostra o programa em funcionamento com os prints das "
@@ -403,7 +403,7 @@ def secao_plano(c, fig, reg):
     c.h1("Plano de desenvolvimento da aplicação", "plano")
     c.p(
         "Esta seção descreve os elementos e ferramentas usados, o ambiente em que o sistema foi construído, a forma de "
-        "trabalho, os requisitos, os atores e casos de uso, o cronograma registrado no Git, a estratégia de testes e os "
+        "trabalho, os requisitos, os atores e casos de uso, a estratégia de testes e os "
         "riscos considerados."
     )
     c.h2("Elementos e ferramentas")
@@ -548,37 +548,6 @@ def secao_plano(c, fig, reg):
         "de qualidade do ar e clima."
     )
     c.figura("casos_uso", "Diagrama de casos de uso", fig / "casos_de_uso.png", 9.2)
-    c.h2("Cronograma")
-    c.p(
-        "O cronograma da {T:cronograma} foi extraído do histórico do Git e mostra os marcos de integração de cada fase. "
-        "As datas correspondem aos __commits__ no repositório; atividades de estudo, planejamento e reuniões anteriores "
-        "ao primeiro __commit__ não ficam registradas no Git. [REVISAR: complementar com as datas reais de "
-        "planejamento, estudo e reuniões do grupo, se desejado.]"
-    )
-    c.tabela(
-        "cronograma",
-        "Marcos do desenvolvimento registrados no Git",
-        ["Data e hora", "Commit", "Entrega"],
-        [
-            ["27/09/2026 16:44", "ae28d60", "Verificação do ambiente, estrutura do projeto e app Expo SDK 57"],
-            ["27/09/2026 16:44", "b838007", "Docker Compose com PostGIS, RabbitMQ (AMQP + MQTT) e gateway Nginx"],
-            ["27/09/2026 16:44", "7f580b1", "Pacote compartilhado e auth-service (JWT, bcrypt, rate limit)"],
-            ["27/09/2026 16:51", "ff037c4", "ocorrencias-service com PostGIS, outbox transacional e idempotência"],
-            ["27/09/2026 16:58", "0448dc8", "Simulador MQTT, IQAr (CETESB), inversão térmica e Open-Meteo"],
-            ["27/09/2026 17:07", "963c497", "Motor de regras com Socket.IO e relatórios CQRS em PDF/CSV"],
-            ["27/09/2026 17:13", "529aec8", "Dados de demonstração, fotos ilustrativas e scripts de operação"],
-            ["27/09/2026 17:57", "3f1ad6a", "Validação da stack no Docker; correção de autorização e escalonamento"],
-            ["27/09/2026 18:26", "c12c5c3", "Aplicativo móvel: mapa, registro offline, tempo real e relatórios"],
-            ["27/09/2026 18:30", "b701c91", "Testes de integração via gateway"],
-            ["27/09/2026 23:16", "ae38625", "Roteiro E2E com Playwright: prints, vídeos, dois dispositivos, offline"],
-            ["27/09/2026 23:25", "b379164", "Testes de falha (réplica, broker, integração), rastreamento e carga"],
-            ["27/09/2026 23:48", "c714bdd e outros", "Correções: login por IP + e-mail, seed e teste distribuído 3"],
-            ["27/09/2026 23:57", "f3b4af1, 36ffd80", "README final, guia de testes e evidências completas em registros/"],
-            ["28/09/2026 00:00", "cc8cce7", "Bundles nativos Android e iOS compilados com expo export"],
-        ],
-        [3.4, 3.2, 9.4],
-        fonte="Fonte: elaborado pelos autores (2026), a partir de git log.",
-    )
     c.h2("Estratégia de testes")
     c.p(
         "Os testes foram organizados em camadas, das mais rápidas e isoladas às que exercitam o sistema inteiro "
