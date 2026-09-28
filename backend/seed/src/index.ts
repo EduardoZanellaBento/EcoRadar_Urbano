@@ -76,7 +76,8 @@ async function limpar(cliente: pg.PoolClient) {
   await cliente.query(`TRUNCATE alertas.alertas, alertas.ocorrencias_recentes, alertas.eventos_processados`);
   await cliente.query(`TRUNCATE relatorios.ocorrencias_view, relatorios.alertas_view, relatorios.eventos_processados`);
   await cliente.query(`TRUNCATE ambiental.leituras`);
-  await cliente.query(`DELETE FROM auth.usuarios WHERE email LIKE '%@ecoradar.local'`);
+  // Remove os usuários de demonstração e os criados pelos testes automatizados (*@teste.ecoradar.local)
+  await cliente.query(`DELETE FROM auth.usuarios WHERE email LIKE '%ecoradar.local'`);
 }
 
 async function criarUsuarios(cliente: pg.PoolClient): Promise<UsuarioDemo[]> {
