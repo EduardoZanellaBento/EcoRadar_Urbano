@@ -1,0 +1,11 @@
+CONTAINER                          REPOSITORY                     TAG                     PLATFORM            IMAGE ID            SIZE                CREATED
+ecoradar-alertas-service-1         <none>                         <none>                  unknown             7af9f2fcdc43        0B                  N/A
+ecoradar-ambiental-service-1       <none>                         <none>                  unknown             a1df68d09e60        0B                  N/A
+ecoradar-auth-service-1            <none>                         <none>                  unknown             e4f699aeb0e0        0B                  N/A
+ecoradar-gateway-1                 nginx                          1.30-alpine             linux/amd64         0985e772fb9f        92.8MB              5 days ago
+ecoradar-ocorrencias-service-1-1   ecoradar/ocorrencias-service   1.0.0                   linux/amd64         d833a47b43e6        368MB               6 hours ago
+ecoradar-ocorrencias-service-2-1   ecoradar/ocorrencias-service   1.0.0                   linux/amd64         d833a47b43e6        368MB               6 hours ago
+ecoradar-postgres-1                postgis/postgis                18-3.6-alpine           linux/amd64         ffcf0c4b904e        733MB               3 weeks ago
+ecoradar-rabbitmq-1                rabbitmq                       4.3-management-alpine   linux/amd64         ce634665a8e7        274MB               5 days ago
+ecoradar-relatorios-service-1      <none>                         <none>                  unknown             5af355b055cf        0B                  N/A
+ecoradar-sensor-simulator-1        <none>                         <none>                  unknown             517de13531b6        0B                  N/A

@@ -1,0 +1,23 @@
+[23:52:18.054] == Teste 1 — Balanceamento de carga (Nginx round-robin, 2 réplicas)
+[23:52:18.153] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-2  15 ms  X-Request-Id: 81722332484ef8435908c79875665f51
+[23:52:18.158] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 5d74561ab97b9d7f2dbfeb1051585df3
+[23:52:18.165] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 725dc6aeacc26d07f09435e5f8f47b7f
+[23:52:18.172] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: a289402d790de5f34a489678e9ddebe6
+[23:52:18.177] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 29ccba526031aefd8ae477e4d8ed0123
+[23:52:18.183] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 420104c85fdcbdbd6e89c8aad83531ca
+[23:52:18.188] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 3aa51d87f7df99cddc951dbcab95f857
+[23:52:18.195] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: fd2078caa10065f1040b9ad2a6237474
+[23:52:18.200] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 9e749528b49e22e0bf6d8dec1a2443cc
+[23:52:18.204] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 13b4d6e47e73d2e7c81466dbca7c0f95
+[23:52:18.209] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 056518c2b653d425019c1f64fe314294
+[23:52:18.214] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 4a4df66395024f275aa5628215cde567
+[23:52:18.220] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: f55f1e20cd7c16805ef573c57cb4a347
+[23:52:18.224] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 8a6be81adbb22897f3050f8d236014f4
+[23:52:18.228] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-2  4 ms  X-Request-Id: 8dca1801f2fd0d79dd452d9e99a511b1
+[23:52:18.235] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: 03a48c11f8454fb7a46a0643b965c7e4
+[23:52:18.240] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 42011a2044c839aca458ed142a01178f
+[23:52:18.244] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 13fec1e084c54df53006d5df7a690ca6
+[23:52:18.251] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 95a530fdab7230e0aac313dc6eaaa521
+[23:52:18.257] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 79410232aa6d920c719b39c0e4842307
+[23:52:18.257] Resumo: 20/20 com sucesso · distribuição {"ocorrencias-2":10,"ocorrencias-1":10}
+[23:52:18.258] ✓ PASSOU: as requisições foram distribuídas entre as duas réplicas

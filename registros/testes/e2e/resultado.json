@@ -1,0 +1,2222 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\dev\\APS\\tests\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "e2e/playwright.config.ts"
+    ],
+    "configFile": "C:\\dev\\APS\\tests\\e2e\\playwright.config.ts",
+    "rootDir": "C:/dev/APS/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/dev/APS/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "pixel-7",
+        "name": "pixel-7",
+        "testDir": "C:/dev/APS/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/dev/APS/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "iphone-14",
+        "name": "iphone-14",
+        "testDir": "C:/dev/APS/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "../../registros/testes/e2e/relatorio-html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../registros/testes/e2e/resultado.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "01-acesso-mapa-registro.spec.ts",
+      "file": "01-acesso-mapa-registro.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "01 · onboarding, cadastro e login (com erro de senha)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:22.631Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "01_onboarding_1",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\01-onboarding-1-16864df872e5aa6e1fa0732461f70725ec9d12dd.png"
+                    },
+                    {
+                      "name": "02_onboarding_2",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\02-onboarding-2-91c3d769267e81a0bae5e55795886c4c6b45346b.png"
+                    },
+                    {
+                      "name": "03_onboarding_3",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\03-onboarding-3-d041ff3a14200388627d8852711f97d9bf435c21.png"
+                    },
+                    {
+                      "name": "04_login",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\04-login-94420da972d725dad7154f145a77076b426e9c26.png"
+                    },
+                    {
+                      "name": "05_cadastro_validacao",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\05-cadastro-validacao-f9cedc899fa89e0fb5c3f6e06d4f913bfa6517c4.png"
+                    },
+                    {
+                      "name": "06_cadastro_preenchido",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\06-cadastro-preenchido-394433983835185c54d7f9f14c70759438607a14.png"
+                    },
+                    {
+                      "name": "07_cadastro_concluido_mapa",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\07-cadastro-concluido-mapa-b9f29bcfdd8191b987a42c345e53c8dd1f2da606.png"
+                    },
+                    {
+                      "name": "08_login_senha_invalida",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\08-login-senha-invalida-c335201c0539528efaa6541bd45dcfeaf114ac22.png"
+                    },
+                    {
+                      "name": "09_login_sucesso",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\09-login-sucesso-0652eebffb92ee464076a8c2be9757d557f3e3a1.png"
+                    },
+                    {
+                      "name": "video-01-onboarding-cadastro-login",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\attachments\\video-01-onboarding-cadastro-login-0fc34f645f40fd3d1412999532d8bf3944241f6b.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-01-59be0--e-login-com-erro-de-senha--pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0dd17399346d36030fce-274804d559244a3e827a",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "02 · mapa com ocorrências, mananciais e estações; filtro por categoria",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6490,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:33.016Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "10_mapa_ocorrencias_mananciais_estacoes",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\attachments\\10-mapa-ocorrencias-mananciais-estacoes-a1deac7954d368f4141882d8d5d7778bbb834b93.png"
+                    },
+                    {
+                      "name": "11_mapa_legenda",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\attachments\\11-mapa-legenda-ef880687ffd15754bc4107054b344db78e3e14f0.png"
+                    },
+                    {
+                      "name": "12_mapa_filtro_alagamento",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\attachments\\12-mapa-filtro-alagamento-b7b0c20d67960b9679538a432a0ba8e4898001c7.png"
+                    },
+                    {
+                      "name": "13_mapa_ocorrencia_selecionada",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\attachments\\13-mapa-ocorrencia-selecionada-d9bdbc1a7c26fc4b3b8fb1ed5000752a6a52cc4c.png"
+                    },
+                    {
+                      "name": "video-02-mapa-filtros",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\attachments\\video-02-mapa-filtros-5069cd08d1b07f50f69a28bbd80712ce340ba82f.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-02-2a91b-tações-filtro-por-categoria-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0dd17399346d36030fce-6be976cfba56a3129758",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "03 · registro completo com foto e aviso de área de manancial",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:39.514Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "14_registro_formulario_foto",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-03-6d274--aviso-de-área-de-manancial-pixel-7\\attachments\\14-registro-formulario-foto-5f82ae491e757948e900b6fdc70eac7939a1be89.png"
+                    },
+                    {
+                      "name": "15_registro_localizacao_aviso_manancial",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-03-6d274--aviso-de-área-de-manancial-pixel-7\\attachments\\15-registro-localizacao-aviso-manancial-3f2075aa4b99765026addbd9eec5aca86c2d5a28.png"
+                    },
+                    {
+                      "name": "16_registro_concluido_detalhe",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-03-6d274--aviso-de-área-de-manancial-pixel-7\\attachments\\16-registro-concluido-detalhe-d1e7839291428f1692848294a652617cf608e902.png"
+                    },
+                    {
+                      "name": "video-03-registro-com-foto-manancial",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-03-6d274--aviso-de-área-de-manancial-pixel-7\\attachments\\video-03-registro-com-foto-manancial-ed41c39faf2d851ce2458ff40e0edeb65862dd4b.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\01-acesso-mapa-registro-03-6d274--aviso-de-área-de-manancial-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0dd17399346d36030fce-1c6719ff7aa81e1751ec",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "01 · onboarding, cadastro e login (com erro de senha)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 12,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.547Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0dd17399346d36030fce-62022522631ec6ed5d92",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "02 · mapa com ocorrências, mananciais e estações; filtro por categoria",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 12,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.567Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0dd17399346d36030fce-544817ab0622fa862e83",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "03 · registro completo com foto e aviso de área de manancial",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                    "line": 12,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.572Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\01-acesso-mapa-registro.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0dd17399346d36030fce-ba4ca2561347cfcad9a4",
+          "file": "01-acesso-mapa-registro.spec.ts",
+          "line": 88,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "02-funcionalidades.spec.ts",
+      "file": "02-funcionalidades.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "04 · detalhe da ocorrência e confirmação colaborativa",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:44.178Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "17_detalhe_ocorrencia",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-04-·-de-e8941--e-confirmação-colaborativa-pixel-7\\attachments\\17-detalhe-ocorrencia-6ad370391d3810aa9a9b3f3ec7dd7a0bbc2648ea.png"
+                    },
+                    {
+                      "name": "18_detalhe_confirmacao_colaborativa",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-04-·-de-e8941--e-confirmação-colaborativa-pixel-7\\attachments\\18-detalhe-confirmacao-colaborativa-4e3ada38746652d9fe3199cc759bab8edd91a3a3.png"
+                    },
+                    {
+                      "name": "video-04-detalhe-confirmacao",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-04-·-de-e8941--e-confirmação-colaborativa-pixel-7\\attachments\\video-04-detalhe-confirmacao-c083395350b6d416be004743aca2cc9bcc082025.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-04-·-de-e8941--e-confirmação-colaborativa-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-8c965ee18153664d47ab",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "05 · qualidade ambiental: IQAr, Open-Meteo e gráfico de 24 h",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2205,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:45.955Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "19_ambiental_iqar_open_meteo",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-05-·-qu-f6b0a-pen-Meteo-e-gráfico-de-24-h-pixel-7\\attachments\\19-ambiental-iqar-open-meteo-a89c77dca7a5253f3f5da5c465359999315f30a9.png"
+                    },
+                    {
+                      "name": "20_ambiental_grafico_24h",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-05-·-qu-f6b0a-pen-Meteo-e-gráfico-de-24-h-pixel-7\\attachments\\20-ambiental-grafico-24h-a46c125c2d80316a200710c05e749357bb4393eb.png"
+                    },
+                    {
+                      "name": "21_ambiental_estacoes",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-05-·-qu-f6b0a-pen-Meteo-e-gráfico-de-24-h-pixel-7\\attachments\\21-ambiental-estacoes-9647ee487b13a45c813a9b92efe652aec6c304fc.png"
+                    },
+                    {
+                      "name": "video-05-qualidade-ambiental",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-05-·-qu-f6b0a-pen-Meteo-e-gráfico-de-24-h-pixel-7\\attachments\\video-05-qualidade-ambiental-7016a6705d4389914ba57780fbe57a41ca0ca8fc.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-05-·-qu-f6b0a-pen-Meteo-e-gráfico-de-24-h-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-a0b6e9f963902d492b9a",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "06 · tempo real entre dois dispositivos (Socket.IO)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5742,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:48.165Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "22_tempo_real_dois_dispositivos",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-06-·-te-63ebc-ois-dispositivos-Socket-IO--pixel-7\\attachments\\22-tempo-real-dois-dispositivos-0670b2cf212301d17a4b89af213134708009eeac.png"
+                    },
+                    {
+                      "name": "video-06-tempo-real-dispositivo-A",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-06-·-te-63ebc-ois-dispositivos-Socket-IO--pixel-7\\attachments\\video-06-tempo-real-dispositivo-A-948920c352c4ef11990dc84e91fbe757f9214c1b.webm"
+                    },
+                    {
+                      "name": "video-06-tempo-real-dispositivo-B",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-06-·-te-63ebc-ois-dispositivos-Socket-IO--pixel-7\\attachments\\video-06-tempo-real-dispositivo-B-64779ecd746c9c3266a73c266bb26c17460d8a65.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-e94d7aa5fc0c00de7d21",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "07 · alerta disparado pelo ADMIN chega ao cidadão (banner + badge)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:53.915Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "23_alerta_admin_e_cidadao",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-07-·-al-57682-ga-ao-cidadão-banner-badge--pixel-7\\attachments\\23-alerta-admin-e-cidadao-e19e1b8adf56610eccd17f2e60b6323d09aef5cd.png"
+                    },
+                    {
+                      "name": "video-07-alerta-admin",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-07-·-al-57682-ga-ao-cidadão-banner-badge--pixel-7\\attachments\\video-07-alerta-admin-20c4d0f75ca287f9da5e644cfbb50e190015d0d2.webm"
+                    },
+                    {
+                      "name": "video-07-alerta-cidadao",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-07-·-al-57682-ga-ao-cidadão-banner-badge--pixel-7\\attachments\\video-07-alerta-cidadao-959aca833a48f06d25ba689a3916c8c2d0e6b944.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-e1336374b01bd92bf81a",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "08 · modo offline: fila pendente, sincronização e idempotência",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 36159,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:50:58.264Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "25_offline_registro",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-08-·-mo-00616-incronização-e-idempotência-pixel-7\\attachments\\25-offline-registro-841bacc96e52f602920adc2b45ce268f275e985e.png"
+                    },
+                    {
+                      "name": "26_offline_fila_pendente",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-08-·-mo-00616-incronização-e-idempotência-pixel-7\\attachments\\26-offline-fila-pendente-24b536e26de345ce5665477db7d5abe976ee6329.png"
+                    },
+                    {
+                      "name": "27_offline_sincronizado",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-08-·-mo-00616-incronização-e-idempotência-pixel-7\\attachments\\27-offline-sincronizado-f53510d277faaecdab0d5761bd1369b02add82b0.png"
+                    },
+                    {
+                      "name": "video-08-modo-offline-idempotencia",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-08-·-mo-00616-incronização-e-idempotência-pixel-7\\attachments\\video-08-modo-offline-idempotencia-3ca14d53afefca4ed94100127923a4964de1fe03.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-08-·-mo-00616-incronização-e-idempotência-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-097b5285887526d748f7",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 166,
+          "column": 1
+        },
+        {
+          "title": "09 · relatórios com gráficos e exportação PDF/CSV",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:51:34.432Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "28_relatorios_indicadores",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\attachments\\28-relatorios-indicadores-cb8a730c5eb51a59cc3270ae0cd7dc3ef331527d.png"
+                    },
+                    {
+                      "name": "29_relatorios_graficos",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\attachments\\29-relatorios-graficos-b1167e88b4af37201a674d9fee3895f9d8b7d08a.png"
+                    },
+                    {
+                      "name": "30_relatorios_serie_diaria",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\attachments\\30-relatorios-serie-diaria-5fada2c75c949a4fc3443d37c479f1e449eab1f1.png"
+                    },
+                    {
+                      "name": "31_relatorios_exportacao",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\attachments\\31-relatorios-exportacao-cd8aeabb7bce34917ce6f908fa5ddb4a4eac4846.png"
+                    },
+                    {
+                      "name": "video-09-relatorios-exportacao",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\attachments\\video-09-relatorios-exportacao-012b0f5db8a681b90e79b15a8068bfc7d0137794.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-09-·-re-04c18-áficos-e-exportação-PDF-CSV-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-9b2e8f5b55fbad1cfa93",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "10 · status do sistema: microsserviços online, balanceamento e integrações",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2231,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:51:37.828Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "32_status_microsservicos",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-10-·-st-7b9d1-balanceamento-e-integrações-pixel-7\\attachments\\32-status-microsservicos-5db1bbc1c4570682dc865e420d4f21fab9607e11.png"
+                    },
+                    {
+                      "name": "33_status_balanceamento",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-10-·-st-7b9d1-balanceamento-e-integrações-pixel-7\\attachments\\33-status-balanceamento-27e21f2b01f625deba85188ea58b0f2ab6a86a6d.png"
+                    },
+                    {
+                      "name": "34_status_integracoes_tempo_real",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-10-·-st-7b9d1-balanceamento-e-integrações-pixel-7\\attachments\\34-status-integracoes-tempo-real-80d4b3b46b2f0dda15cc840543eee32db644e933.png"
+                    },
+                    {
+                      "name": "video-10-status-do-sistema",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-10-·-st-7b9d1-balanceamento-e-integrações-pixel-7\\attachments\\video-10-status-do-sistema-523c2c7a8a641c57a0100937c121c9cd5b76cb53.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-10-·-st-7b9d1-balanceamento-e-integrações-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-7dcba41ea9d110e20639",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 235,
+          "column": 1
+        },
+        {
+          "title": "11 · painel do agente alterando status",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:51:40.071Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "35_painel_agente_fila",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-11-·-painel-do-agente-alterando-status-pixel-7\\attachments\\35-painel-agente-fila-d69bdf1d594b8090d00823cb052ef56ba7f833ea.png"
+                    },
+                    {
+                      "name": "36_painel_dialogo_status",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-11-·-painel-do-agente-alterando-status-pixel-7\\attachments\\36-painel-dialogo-status-0da6038fc0ddb621cf50910b8a2e8b143f9b18ed.png"
+                    },
+                    {
+                      "name": "37_painel_status_alterado",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-11-·-painel-do-agente-alterando-status-pixel-7\\attachments\\37-painel-status-alterado-f9b5c904ff28ef899171559bc822e78391085f8d.png"
+                    },
+                    {
+                      "name": "video-11-painel-do-agente",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-11-·-painel-do-agente-alterando-status-pixel-7\\attachments\\video-11-painel-do-agente-4f7777a69dfcee1db77e773bf268d0937fbf5dbb.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-11-·-painel-do-agente-alterando-status-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-fe8cba83196805393ffd",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 252,
+          "column": 1
+        },
+        {
+          "title": "12 · tema escuro em várias telas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:51:42.395Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "38_escuro_perfil",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\38-escuro-perfil-6e64e76520c29cd6ca9f0a6d3d65a9f4fbab7780.png"
+                    },
+                    {
+                      "name": "39_escuro_mapa",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\39-escuro-mapa-cd5cef2353b3b1539b2a0f00700efdb0259ba008.png"
+                    },
+                    {
+                      "name": "40_escuro_lista",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\40-escuro-lista-83860f0f4973a043797c379a20250e8d77c9528b.png"
+                    },
+                    {
+                      "name": "41_escuro_ambiental",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\41-escuro-ambiental-07dd982667a310491a8edcbc629d09baacba542b.png"
+                    },
+                    {
+                      "name": "42_escuro_relatorios",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\42-escuro-relatorios-c24229631b2a1e58eb93b975ef3ea907a1af27aa.png"
+                    },
+                    {
+                      "name": "43_escuro_relatorios_graficos",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\43-escuro-relatorios-graficos-1cd33b9025824665afa864a128748d0a89793568.png"
+                    },
+                    {
+                      "name": "video-12-tema-escuro",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\attachments\\video-12-tema-escuro-27570da62583bccb355b508804bdd29487c03b1a.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\02-funcionalidades-12-·-tema-escuro-em-várias-telas-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-43fb58307489d1670f8c",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 273,
+          "column": 1
+        },
+        {
+          "title": "04 · detalhe da ocorrência e confirmação colaborativa",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.649Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-1cb823c4e0be1c9ae733",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "05 · qualidade ambiental: IQAr, Open-Meteo e gráfico de 24 h",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.655Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-0b32403668016b47d2b7",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "06 · tempo real entre dois dispositivos (Socket.IO)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.660Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-322dcd7e4cb77bd0660e",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "07 · alerta disparado pelo ADMIN chega ao cidadão (banner + badge)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.666Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-68825befa917d6f7188b",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "08 · modo offline: fila pendente, sincronização e idempotência",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.674Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-b2944fca3cb41f0fcc18",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 166,
+          "column": 1
+        },
+        {
+          "title": "09 · relatórios com gráficos e exportação PDF/CSV",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.679Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-fa69ae422a2c24dad491",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "10 · status do sistema: microsserviços online, balanceamento e integrações",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.685Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-794e9323f7d9510ffa1f",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 235,
+          "column": 1
+        },
+        {
+          "title": "11 · painel do agente alterando status",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.691Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-79afbb78d460824933a0",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 252,
+          "column": 1
+        },
+        {
+          "title": "12 · tema escuro em várias telas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                {
+                  "type": "skip",
+                  "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                  "location": {
+                    "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                    "line": 17,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.700Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "O roteiro completo roda no Pixel 7; o iPhone 14 executa a navegação pelas telas principais.",
+                      "location": {
+                        "file": "C:\\dev\\APS\\tests\\e2e\\02-funcionalidades.spec.ts",
+                        "line": 17,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "b2e0ea86019714ae8919-dd4f4efce605d1d86b1e",
+          "file": "02-funcionalidades.spec.ts",
+          "line": 273,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "03-telas-principais.spec.ts",
+      "file": "03-telas-principais.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "N · navegação pelas telas principais",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11088,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:51:49.808Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "N01_login",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N01-login-d41d538a8e3ff3583b235624a2650dab0995d94e.png"
+                    },
+                    {
+                      "name": "N02_mapa",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N02-mapa-6736ba51ec7fb7e02ad655da4dcecb5fd6643980.png"
+                    },
+                    {
+                      "name": "N03_lista_ocorrencias",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N03-lista-ocorrencias-798c28985ac1167c921e3ee7cfabd09643a1e5b9.png"
+                    },
+                    {
+                      "name": "N04_lista_perto_de_mim",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N04-lista-perto-de-mim-6e15059652f85e01ace0a97f99a9a3161a70fb58.png"
+                    },
+                    {
+                      "name": "N05_qualidade_ambiental",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N05-qualidade-ambiental-0ae2e4f27fd4100b83e7d95979f4624d2b15d6e0.png"
+                    },
+                    {
+                      "name": "N06_alertas",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N06-alertas-ca2da9fb1986a24ffa6784e6efefccc82b4e4863.png"
+                    },
+                    {
+                      "name": "N07_perfil",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N07-perfil-b94f8c0b4d5c70be4b4d5fe4009ec0953f690c15.png"
+                    },
+                    {
+                      "name": "N08_relatorios",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N08-relatorios-db84440850fe8ecdb813877caf8307c80fe6ae35.png"
+                    },
+                    {
+                      "name": "N09_status_sistema",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N09-status-sistema-1cd2e5895438a61ead010679d0c0bc0b00b17d5e.png"
+                    },
+                    {
+                      "name": "N10_envios",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\N10-envios-9bf31a141d16a41c4efdf2d7049935a967bcdac6.png"
+                    },
+                    {
+                      "name": "video-N-navegacao-telas-principais",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\attachments\\video-N-navegacao-telas-principais-e5f86f67cab1f697e76b3482bbc80b7d36bd6352.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd47ee2b7a862ecdf58d-42581c63bed6591a4cdb",
+          "file": "03-telas-principais.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "N · painel do agente em outro aparelho",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pixel-7",
+              "projectName": "pixel-7",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:00.904Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "N11_painel_agente",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-pixel-7\\attachments\\N11-painel-agente-7b6f5bb721591cdba4131a0b86da7da29b29ab48.png"
+                    },
+                    {
+                      "name": "video-N-painel-agente",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-pixel-7\\attachments\\video-N-painel-agente-4337cc5dfae129b163be6d39661ee326877b3944.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-pixel-7\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd47ee2b7a862ecdf58d-d92e49d3c3397d08cfae",
+          "file": "03-telas-principais.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "N · navegação pelas telas principais",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10920,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:02.710Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "N01_login",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N01-login-f06c71dc56642ee7a0833649b2c4dbecec196114.png"
+                    },
+                    {
+                      "name": "N02_mapa",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N02-mapa-63e240a7e4b0119b34cc8baa382f8c71c3e10d21.png"
+                    },
+                    {
+                      "name": "N03_lista_ocorrencias",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N03-lista-ocorrencias-152be8f48ad623a0778da849f2d528dfee94d466.png"
+                    },
+                    {
+                      "name": "N04_lista_perto_de_mim",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N04-lista-perto-de-mim-4b887e40150650a2c0c5c14226542f28c1d72eef.png"
+                    },
+                    {
+                      "name": "N05_qualidade_ambiental",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N05-qualidade-ambiental-75286c3bb69c29ca0cac47ba6ecd365b465d95d7.png"
+                    },
+                    {
+                      "name": "N06_alertas",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N06-alertas-a03926b1ae0c0bc6613822ebec9226d5c59af06e.png"
+                    },
+                    {
+                      "name": "N07_perfil",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N07-perfil-3b255e9281c44fe7dab8a2f84abeb62d93a805cb.png"
+                    },
+                    {
+                      "name": "N08_relatorios",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N08-relatorios-0df89e11eb374b36971a9d5d5d8a85cd3a912213.png"
+                    },
+                    {
+                      "name": "N09_status_sistema",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N09-status-sistema-7bb95cf63a2c83adfe77079f581c6cb9aedfe5f2.png"
+                    },
+                    {
+                      "name": "N10_envios",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\N10-envios-7d06499d98adc353369f1ab0c01c3d6d6cc117c1.png"
+                    },
+                    {
+                      "name": "video-N-navegacao-telas-principais",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\attachments\\video-N-navegacao-telas-principais-ddf74974494cdda1e05eb28b825d86a2044dd28f.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-navegação-pelas-telas-principais-iphone-14\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd47ee2b7a862ecdf58d-24d9f0001d8a75cdbb39",
+          "file": "03-telas-principais.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "N · painel do agente em outro aparelho",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone-14",
+              "projectName": "iphone-14",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T02:52:14.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "N11_painel_agente",
+                      "contentType": "image/png",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-iphone-14\\attachments\\N11-painel-agente-95b6c904cd131a4f7182098f8229775e61a080e9.png"
+                    },
+                    {
+                      "name": "video-N-painel-agente",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-iphone-14\\attachments\\video-N-painel-agente-dd018907229c125b3c5eebd775294e6dd6cf1a0e.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\dev\\APS\\tests\\test-results\\03-telas-principais-N-·-painel-do-agente-em-outro-aparelho-iphone-14\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd47ee2b7a862ecdf58d-487b181cdf4390fac3ff",
+          "file": "03-telas-principais.spec.ts",
+          "line": 60,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T02:50:21.905Z",
+    "duration": 113749.882,
+    "expected": 16,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

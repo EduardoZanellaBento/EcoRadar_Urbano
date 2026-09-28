@@ -1,0 +1,29 @@
+$ node scripts/testes-unitarios.mjs
+
+Cobertura dos testes unitários (regras de negócio) — 27/09/2026, 23:49:41
+
+Testes     : 105 passaram em 10 arquivos (código de saída 0)
+Linhas     : 97.47% (501/514)
+Instruções : 95.15% (589/619)
+Funções    : 89.92% (116/129)
+Branches   : 88.6% (451/509)
+
+Meta da APS: >= 70% nas regras de negócio. Relatório HTML: cobertura/index.html
+
+Por arquivo (linhas):
+  packages/shared/src/backoff.ts                                   100%
+  packages/shared/src/cache.ts                                     100%
+  packages/shared/src/erros.ts                                     75%
+  packages/shared/src/eventos.ts                                   100%
+  packages/shared/src/geo.ts                                       100%
+  services/alertas-service/src/dominio/motor-regras.ts             100%
+  services/ambiental-service/src/dominio/avaliacao.ts              100%
+  services/ambiental-service/src/dominio/indicadores.ts            97.67%
+  services/ambiental-service/src/dominio/iqar.ts                   100%
+  services/ambiental-service/src/dominio/leitura.ts                100%
+  services/ambiental-service/src/integracoes/open-meteo.ts         98.43%
+  services/auth-service/src/dominio/validacoes.ts                  95.45%
+  services/ocorrencias-service/src/dominio/publicador-outbox.ts    93.75%
+  services/ocorrencias-service/src/dominio/regras.ts               100%
+  services/relatorios-service/src/dominio/relatorio.ts             100%
+  services/sensor-simulator/src/dominio/modelo.ts                  100%

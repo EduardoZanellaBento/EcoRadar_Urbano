@@ -1,0 +1,47 @@
+$ docker compose --profile seed run --rm seed node --enable-source-maps dist/index.js --forcar
+
+--forcar: removendo dados de demonstração anteriores...
+✔ 8 usuários (1 ADMIN, 2 AGENTES, 5 CIDADÃOS)
+✔ 60 ocorrências (todas as categorias e status), 28 com foto ilustrativa, 113 eventos no outbox
+✔ 864 leituras históricas (24 h, a cada 10 min) para 6 estações
+✔ 9 alertas históricos (1 ativo)
+Seed concluído. Os eventos do outbox serão publicados em instantes (relatórios e alertas atualizam sozinhos).
+ Container ecoradar-ambiental-service-1 Running 
+ Container ecoradar-rabbitmq-1 Running 
+ Container ecoradar-auth-service-1 Running 
+ Container ecoradar-relatorios-service-1 Running 
+ Container ecoradar-alertas-service-1 Running 
+ Container ecoradar-ocorrencias-service-1-1 Running 
+ Container ecoradar-postgres-1 Running 
+ Container ecoradar-postgres-1 Waiting 
+ Container ecoradar-rabbitmq-1 Waiting 
+ Container ecoradar-postgres-1 Waiting 
+ Container ecoradar-rabbitmq-1 Waiting 
+ Container ecoradar-rabbitmq-1 Waiting 
+ Container ecoradar-rabbitmq-1 Waiting 
+ Container ecoradar-postgres-1 Waiting 
+ Container ecoradar-postgres-1 Waiting 
+ Container ecoradar-postgres-1 Waiting 
+ Container ecoradar-rabbitmq-1 Waiting 
+ Container ecoradar-postgres-1 Healthy 
+ Container ecoradar-rabbitmq-1 Healthy 
+ Container ecoradar-postgres-1 Healthy 
+ Container ecoradar-postgres-1 Healthy 
+ Container ecoradar-postgres-1 Healthy 
+ Container ecoradar-postgres-1 Healthy 
+ Container ecoradar-rabbitmq-1 Healthy 
+ Container ecoradar-rabbitmq-1 Healthy 
+ Container ecoradar-rabbitmq-1 Healthy 
+ Container ecoradar-rabbitmq-1 Healthy 
+ Container ecoradar-relatorios-service-1 Waiting 
+ Container ecoradar-auth-service-1 Waiting 
+ Container ecoradar-ocorrencias-service-1-1 Waiting 
+ Container ecoradar-ambiental-service-1 Waiting 
+ Container ecoradar-alertas-service-1 Waiting 
+ Container ecoradar-relatorios-service-1 Healthy 
+ Container ecoradar-ambiental-service-1 Healthy 
+ Container ecoradar-auth-service-1 Healthy 
+ Container ecoradar-ocorrencias-service-1-1 Healthy 
+ Container ecoradar-alertas-service-1 Healthy 
+ Container ecoradar-seed-run-7357ec6d9a85 Creating 
+ Container ecoradar-seed-run-7357ec6d9a85 Created 

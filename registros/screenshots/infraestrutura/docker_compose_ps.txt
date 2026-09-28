@@ -1,0 +1,11 @@
+NAME                               IMAGE                                                                     STATUS                    PORTS
+ecoradar-alertas-service-1         sha256:7af9f2fcdc43a4624d4b13bc3c00ed83f80f2d2e78b73c9603a6b5b68ad7ead0   Up 51 minutes (healthy)   3000/tcp
+ecoradar-ambiental-service-1       sha256:a1df68d09e60b0ba05faaa4c7c532419cf17df9ad1c160d40396339b3d138c00   Up 51 minutes (healthy)   3000/tcp
+ecoradar-auth-service-1            sha256:e4f699aeb0e0e7f0d741def9e61d0efd7070d9028a53195ce529a3516a19b436   Up 9 minutes (healthy)    3000/tcp
+ecoradar-gateway-1                 nginx:1.30-alpine                                                         Up 7 minutes (healthy)    0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+ecoradar-ocorrencias-service-1-1   ecoradar/ocorrencias-service:1.0.0                                        Up 7 minutes (healthy)    3000/tcp
+ecoradar-ocorrencias-service-2-1   ecoradar/ocorrencias-service:1.0.0                                        Up 40 seconds (healthy)   3000/tcp
+ecoradar-postgres-1                postgis/postgis:18-3.6-alpine                                             Up 51 minutes (healthy)   5432/tcp
+ecoradar-rabbitmq-1                rabbitmq:4.3-management-alpine                                            Up 3 minutes (healthy)    0.0.0.0:15672->15672/tcp, [::]:15672->15672/tcp
+ecoradar-relatorios-service-1      sha256:5af355b055cf2b1364f020addb3a71db1edab61725eb8a6b745fdcb250d2c807   Up 51 minutes (healthy)   3000/tcp
+ecoradar-sensor-simulator-1        sha256:517de13531b678887ffce8bd1cc2d818e91031f313596a80b013b62ce554e95b   Up 51 minutes (healthy)   3000/tcp

@@ -1,0 +1,81 @@
+$ node scripts/versoes.mjs
+
+# Versões utilizadas — EcoRadar Urbano (gerado em 27/09/2026, 23:56:14)
+
+## Ferramentas do computador
+Node.js..................... v24.19.0
+npm......................... 12.0.2
+Git......................... git version 2.55.0.windows.2
+Docker...................... Docker version 29.8.0, build 88096ef
+Docker Compose.............. Docker Compose version v5.5.1
+Sistema..................... win32 x64
+
+## Servidores em execução (versão reportada pelo próprio servidor)
+PostgreSQL.................. 18.6
+PostGIS..................... 3.6.4
+RabbitMQ.................... 4.3.6
+Nginx....................... nginx version: nginx/1.30.5
+Node.js (containers)........ v24.21.0
+
+## Imagens Docker (docker compose images)
+  :
+  ecoradar/ocorrencias-service:1.0.0
+  nginx:1.30-alpine
+  postgis/postgis:18-3.6-alpine
+  rabbitmq:4.3-management-alpine
+
+## Backend (pacotes instalados)
+typescript.................. 6.0.3
+fastify..................... 5.12.5
+zod......................... 4.6.5
+drizzle-orm................. 0.45.3
+drizzle-kit................. 0.31.11
+pg.......................... 8.23.0
+amqplib..................... 2.0.1
+mqtt........................ 5.16.0
+opossum..................... 10.0.0
+socket.io................... 4.8.4
+pdfkit...................... 0.20.2
+pino........................ 10.3.1
+@fastify/swagger............ 9.9.0
+bcryptjs.................... 3.0.3
+esbuild..................... 0.28.2
+vitest...................... 5.0.2
+eslint...................... 10.11.0
+typescript-eslint........... 8.70.1
+
+## App móvel (pacotes instalados)
+expo........................ 57.0.25
+react-native................ 0.86.3
+react....................... 19.2.3
+react-native-web............ 0.21.3
+expo-router................. 57.0.23
+react-native-paper.......... 5.15.3
+react-native-maps........... 1.27.2
+react-leaflet............... 5.0.0
+leaflet..................... 1.9.4
+zustand..................... 5.0.15
+@tanstack/react-query....... 5.104.0
+axios....................... 1.20.0
+socket.io-client............ 4.8.4
+react-native-gifted-charts.. 1.4.78
+react-native-svg............ 15.15.4
+expo-location............... 57.0.20
+expo-image-picker........... 57.0.20
+expo-notifications.......... 57.0.21
+expo-secure-store........... 57.0.4
+expo-file-system............ 57.0.7
+expo-sharing................ 57.0.22
+@react-native-community/netinfo 12.0.1
+typescript.................. 6.0.3
+
+## Testes
+@playwright/test............ 1.63.0
+vitest...................... 5.0.2
+autocannon.................. 8.0.0
+sharp....................... 0.35.5
+pdfjs-dist.................. 5.7.284
+Playwright CLI.............. Version 1.63.0
+
+Observação: TypeScript 6.0.x (e não 7.x) porque o typescript-eslint suporta até TS < 6.1;
+o template do Expo SDK 57 também usa TypeScript ~6.0.3.

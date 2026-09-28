@@ -1,0 +1,179 @@
+postgres-1  | 2026-09-27T20:53:50.560762695Z The files belonging to this database system will be owned by user "postgres".
+postgres-1  | 2026-09-27T20:53:50.560801407Z This user must also own the server process.
+postgres-1  | 2026-09-27T20:53:50.560804207Z 
+postgres-1  | 2026-09-27T20:53:50.560911167Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-1  | 2026-09-27T20:53:50.560917818Z The default database encoding has accordingly been set to "UTF8".
+postgres-1  | 2026-09-27T20:53:50.560920648Z The default text search configuration will be set to "english".
+postgres-1  | 2026-09-27T20:53:50.560923368Z 
+postgres-1  | 2026-09-27T20:53:50.560925868Z Data page checksums are enabled.
+postgres-1  | 2026-09-27T20:53:50.560928718Z 
+postgres-1  | 2026-09-27T20:53:50.560965821Z fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+postgres-1  | 2026-09-27T20:53:50.568330057Z creating subdirectories ... ok
+postgres-1  | 2026-09-27T20:53:50.568346368Z selecting dynamic shared memory implementation ... posix
+postgres-1  | 2026-09-27T20:53:50.585449999Z selecting default "max_connections" ... 100
+postgres-1  | 2026-09-27T20:53:50.608337002Z selecting default "shared_buffers" ... 128MB
+postgres-1  | 2026-09-27T20:53:50.608381890Z selecting default time zone ... America/Sao_Paulo
+postgres-1  | 2026-09-27T20:53:50.609218150Z creating configuration files ... ok
+postgres-1  | 2026-09-27T20:53:50.710050938Z running bootstrap script ... ok
+postgres-1  | 2026-09-27T20:53:50.871242697Z sh: locale: not found
+postgres-1  | 2026-09-27T20:53:50.871268468Z 2026-09-27 17:53:50.871 -03 [40] WARNING:  no usable system locales were found
+postgres-1  | 2026-09-27T20:53:51.201321538Z performing post-bootstrap initialization ... ok
+postgres-1  | 2026-09-27T20:53:51.576223327Z initdb: warning: enabling "trust" authentication for local connections
+postgres-1  | 2026-09-27T20:53:51.576248038Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-1  | 2026-09-27T20:53:51.576235903Z syncing data to disk ... ok
+postgres-1  | 2026-09-27T20:53:51.576253848Z 
+postgres-1  | 2026-09-27T20:53:51.576255489Z 
+postgres-1  | 2026-09-27T20:53:51.576257209Z Success. You can now start the database server using:
+postgres-1  | 2026-09-27T20:53:51.576258669Z 
+postgres-1  | 2026-09-27T20:53:51.576260039Z     pg_ctl -D /var/lib/postgresql/18/docker -l logfile start
+postgres-1  | 2026-09-27T20:53:51.576261509Z 
+postgres-1  | 2026-09-27T20:53:51.620362810Z waiting for server to start....2026-09-27 17:53:51.620 -03 [46] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres-1  | 2026-09-27T20:53:51.625352002Z 2026-09-27 17:53:51.625 -03 [46] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-27T20:53:51.633512050Z 2026-09-27 17:53:51.633 -03 [52] LOG:  database system was shut down at 2026-09-27 17:53:51 -03
+postgres-1  | 2026-09-27T20:53:51.637582983Z 2026-09-27 17:53:51.637 -03 [46] LOG:  database system is ready to accept connections
+postgres-1  | 2026-09-27T20:53:51.693406866Z  done
+postgres-1  | 2026-09-27T20:53:51.693429467Z server started
+postgres-1  | 2026-09-27T20:53:51.809859690Z CREATE DATABASE
+postgres-1  | 2026-09-27T20:53:51.810362813Z 
+postgres-1  | 2026-09-27T20:53:51.810408885Z 
+postgres-1  | 2026-09-27T20:53:51.810502041Z /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01-init.sql
+postgres-1  | 2026-09-27T20:53:52.752105642Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:52.756955731Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:52.761080576Z CREATE ROLE
+postgres-1  | 2026-09-27T20:53:52.764946227Z CREATE ROLE
+postgres-1  | 2026-09-27T20:53:52.768656830Z CREATE ROLE
+postgres-1  | 2026-09-27T20:53:52.772477487Z CREATE ROLE
+postgres-1  | 2026-09-27T20:53:52.776301306Z CREATE ROLE
+postgres-1  | 2026-09-27T20:53:52.777610881Z CREATE SCHEMA
+postgres-1  | 2026-09-27T20:53:52.778639918Z CREATE SCHEMA
+postgres-1  | 2026-09-27T20:53:52.779618447Z CREATE SCHEMA
+postgres-1  | 2026-09-27T20:53:52.780645103Z CREATE SCHEMA
+postgres-1  | 2026-09-27T20:53:52.781819177Z CREATE SCHEMA
+postgres-1  | 2026-09-27T20:53:52.783039238Z ALTER ROLE
+postgres-1  | 2026-09-27T20:53:52.783994921Z ALTER ROLE
+postgres-1  | 2026-09-27T20:53:52.784960899Z ALTER ROLE
+postgres-1  | 2026-09-27T20:53:52.785865898Z ALTER ROLE
+postgres-1  | 2026-09-27T20:53:52.786769307Z ALTER ROLE
+postgres-1  | 2026-09-27T20:53:52.787975658Z REVOKE
+postgres-1  | 2026-09-27T20:53:52.789133566Z DO
+postgres-1  | 2026-09-27T20:53:52.789824558Z 
+postgres-1  | 2026-09-27T20:53:52.789834229Z 
+postgres-1  | 2026-09-27T20:53:52.789836769Z /usr/local/bin/docker-entrypoint.sh: sourcing /docker-entrypoint-initdb.d/10_postgis.sh
+postgres-1  | 2026-09-27T20:53:52.888975039Z CREATE DATABASE
+postgres-1  | 2026-09-27T20:53:52.889558331Z Loading PostGIS extensions into template_postgis
+postgres-1  | 2026-09-27T20:53:53.719142361Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:53.785324650Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:53.788398854Z You are now connected to database "template_postgis" as user "ecoradar_admin".
+postgres-1  | 2026-09-27T20:53:54.181160449Z DO
+postgres-1  | 2026-09-27T20:53:54.181601513Z Loading PostGIS extensions into ecoradar
+postgres-1  | 2026-09-27T20:53:54.188021503Z NOTICE:  extension "postgis" already exists, skipping
+postgres-1  | 2026-09-27T20:53:54.188059769Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:54.228081636Z CREATE EXTENSION
+postgres-1  | 2026-09-27T20:53:54.230713820Z You are now connected to database "ecoradar" as user "ecoradar_admin".
+postgres-1  | 2026-09-27T20:53:54.575224824Z DO
+postgres-1  | 2026-09-27T20:53:54.575712220Z 
+postgres-1  | 2026-09-27T20:53:54.576537059Z waiting for server to shut down...2026-09-27 17:53:54.576 -03 [46] LOG:  received fast shutdown request
+postgres-1  | 2026-09-27T20:53:54.640162840Z .2026-09-27 17:53:54.639 -03 [46] LOG:  aborting any active transactions
+postgres-1  | 2026-09-27T20:53:54.642067824Z 2026-09-27 17:53:54.641 -03 [46] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+postgres-1  | 2026-09-27T20:53:54.642344293Z 2026-09-27 17:53:54.642 -03 [50] LOG:  shutting down
+postgres-1  | 2026-09-27T20:53:54.644198334Z 2026-09-27 17:53:54.644 -03 [50] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-09-27T20:53:55.563036907Z 2026-09-27 17:53:55.562 -03 [79] FATAL:  the database system is shutting down
+postgres-1  | 2026-09-27T20:53:56.118702406Z .2026-09-27 17:53:56.118 -03 [50] LOG:  checkpoint complete: wrote 4492 buffers (27.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=0.055 s, sync=1.408 s, total=1.477 s; sync files=972, longest=0.518 s, average=0.002 s; distance=35219 kB, estimate=35219 kB; lsn=0/39CABD0, redo lsn=0/39CABD0
+postgres-1  | 2026-09-27T20:53:56.136731479Z 2026-09-27 17:53:56.136 -03 [46] LOG:  database system is shut down
+postgres-1  | 2026-09-27T20:53:56.179022070Z  done
+postgres-1  | 2026-09-27T20:53:56.179044991Z server stopped
+postgres-1  | 2026-09-27T20:53:56.180073757Z 
+postgres-1  | 2026-09-27T20:53:56.180082988Z PostgreSQL init process complete; ready for start up.
+postgres-1  | 2026-09-27T20:53:56.180085658Z 
+postgres-1  | 2026-09-27T20:53:56.210327997Z 2026-09-27 17:53:56.210 -03 [1] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres-1  | 2026-09-27T20:53:56.210430153Z 2026-09-27 17:53:56.210 -03 [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-09-27T20:53:56.210462224Z 2026-09-27 17:53:56.210 -03 [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-09-27T20:53:56.214222469Z 2026-09-27 17:53:56.214 -03 [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-27T20:53:56.289513614Z 2026-09-27 17:53:56.289 -03 [86] LOG:  database system was shut down at 2026-09-27 17:53:56 -03
+postgres-1  | 2026-09-27T20:53:56.294234902Z 2026-09-27 17:53:56.294 -03 [1] LOG:  database system is ready to accept connections
+postgres-1  | 2026-09-27T20:58:56.376002323Z 2026-09-27 17:58:56.375 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:00:36.139122156Z 2026-09-27 18:00:36.138 -03 [84] LOG:  checkpoint complete: wrote 996 buffers (6.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=99.699 s, sync=0.055 s, total=99.764 s; sync files=246, longest=0.002 s, average=0.001 s; distance=22372 kB, estimate=22372 kB; lsn=0/4FF2388, redo lsn=0/4FA3D90
+postgres-1  | 2026-09-27T21:03:56.229645619Z 2026-09-27 18:03:56.229 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:04:01.555942982Z 2026-09-27 18:04:01.555 -03 [84] LOG:  checkpoint complete: wrote 53 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=5.313 s, sync=0.005 s, total=5.327 s; sync files=13, longest=0.002 s, average=0.001 s; distance=560 kB, estimate=20191 kB; lsn=0/5040810, redo lsn=0/5030038
+postgres-1  | 2026-09-27T21:08:56.640352599Z 2026-09-27 18:08:56.640 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:09:03.068007569Z 2026-09-27 18:09:03.067 -03 [84] LOG:  checkpoint complete: wrote 64 buffers (0.4%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=6.416 s, sync=0.005 s, total=6.428 s; sync files=12, longest=0.002 s, average=0.001 s; distance=466 kB, estimate=18218 kB; lsn=0/50B3128, redo lsn=0/50A4B08
+postgres-1  | 2026-09-27T21:13:56.098440272Z 2026-09-27 18:13:56.098 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:14:02.332558010Z 2026-09-27 18:14:02.332 -03 [84] LOG:  checkpoint complete: wrote 62 buffers (0.4%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=6.215 s, sync=0.012 s, total=6.235 s; sync files=11, longest=0.008 s, average=0.002 s; distance=428 kB, estimate=16439 kB; lsn=0/511E128, redo lsn=0/510FB50
+postgres-1  | 2026-09-27T21:18:56.379545175Z 2026-09-27 18:18:56.379 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:19:01.103507405Z 2026-09-27 18:19:01.103 -03 [84] LOG:  checkpoint complete: wrote 47 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.712 s, sync=0.005 s, total=4.725 s; sync files=12, longest=0.003 s, average=0.001 s; distance=349 kB, estimate=14830 kB; lsn=0/5167130, redo lsn=0/51670D8
+postgres-1  | 2026-09-27T21:23:56.188560827Z 2026-09-27 18:23:56.188 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:24:04.819528674Z 2026-09-27 18:24:04.819 -03 [84] LOG:  checkpoint complete: wrote 86 buffers (0.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=8.619 s, sync=0.005 s, total=8.631 s; sync files=14, longest=0.002 s, average=0.001 s; distance=644 kB, estimate=13412 kB; lsn=0/52142D0, redo lsn=0/5208490
+postgres-1  | 2026-09-27T21:28:56.904017733Z 2026-09-27 18:28:56.903 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:29:01.627903405Z 2026-09-27 18:29:01.627 -03 [84] LOG:  checkpoint complete: wrote 47 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.712 s, sync=0.005 s, total=4.724 s; sync files=15, longest=0.003 s, average=0.001 s; distance=324 kB, estimate=12103 kB; lsn=0/526E7A0, redo lsn=0/5259570
+postgres-1  | 2026-09-27T21:30:11.324448011Z 2026-09-27 18:30:11.324 -03 [694] ERROR:  duplicate key value violates unique constraint "confirmacoes_pk"
+postgres-1  | 2026-09-27T21:30:11.324467692Z 2026-09-27 18:30:11.324 -03 [694] DETAIL:  Key (ocorrencia_id, usuario_id)=(f57cb3a1-867d-4174-acf6-f8d13269f0da, d610df7d-d124-4d68-98a6-b6d92987e641) already exists.
+postgres-1  | 2026-09-27T21:30:11.324471533Z 2026-09-27 18:30:11.324 -03 [694] STATEMENT:  insert into "confirmacoes" ("ocorrencia_id", "usuario_id", "usuario_nome", "criado_em") values ($1, $2, $3, default)
+postgres-1  | 2026-09-27T21:30:13.930293272Z 2026-09-27 18:30:13.930 -03 [5094] ERROR:  duplicate key value violates unique constraint "usuarios_email_unico"
+postgres-1  | 2026-09-27T21:30:13.930328774Z 2026-09-27 18:30:13.930 -03 [5094] DETAIL:  Key (lower(email))=(integracao.1790544610720@teste.ecoradar.local) already exists.
+postgres-1  | 2026-09-27T21:30:13.930335455Z 2026-09-27 18:30:13.930 -03 [5094] STATEMENT:  insert into "usuarios" ("id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em") values (default, $1, $2, $3, $4, $5, default, default, default) returning "id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em"
+postgres-1  | 2026-09-27T21:30:28.466396087Z 2026-09-27 18:30:28.466 -03 [5095] ERROR:  duplicate key value violates unique constraint "confirmacoes_pk"
+postgres-1  | 2026-09-27T21:30:28.466414598Z 2026-09-27 18:30:28.466 -03 [5095] DETAIL:  Key (ocorrencia_id, usuario_id)=(0889a09d-71ee-4fe6-8b7c-68a0b6a00e67, d610df7d-d124-4d68-98a6-b6d92987e641) already exists.
+postgres-1  | 2026-09-27T21:30:28.466419199Z 2026-09-27 18:30:28.466 -03 [5095] STATEMENT:  insert into "confirmacoes" ("ocorrencia_id", "usuario_id", "usuario_nome", "criado_em") values ($1, $2, $3, default)
+postgres-1  | 2026-09-27T21:30:30.863320843Z 2026-09-27 18:30:30.863 -03 [5131] ERROR:  duplicate key value violates unique constraint "usuarios_email_unico"
+postgres-1  | 2026-09-27T21:30:30.863347475Z 2026-09-27 18:30:30.863 -03 [5131] DETAIL:  Key (lower(email))=(integracao.1790544627938@teste.ecoradar.local) already exists.
+postgres-1  | 2026-09-27T21:30:30.863350105Z 2026-09-27 18:30:30.863 -03 [5131] STATEMENT:  insert into "usuarios" ("id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em") values (default, $1, $2, $3, $4, $5, default, default, default) returning "id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em"
+postgres-1  | 2026-09-27T21:33:56.709892667Z 2026-09-27 18:33:56.709 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:34:20.579288965Z 2026-09-27 18:34:20.579 -03 [84] LOG:  checkpoint complete: wrote 238 buffers (1.5%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=23.848 s, sync=0.014 s, total=23.870 s; sync files=86, longest=0.003 s, average=0.001 s; distance=1765 kB, estimate=11069 kB; lsn=0/54225C0, redo lsn=0/5412B80
+postgres-1  | 2026-09-27T21:38:56.604735670Z 2026-09-27 18:38:56.604 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:39:04.234496877Z 2026-09-27 18:39:04.234 -03 [84] LOG:  checkpoint complete: wrote 76 buffers (0.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=7.616 s, sync=0.004 s, total=7.630 s; sync files=14, longest=0.002 s, average=0.001 s; distance=552 kB, estimate=10017 kB; lsn=0/54AE950, redo lsn=0/549CEE0
+postgres-1  | 2026-09-27T21:43:56.319466532Z 2026-09-27 18:43:56.319 -03 [84] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-27T21:44:01.843949654Z 2026-09-27 18:44:01.843 -03 [84] LOG:  checkpoint complete: wrote 55 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=5.513 s, sync=0.004 s, total=5.525 s; sync files=11, longest=0.002 s, average=0.001 s; distance=403 kB, estimate=9056 kB; lsn=0/55104A0, redo lsn=0/5501DD0
+postgres-1  | 2026-09-27T21:46:04.032809899Z 2026-09-27 18:46:04.032 -03 [1] LOG:  received fast shutdown request
+postgres-1  | 2026-09-27T21:46:04.034942490Z 2026-09-27 18:46:04.034 -03 [1] LOG:  aborting any active transactions
+postgres-1  | 2026-09-27T21:46:04.038035179Z 2026-09-27 18:46:04.037 -03 [1] LOG:  background worker "logical replication launcher" (PID 89) exited with exit code 1
+postgres-1  | 2026-09-27T21:46:04.038045820Z 2026-09-27 18:46:04.037 -03 [84] LOG:  shutting down
+postgres-1  | 2026-09-27T21:46:04.039919408Z 2026-09-27 18:46:04.039 -03 [84] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-09-27T21:46:04.051839899Z 2026-09-27 18:46:04.051 -03 [84] LOG:  checkpoint complete: wrote 49 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.004 s, total=0.014 s; sync files=11, longest=0.002 s, average=0.001 s; distance=313 kB, estimate=8182 kB; lsn=0/55501E0, redo lsn=0/55501E0
+postgres-1  | 2026-09-27T21:46:04.067759150Z 2026-09-27 18:46:04.067 -03 [1] LOG:  database system is shut down
+postgres-1  | 2026-09-28T02:04:32.613604494Z 
+postgres-1  | 2026-09-28T02:04:32.614355207Z PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  | 2026-09-28T02:04:32.614363727Z 
+postgres-1  | 2026-09-28T02:04:32.684925933Z 2026-09-27 23:04:32.684 -03 [1] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres-1  | 2026-09-28T02:04:32.684951484Z 2026-09-27 23:04:32.684 -03 [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-09-28T02:04:32.684978014Z 2026-09-27 23:04:32.684 -03 [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-09-28T02:04:32.688712633Z 2026-09-27 23:04:32.688 -03 [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-28T02:04:32.695187477Z 2026-09-27 23:04:32.695 -03 [32] LOG:  database system was shut down at 2026-09-27 18:46:04 -03
+postgres-1  | 2026-09-28T02:04:32.703562347Z 2026-09-27 23:04:32.703 -03 [1] LOG:  database system is ready to accept connections
+postgres-1  | 2026-09-28T02:09:32.744691727Z 2026-09-27 23:09:32.744 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:09:38.579757315Z 2026-09-27 23:09:38.579 -03 [30] LOG:  checkpoint complete: wrote 58 buffers (0.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=5.820 s, sync=0.007 s, total=5.836 s; sync files=18, longest=0.003 s, average=0.001 s; distance=377 kB, estimate=377 kB; lsn=0/55BDD20, redo lsn=0/55AE8A0
+postgres-1  | 2026-09-28T02:14:32.664731786Z 2026-09-27 23:14:32.664 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:14:41.707656252Z 2026-09-27 23:14:41.707 -03 [30] LOG:  checkpoint complete: wrote 90 buffers (0.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=9.023 s, sync=0.012 s, total=9.043 s; sync files=47, longest=0.002 s, average=0.001 s; distance=466 kB, estimate=466 kB; lsn=0/5635340, redo lsn=0/5623338
+postgres-1  | 2026-09-28T02:19:32.789357124Z 2026-09-27 23:19:32.789 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:19:44.745564442Z 2026-09-27 23:19:44.745 -03 [30] LOG:  checkpoint complete: wrote 119 buffers (0.7%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=11.930 s, sync=0.017 s, total=11.957 s; sync files=44, longest=0.002 s, average=0.001 s; distance=744 kB, estimate=744 kB; lsn=0/5714D20, redo lsn=0/56DD4A0
+postgres-1  | 2026-09-28T02:24:32.830036234Z 2026-09-27 23:24:32.829 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:24:42.482201119Z 2026-09-27 23:24:42.482 -03 [30] LOG:  checkpoint complete: wrote 96 buffers (0.6%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=9.631 s, sync=0.009 s, total=9.653 s; sync files=42, longest=0.002 s, average=0.001 s; distance=543 kB, estimate=724 kB; lsn=0/5773968, redo lsn=0/57650A0
+postgres-1  | 2026-09-28T02:29:32.566231139Z 2026-09-27 23:29:32.565 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:29:37.892211754Z 2026-09-27 23:29:37.891 -03 [30] LOG:  checkpoint complete: wrote 53 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=5.313 s, sync=0.005 s, total=5.327 s; sync files=13, longest=0.002 s, average=0.001 s; distance=378 kB, estimate=689 kB; lsn=0/57D0418, redo lsn=0/57C3C40
+postgres-1  | 2026-09-28T02:34:32.893519876Z 2026-09-27 23:34:32.893 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:34:50.478630906Z 2026-09-27 23:34:50.478 -03 [30] LOG:  checkpoint complete: wrote 175 buffers (1.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=17.546 s, sync=0.030 s, total=17.586 s; sync files=81, longest=0.007 s, average=0.001 s; distance=1309 kB, estimate=1309 kB; lsn=0/591B170, redo lsn=0/590B1F0
+postgres-1  | 2026-09-28T02:34:54.788571369Z 2026-09-27 23:34:54.788 -03 [4162] ERROR:  duplicate key value violates unique constraint "confirmacoes_pk"
+postgres-1  | 2026-09-28T02:34:54.788600061Z 2026-09-27 23:34:54.788 -03 [4162] DETAIL:  Key (ocorrencia_id, usuario_id)=(36e9fd03-4aaa-4c4c-9f27-79b5f0320b97, fd8f651e-d365-4579-9ff2-ce88b5975551) already exists.
+postgres-1  | 2026-09-28T02:34:54.788602881Z 2026-09-27 23:34:54.788 -03 [4162] STATEMENT:  insert into "confirmacoes" ("ocorrencia_id", "usuario_id", "usuario_nome", "criado_em") values ($1, $2, $3, default)
+postgres-1  | 2026-09-28T02:34:57.218495738Z 2026-09-27 23:34:57.218 -03 [4314] ERROR:  duplicate key value violates unique constraint "usuarios_email_unico"
+postgres-1  | 2026-09-28T02:34:57.218528601Z 2026-09-27 23:34:57.218 -03 [4314] DETAIL:  Key (lower(email))=(integracao.1790562894292@teste.ecoradar.local) already exists.
+postgres-1  | 2026-09-28T02:34:57.218531641Z 2026-09-27 23:34:57.218 -03 [4314] STATEMENT:  insert into "usuarios" ("id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em") values (default, $1, $2, $3, $4, $5, default, default, default) returning "id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em"
+postgres-1  | 2026-09-28T02:39:32.562632069Z 2026-09-27 23:39:32.562 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:39:52.431600713Z 2026-09-27 23:39:52.431 -03 [30] LOG:  checkpoint complete: wrote 198 buffers (1.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=19.845 s, sync=0.011 s, total=19.869 s; sync files=57, longest=0.002 s, average=0.001 s; distance=1124 kB, estimate=1290 kB; lsn=0/5A366B8, redo lsn=0/5A24378
+postgres-1  | 2026-09-28T02:44:32.460968708Z 2026-09-27 23:44:32.460 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:44:42.611313451Z 2026-09-27 23:44:42.611 -03 [30] LOG:  checkpoint complete: wrote 101 buffers (0.6%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=10.133 s, sync=0.009 s, total=10.151 s; sync files=40, longest=0.004 s, average=0.001 s; distance=640 kB, estimate=1225 kB; lsn=0/5AD6090, redo lsn=0/5AC4728
+postgres-1  | 2026-09-28T02:46:39.596329630Z 2026-09-27 23:46:39.596 -03 [5266] ERROR:  duplicate key value violates unique constraint "confirmacoes_pk"
+postgres-1  | 2026-09-28T02:46:39.596361442Z 2026-09-27 23:46:39.596 -03 [5266] DETAIL:  Key (ocorrencia_id, usuario_id)=(3cc0077a-5640-4b6c-bd8f-cd5963e382d4, fd8f651e-d365-4579-9ff2-ce88b5975551) already exists.
+postgres-1  | 2026-09-28T02:46:39.596365412Z 2026-09-27 23:46:39.596 -03 [5266] STATEMENT:  insert into "confirmacoes" ("ocorrencia_id", "usuario_id", "usuario_nome", "criado_em") values ($1, $2, $3, default)
+postgres-1  | 2026-09-28T02:46:41.938559439Z 2026-09-27 23:46:41.938 -03 [5945] ERROR:  duplicate key value violates unique constraint "usuarios_email_unico"
+postgres-1  | 2026-09-28T02:46:41.938584491Z 2026-09-27 23:46:41.938 -03 [5945] DETAIL:  Key (lower(email))=(integracao.1790563598981@teste.ecoradar.local) already exists.
+postgres-1  | 2026-09-28T02:46:41.938587421Z 2026-09-27 23:46:41.938 -03 [5945] STATEMENT:  insert into "usuarios" ("id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em") values (default, $1, $2, $3, $4, $5, default, default, default) returning "id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em"
+postgres-1  | 2026-09-28T02:49:32.698449643Z 2026-09-27 23:49:32.698 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:49:55.285188922Z 2026-09-27 23:49:55.284 -03 [30] LOG:  checkpoint complete: wrote 225 buffers (1.4%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=22.559 s, sync=0.020 s, total=22.587 s; sync files=87, longest=0.003 s, average=0.001 s; distance=1882 kB, estimate=1882 kB; lsn=0/5CAEB18, redo lsn=0/5C9B0C0
+postgres-1  | 2026-09-28T02:50:15.770293278Z 2026-09-27 23:50:15.770 -03 [6277] ERROR:  duplicate key value violates unique constraint "confirmacoes_pk"
+postgres-1  | 2026-09-28T02:50:15.770310379Z 2026-09-27 23:50:15.770 -03 [6277] DETAIL:  Key (ocorrencia_id, usuario_id)=(81174b6c-cf6f-4989-8b88-4499311304e0, 4d4422fc-d24d-4e8f-98ea-bf07f0943624) already exists.
+postgres-1  | 2026-09-28T02:50:15.770313880Z 2026-09-27 23:50:15.770 -03 [6277] STATEMENT:  insert into "confirmacoes" ("ocorrencia_id", "usuario_id", "usuario_nome", "criado_em") values ($1, $2, $3, default)
+postgres-1  | 2026-09-28T02:50:18.269980646Z 2026-09-27 23:50:18.269 -03 [6498] ERROR:  duplicate key value violates unique constraint "usuarios_email_unico"
+postgres-1  | 2026-09-28T02:50:18.270007098Z 2026-09-27 23:50:18.269 -03 [6498] DETAIL:  Key (lower(email))=(integracao.1790563815238@teste.ecoradar.local) already exists.
+postgres-1  | 2026-09-28T02:50:18.270012608Z 2026-09-27 23:50:18.269 -03 [6498] STATEMENT:  insert into "usuarios" ("id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em") values (default, $1, $2, $3, $4, $5, default, default, default) returning "id", "nome", "email", "senha_hash", "perfil", "bairro", "criado_em", "atualizado_em", "ultimo_login_em"
+postgres-1  | 2026-09-28T02:54:32.373117079Z 2026-09-27 23:54:32.372 -03 [30] LOG:  checkpoint starting: time
+postgres-1  | 2026-09-28T02:54:48.326038151Z 2026-09-27 23:54:48.325 -03 [30] LOG:  checkpoint complete: wrote 159 buffers (1.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=15.933 s, sync=0.010 s, total=15.953 s; sync files=62, longest=0.002 s, average=0.001 s; distance=1038 kB, estimate=1798 kB; lsn=0/5DB3E20, redo lsn=0/5D9EBE0

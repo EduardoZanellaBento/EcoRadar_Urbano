@@ -1,0 +1,4 @@
+$ npx expo lint
+
+env: load .env
+env: export EXPO_PUBLIC_API_URL

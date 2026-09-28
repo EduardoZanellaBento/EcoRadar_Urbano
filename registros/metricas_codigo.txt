@@ -1,0 +1,34 @@
+Métricas do código-fonte — EcoRadar Urbano — 27/09/2026, 23:56:13
+
+Por módulo (código-fonte e testes; exclui node_modules, dist e arquivos gerados):
+
+Módulo                                         Arquivos   Linhas  Não vazias
+Pacote compartilhado                                 18     1496        1354
+auth-service                                          6      486         444
+ocorrencias-service                                  10     1464        1337
+ambiental-service                                    15     1603        1453
+alertas-service                                       6      859         782
+relatorios-service                                    7      937         861
+sensor-simulator                                      4      417         378
+seed (dados de demonstração)                          5      647         598
+App móvel (mobile/src)                               61     5497        5089
+Testes (integração, E2E, distribuído, carga)         26     2703        2493
+Scripts de automação                                 15      489         437
+Gateway (Nginx)                                       2      255         221
+Infraestrutura (PostgreSQL, RabbitMQ)                 2       67          57
+TOTAL                                               177    16920       15504
+
+Por linguagem (todo o projeto, inclusive documentação e migrações SQL):
+
+Linguagem                                      Arquivos   Linhas  Não vazias
+TypeScript                                          110    11050       10043
+TypeScript (TSX)                                     32     3868        3629
+JavaScript                                           15     1143        1049
+JSON                                                 21      545         524
+Markdown                                              6      488         378
+YAML                                                  1      289         269
+PowerShell                                            8      282         257
+SQL                                                   6      254         247
+Configuração (Nginx/RabbitMQ)                         2      225         189
+Shell                                                 6      156         138
+HTML                                                  1       46          45

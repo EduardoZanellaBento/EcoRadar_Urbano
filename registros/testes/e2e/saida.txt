@@ -1,0 +1,40 @@
+$ npx playwright test --config e2e/playwright.config.ts
+
+
+Running 28 tests using 1 worker
+
+  ok  1 [pixel-7] › e2e\01-acesso-mapa-registro.spec.ts:15:1 › 01 · onboarding, cadastro e login (com erro de senha) (9.1s)
+  ok  2 [pixel-7] › e2e\01-acesso-mapa-registro.spec.ts:64:1 › 02 · mapa com ocorrências, mananciais e estações; filtro por categoria (6.5s)
+  ok  3 [pixel-7] › e2e\01-acesso-mapa-registro.spec.ts:88:1 › 03 · registro completo com foto e aviso de área de manancial (4.6s)
+  ok  4 [pixel-7] › e2e\02-funcionalidades.spec.ts:20:1 › 04 · detalhe da ocorrência e confirmação colaborativa (1.8s)
+  ok  5 [pixel-7] › e2e\02-funcionalidades.spec.ts:46:1 › 05 · qualidade ambiental: IQAr, Open-Meteo e gráfico de 24 h (2.2s)
+  ok  6 [pixel-7] › e2e\02-funcionalidades.spec.ts:60:1 › 06 · tempo real entre dois dispositivos (Socket.IO) (5.7s)
+  ok  7 [pixel-7] › e2e\02-funcionalidades.spec.ts:105:1 › 07 · alerta disparado pelo ADMIN chega ao cidadão (banner + badge) (4.3s)
+  ok  8 [pixel-7] › e2e\02-funcionalidades.spec.ts:166:1 › 08 · modo offline: fila pendente, sincronização e idempotência (36.2s)
+  ok  9 [pixel-7] › e2e\02-funcionalidades.spec.ts:211:1 › 09 · relatórios com gráficos e exportação PDF/CSV (3.4s)
+  ok 10 [pixel-7] › e2e\02-funcionalidades.spec.ts:235:1 › 10 · status do sistema: microsserviços online, balanceamento e integrações (2.2s)
+  ok 11 [pixel-7] › e2e\02-funcionalidades.spec.ts:252:1 › 11 · painel do agente alterando status (2.3s)
+  ok 12 [pixel-7] › e2e\02-funcionalidades.spec.ts:273:1 › 12 · tema escuro em várias telas (7.4s)
+  ok 13 [pixel-7] › e2e\03-telas-principais.spec.ts:9:1 › N · navegação pelas telas principais (11.1s)
+  ok 14 [pixel-7] › e2e\03-telas-principais.spec.ts:60:1 › N · painel do agente em outro aparelho (1.0s)
+  -  15 [iphone-14] › e2e\01-acesso-mapa-registro.spec.ts:15:1 › 01 · onboarding, cadastro e login (com erro de senha)
+  -  16 [iphone-14] › e2e\01-acesso-mapa-registro.spec.ts:64:1 › 02 · mapa com ocorrências, mananciais e estações; filtro por categoria
+  -  17 [iphone-14] › e2e\01-acesso-mapa-registro.spec.ts:88:1 › 03 · registro completo com foto e aviso de área de manancial
+  -  18 [iphone-14] › e2e\02-funcionalidades.spec.ts:20:1 › 04 · detalhe da ocorrência e confirmação colaborativa
+  -  19 [iphone-14] › e2e\02-funcionalidades.spec.ts:46:1 › 05 · qualidade ambiental: IQAr, Open-Meteo e gráfico de 24 h
+  -  20 [iphone-14] › e2e\02-funcionalidades.spec.ts:60:1 › 06 · tempo real entre dois dispositivos (Socket.IO)
+  -  21 [iphone-14] › e2e\02-funcionalidades.spec.ts:105:1 › 07 · alerta disparado pelo ADMIN chega ao cidadão (banner + badge)
+  -  22 [iphone-14] › e2e\02-funcionalidades.spec.ts:166:1 › 08 · modo offline: fila pendente, sincronização e idempotência
+  -  23 [iphone-14] › e2e\02-funcionalidades.spec.ts:211:1 › 09 · relatórios com gráficos e exportação PDF/CSV
+  -  24 [iphone-14] › e2e\02-funcionalidades.spec.ts:235:1 › 10 · status do sistema: microsserviços online, balanceamento e integrações
+  -  25 [iphone-14] › e2e\02-funcionalidades.spec.ts:252:1 › 11 · painel do agente alterando status
+  -  26 [iphone-14] › e2e\02-funcionalidades.spec.ts:273:1 › 12 · tema escuro em várias telas
+  ok 27 [iphone-14] › e2e\03-telas-principais.spec.ts:9:1 › N · navegação pelas telas principais (10.9s)
+  ok 28 [iphone-14] › e2e\03-telas-principais.spec.ts:60:1 › N · painel do agente em outro aparelho (1.0s)
+
+  12 skipped
+  16 passed (1.9m)
+(node:23112) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

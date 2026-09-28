@@ -1,0 +1,119 @@
+$ npx tsx distribuido/executar.ts
+
+[23:52:18.054] == Teste 1 — Balanceamento de carga (Nginx round-robin, 2 réplicas)
+[23:52:18.153] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-2  15 ms  X-Request-Id: 81722332484ef8435908c79875665f51
+[23:52:18.158] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 5d74561ab97b9d7f2dbfeb1051585df3
+[23:52:18.165] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 725dc6aeacc26d07f09435e5f8f47b7f
+[23:52:18.172] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: a289402d790de5f34a489678e9ddebe6
+[23:52:18.177] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 29ccba526031aefd8ae477e4d8ed0123
+[23:52:18.183] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 420104c85fdcbdbd6e89c8aad83531ca
+[23:52:18.188] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 3aa51d87f7df99cddc951dbcab95f857
+[23:52:18.195] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: fd2078caa10065f1040b9ad2a6237474
+[23:52:18.200] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 9e749528b49e22e0bf6d8dec1a2443cc
+[23:52:18.204] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 13b4d6e47e73d2e7c81466dbca7c0f95
+[23:52:18.209] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 056518c2b653d425019c1f64fe314294
+[23:52:18.214] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 4a4df66395024f275aa5628215cde567
+[23:52:18.220] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: f55f1e20cd7c16805ef573c57cb4a347
+[23:52:18.224] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 8a6be81adbb22897f3050f8d236014f4
+[23:52:18.228] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-2  4 ms  X-Request-Id: 8dca1801f2fd0d79dd452d9e99a511b1
+[23:52:18.235] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: 03a48c11f8454fb7a46a0643b965c7e4
+[23:52:18.240] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 42011a2044c839aca458ed142a01178f
+[23:52:18.244] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 13fec1e084c54df53006d5df7a690ca6
+[23:52:18.251] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 95a530fdab7230e0aac313dc6eaaa521
+[23:52:18.257] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 79410232aa6d920c719b39c0e4842307
+[23:52:18.257] Resumo: 20/20 com sucesso · distribuição {"ocorrencias-2":10,"ocorrencias-1":10}
+[23:52:18.258] ✓ PASSOU: as requisições foram distribuídas entre as duas réplicas
+[23:52:18.339] == Teste 2 — Tolerância a falha de uma réplica do ocorrencias-service
+[23:52:19.209] >> docker compose stop ocorrencias-service-2
+[23:52:19.799] Estado da réplica 2: ausente
+[23:52:22.805] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-1  3006 ms  X-Request-Id: d158e82412a6761d03ee74b7359dbb65
+[23:52:22.810] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 4cb4dd542acf6252444e7c49101df8bd
+[23:52:22.813] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 109c28f6986f9f781e4282b2875841d8
+[23:52:22.819] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 83d4ae3c9e63f2f5b51be82db87df00e
+[23:52:22.826] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 6113d3a09ae7d5382de56e6545171c3c
+[23:52:22.831] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 2fa687789cdd10603afc769d3522ff78
+[23:52:22.836] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: c50b15891fa099ab8bc4f9ab830c1e2f
+[23:52:22.841] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 1d17fa2e1fc1cf1ef4e526ee24a831c2
+[23:52:22.847] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 86b63ea62fbd2cca9bc3a5721ca9a135
+[23:52:22.852] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 36039dfa06889e12e84119960ec17da9
+[23:52:22.859] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: 0a65673957d2fc08a47b9c4923f786fc
+[23:52:22.864] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 993df543b07953d28144c77525ee0fce
+[23:52:22.868] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 2f2ba03681e9fbb1b8ab63cd524bed98
+[23:52:22.874] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 9b9cd84ce92ba915719583939b8e17f4
+[23:52:22.879] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: f1f5d7959fefb552616a38902d352627
+[23:52:22.883] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 0ce18d6c0bc07e47c1c6aa8344ac541f
+[23:52:22.887] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 6602d277b398de7c9309f77af80f9228
+[23:52:22.892] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 276733006e9e703e3d12dddd9224d40a
+[23:52:22.896] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: ce1e0d1f67444c87da97b5e0b5ff5410
+[23:52:22.900] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 34fc88e7c023aaaa8ed206eb0951caf3
+[23:52:22.911] POST /api/ocorrencias com uma réplica fora -> HTTP 201 (instância ocorrencias-1)
+[23:52:26.374] >> docker compose start ocorrencias-service-2
+[23:52:32.968] ocorrencias-service-2 está healthy novamente (6.6 s)
+[23:52:38.976] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 69c693df9fcdb9283bed15d28959bc93
+[23:52:38.996] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-2  19 ms  X-Request-Id: 01adaed45dfdd735e89f17aea82ebe07
+[23:52:39.003] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: fdf4d95269eaecda1efda87b6dab79d5
+[23:52:39.010] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 33773493af546bf6fa299c47ae33093e
+[23:52:39.016] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: c2218346c443bd898a72c608eb048594
+[23:52:39.022] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 47817c873e767fca8b833a72c6dcf54e
+[23:52:39.026] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 770bcfd2b5d9838658453c4049b3190d
+[23:52:39.033] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 7675c67eb7ff13d05f92050f53730d0a
+[23:52:39.038] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 1707900f107735c00918ea0f6e0bec51
+[23:52:39.043] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: feb322147918cb62204e61be183a0a0e
+[23:52:39.047] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 59e5317365e46fde71aa3f159ed832c7
+[23:52:39.053] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 98c90c5c706723dd16bb4e7501d2af16
+[23:52:39.059] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 384c74844362021b4680906bc4add84d
+[23:52:39.064] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-2  4 ms  X-Request-Id: 655fa6c50893718f8069a4acaefff135
+[23:52:39.070] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 48625efcdc6f85c0f41222bbf4ac5e14
+[23:52:39.075] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 8a78eb3e8037530b9c953e96f33f080b
+[23:52:39.079] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 75274c5ca9356e63ed4e1c86f2a85e01
+[23:52:39.087] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-2  8 ms  X-Request-Id: 29d4454c593c5121192907e182540662
+[23:52:39.093] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 632c00a3a2e30f068e30bc8ab942e07e
+[23:52:39.100] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 827a7071eed92c6ac1d63861c5dd1efc
+[23:52:39.100] Durante a falha: 20/20 OK {"ocorrencias-1":20} · depois de religar: {"ocorrencias-1":10,"ocorrencias-2":10}
+[23:52:39.100] ✓ PASSOU: sem erros para o usuário durante a falha e a réplica voltou ao rodízio
+[23:52:39.232] == Teste 3 — Queda do RabbitMQ e consistência eventual (Transactional Outbox)
+[23:52:39.389] Estatísticas antes: 65 ocorrências na visão de leitura (relatorios-service)
+[23:52:41.428] >> docker compose stop rabbitmq
+[23:52:41.450] Ponto da invasão: -23.8, -46.64 (Represa Billings) — a mais de 1,5 km dos 4 alerta(s) de manancial dos últimos 30 min, para não cair na deduplicação
+[23:52:41.469] POST /api/ocorrencias (broker fora) -> HTTP 201 id=37f70094-e6f0-415e-8d81-34430b8af8ee instância=ocorrencias-2
+[23:52:41.480] POST /api/ocorrencias (broker fora) -> HTTP 201 id=b8e7c111-ba10-4a1c-907c-fd376c4f86bb instância=ocorrencias-1
+[23:52:41.488] POST /api/ocorrencias (broker fora) -> HTTP 201 id=3d5e4e86-0f3a-4604-99fc-72ec25ce61fa instância=ocorrencias-2
+[23:52:41.495] POST /api/ocorrencias (broker fora) -> HTTP 201 id=903661f5-b01d-45c9-a2e9-fd8acd04727b instância=ocorrencias-1
+[23:52:41.507] POST /api/ocorrencias (broker fora) -> HTTP 201 id=d1eb65f5-adbc-4823-bcb3-20b497ca207c instância=ocorrencias-2
+[23:52:41.511] Outbox com o broker fora: 5 evento(s) PENDENTE(S) — nada foi perdido, está guardado no banco
+[23:52:41.515] /api/ocorrencias/ready -> HTTP 503 {"banco":"ok","broker":"falha"} (serviço segue atendendo)
+[23:52:59.391] Broker ficou fora por 20.0 s
+[23:53:00.204] >> docker compose start rabbitmq
+[23:53:06.618] rabbitmq está healthy novamente (6.4 s)
+[23:53:06.623] Outbox zerado 7.2 s após religar o broker (reconexão com backoff exponencial)
+[23:53:20.786] Relatórios atualizados: 65 -> 70 ocorrências (21.4 s após religar)
+[23:53:20.792] Alerta gerado após a volta do broker: "Invasão de manancial em área de manancial" (ALTA)
+[23:53:22.501] >> Trechos dos logs: perda de conexão, backoff exponencial, reconexão e publicação do outbox
+[23:53:22.502] ✓ PASSOU: nenhum evento perdido; relatórios e alertas atualizados após a volta do broker (consistência eventual)
+[23:53:22.685] == Teste 4 — Falha da integração externa (Open-Meteo) e circuit breaker
+[23:53:23.590] Antes: fonte=ao_vivo circuito=FECHADO
+[23:53:23.593] POST /api/ambiental/integracoes/simular-falha {ativo:true} -> HTTP 200 (requisições passam a ir para um host inexistente .invalid)
+[23:53:23.645] consulta 1: fonte=cache        circuito=FECHADO      52 ms  motivo: Falha ao consultar a Open-Meteo: fetch failed
+[23:53:23.652] consulta 2: fonte=cache        circuito=ABERTO       6 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.656] consulta 3: fonte=cache        circuito=ABERTO       4 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.661] consulta 4: fonte=cache        circuito=ABERTO       5 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.663] status-integracoes: {"chamadas":5,"sucessos":1,"falhas":2,"timeouts":0,"rejeitadasCircuitoAberto":2} estado=ABERTO
+[23:53:26.117] Falha simulada desligada; aguardando o resetTimeout (30 s) para o circuito testar a API (MEIO_ABERTO)…
+[23:53:57.071] Recuperado: fonte=ao_vivo circuito=FECHADO atualizadoEm=2026-09-28T02:53:57.066Z
+[23:53:57.071] ✓ PASSOU: circuito abriu, o app mostrou o último dado em cache e a integração se recuperou sozinha
+[23:53:57.108] == Teste 5 — Rastreamento distribuído pelo X-Request-Id
+[23:53:57.184] POST /api/ocorrencias com X-Request-Id: rastreio-1790564037175-ff7ead1b -> HTTP 201; resposta devolveu X-Request-Id=rastreio-1790564037175-ff7ead1b
+[23:54:03.883] Linhas de log com o ID: 6 · serviços: relatorios-service-1, ocorrencias-service-2-1, alertas-service-1, gateway-1
+[23:54:03.883] ✓ PASSOU: o mesmo ID aparece no gateway, no serviço que atendeu e nos consumidores do evento
+# Testes de sistema distribuído
+
+Executado em 27/09/2026, 23:54:03 · duração 106 s
+
+| Teste | Resultado | Resumo |
+|---|---|---|
+| Balanceamento de carga | ✅ passou | 20 requisições: ocorrencias-2=10, ocorrencias-1=10 |
+| Tolerância a falha de réplica | ✅ passou | réplica 2 parada: 20/20 sucesso (todas em ocorrencias-1); religada: {"ocorrencias-1":10,"ocorrencias-2":10} |
+| Queda do broker + outbox | ✅ passou | 5 eventos pendentes com o broker fora ~20 s; outbox zerado e relatórios 65→70 após religar; alerta de manancial gerado |
+| Falha da Open-Meteo + circuit breaker | ✅ passou | circuito ABERTO e fonte "cache" durante a falha; FECHADO e "ao_vivo" após o resetTimeout |
+| Rastreamento por X-Request-Id | ✅ passou | ID encontrado em: relatorios-service-1, ocorrencias-service-2-1, alertas-service-1, gateway-1 |
+

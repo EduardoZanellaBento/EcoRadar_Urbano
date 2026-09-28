@@ -1,0 +1,56 @@
+[23:52:18.339] == Teste 2 — Tolerância a falha de uma réplica do ocorrencias-service
+[23:52:19.209] >> docker compose stop ocorrencias-service-2
+   Container ecoradar-ocorrencias-service-2-1 Stopping 
+    Container ecoradar-ocorrencias-service-2-1 Stopped
+[23:52:19.799] Estado da réplica 2: ausente
+[23:52:22.805] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-1  3006 ms  X-Request-Id: d158e82412a6761d03ee74b7359dbb65
+[23:52:22.810] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 4cb4dd542acf6252444e7c49101df8bd
+[23:52:22.813] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 109c28f6986f9f781e4282b2875841d8
+[23:52:22.819] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 83d4ae3c9e63f2f5b51be82db87df00e
+[23:52:22.826] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 6113d3a09ae7d5382de56e6545171c3c
+[23:52:22.831] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 2fa687789cdd10603afc769d3522ff78
+[23:52:22.836] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: c50b15891fa099ab8bc4f9ab830c1e2f
+[23:52:22.841] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 1d17fa2e1fc1cf1ef4e526ee24a831c2
+[23:52:22.847] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 86b63ea62fbd2cca9bc3a5721ca9a135
+[23:52:22.852] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 36039dfa06889e12e84119960ec17da9
+[23:52:22.859] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-1  7 ms  X-Request-Id: 0a65673957d2fc08a47b9c4923f786fc
+[23:52:22.864] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 993df543b07953d28144c77525ee0fce
+[23:52:22.868] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 2f2ba03681e9fbb1b8ab63cd524bed98
+[23:52:22.874] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 9b9cd84ce92ba915719583939b8e17f4
+[23:52:22.879] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: f1f5d7959fefb552616a38902d352627
+[23:52:22.883] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 0ce18d6c0bc07e47c1c6aa8344ac541f
+[23:52:22.887] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 6602d277b398de7c9309f77af80f9228
+[23:52:22.892] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-1  5 ms  X-Request-Id: 276733006e9e703e3d12dddd9224d40a
+[23:52:22.896] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: ce1e0d1f67444c87da97b5e0b5ff5410
+[23:52:22.900] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 34fc88e7c023aaaa8ed206eb0951caf3
+[23:52:22.911] POST /api/ocorrencias com uma réplica fora -> HTTP 201 (instância ocorrencias-1)
+[23:52:26.374] >> docker compose start ocorrencias-service-2
+   Container ecoradar-rabbitmq-1 Waiting 
+    Container ecoradar-postgres-1 Waiting 
+    Container ecoradar-postgres-1 Healthy 
+    Container ecoradar-rabbitmq-1 Healthy 
+    Container ecoradar-ocorrencias-service-2-1 Starting 
+    Container ecoradar-ocorrencias-service-2-1 Started
+[23:52:32.968] ocorrencias-service-2 está healthy novamente (6.6 s)
+[23:52:38.976] requisição 01 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 69c693df9fcdb9283bed15d28959bc93
+[23:52:38.996] requisição 02 -> HTTP 200  X-Instance-Id: ocorrencias-2  19 ms  X-Request-Id: 01adaed45dfdd735e89f17aea82ebe07
+[23:52:39.003] requisição 03 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: fdf4d95269eaecda1efda87b6dab79d5
+[23:52:39.010] requisição 04 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 33773493af546bf6fa299c47ae33093e
+[23:52:39.016] requisição 05 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: c2218346c443bd898a72c608eb048594
+[23:52:39.022] requisição 06 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 47817c873e767fca8b833a72c6dcf54e
+[23:52:39.026] requisição 07 -> HTTP 200  X-Instance-Id: ocorrencias-1  3 ms  X-Request-Id: 770bcfd2b5d9838658453c4049b3190d
+[23:52:39.033] requisição 08 -> HTTP 200  X-Instance-Id: ocorrencias-2  7 ms  X-Request-Id: 7675c67eb7ff13d05f92050f53730d0a
+[23:52:39.038] requisição 09 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 1707900f107735c00918ea0f6e0bec51
+[23:52:39.043] requisição 10 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: feb322147918cb62204e61be183a0a0e
+[23:52:39.047] requisição 11 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 59e5317365e46fde71aa3f159ed832c7
+[23:52:39.053] requisição 12 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 98c90c5c706723dd16bb4e7501d2af16
+[23:52:39.059] requisição 13 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 384c74844362021b4680906bc4add84d
+[23:52:39.064] requisição 14 -> HTTP 200  X-Instance-Id: ocorrencias-2  4 ms  X-Request-Id: 655fa6c50893718f8069a4acaefff135
+[23:52:39.070] requisição 15 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 48625efcdc6f85c0f41222bbf4ac5e14
+[23:52:39.075] requisição 16 -> HTTP 200  X-Instance-Id: ocorrencias-2  5 ms  X-Request-Id: 8a78eb3e8037530b9c953e96f33f080b
+[23:52:39.079] requisição 17 -> HTTP 200  X-Instance-Id: ocorrencias-1  4 ms  X-Request-Id: 75274c5ca9356e63ed4e1c86f2a85e01
+[23:52:39.087] requisição 18 -> HTTP 200  X-Instance-Id: ocorrencias-2  8 ms  X-Request-Id: 29d4454c593c5121192907e182540662
+[23:52:39.093] requisição 19 -> HTTP 200  X-Instance-Id: ocorrencias-1  6 ms  X-Request-Id: 632c00a3a2e30f068e30bc8ab942e07e
+[23:52:39.100] requisição 20 -> HTTP 200  X-Instance-Id: ocorrencias-2  6 ms  X-Request-Id: 827a7071eed92c6ac1d63861c5dd1efc
+[23:52:39.100] Durante a falha: 20/20 OK {"ocorrencias-1":20} · depois de religar: {"ocorrencias-1":10,"ocorrencias-2":10}
+[23:52:39.100] ✓ PASSOU: sem erros para o usuário durante a falha e a réplica voltou ao rodízio

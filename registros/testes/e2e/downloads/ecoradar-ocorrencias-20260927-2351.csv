@@ -1,0 +1,65 @@
+﻿id;registrada_em;categoria;severidade;status;bairro;latitude;longitude;confirmacoes;area_de_manancial;resolvida_em;descricao
+e4fc9374-8c1e-4e81-a1c2-02844aeb6599;2026-09-28T02:51:33.747Z;Descarte irregular de lixo;Média;Aberta;Sé;'-23.550500;'-46.633300;0;não;;E2E offline: entulho na calçada 5686065d
+f0ba9d0d-717d-44dc-bd82-2b4c7ea763e7;2026-09-28T02:50:51.833Z;Queimada;Crítica;Aberta;Sé;'-23.550500;'-46.633300;0;não;;E2E tempo real: fogo em terreno baldio 9f102a
+059b40d0-9f3b-4417-b4cd-81bc5dcb14e4;2026-09-28T02:50:43.368Z;Invasão de manancial;Alta;Aberta;Região Represa Guarapiranga;'-23.765000;'-46.770000;1;Represa Guarapiranga;;E2E: construção irregular na margem da represa 778c9a07
+81174b6c-cf6f-4989-8b88-4499311304e0;2026-09-28T02:50:15.658Z;Alagamento;Alta;Em análise;Ipiranga;'-23.586600;'-46.610300;1;não;;Integração: córrego transbordando na rua
+3bb44b28-da6c-4b18-98af-c3f3bad69a9f;2026-09-28T01:54:24.443Z;Invasão de manancial;Média;Aberta;Jardim Ângela;'-23.730225;'-46.741601;0;Represa Guarapiranga;;Loteamento clandestino com esgoto lançado direto na represa.
+b76e47aa-2bac-44d1-8a1f-50db7efeca5a;2026-09-27T19:56:28.055Z;Trânsito;Média;Aberta;Pinheiros;'-23.572757;'-46.692168;0;não;;Acidente bloqueando duas faixas da avenida.
+168f9fae-f82e-4b69-bfda-506a4997a079;2026-09-27T15:26:14.892Z;Invasão de manancial;Média;Resolvida;Região Represa Billings;'-23.803176;'-46.551386;3;Represa Billings;2026-09-28T02:47:52.206Z;Novas casas sendo erguidas em área de proteção ambiental.
+34cdb993-3a3a-4189-987b-141c5f6aba86;2026-09-27T09:23:33.070Z;Trânsito;Baixa;Descartada;Moema;'-23.598463;'-46.665950;0;não;;Acidente bloqueando duas faixas da avenida.
+004e7c95-6e97-4690-b1e8-af0abc8e7852;2026-09-27T05:46:00.584Z;Desmatamento;Alta;Resolvida;Região Represa Billings;'-23.798845;'-46.553546;0;Represa Billings;2026-09-28T02:47:52.206Z;Retirada de mata para abrir terreno, com troncos amontoados.
+088f99bf-9406-4061-8b32-4b215ee70fab;2026-09-27T03:23:37.585Z;Transporte público;Média;Em análise;Penha;'-23.527388;'-46.548492;3;não;;Ônibus da linha não passa há mais de 40 minutos.
+e42fab8f-9977-4cf2-8066-787cbf56562b;2026-09-26T21:32:47.212Z;Inversão térmica;Crítica;Em análise;Santana;'-23.499193;'-46.630333;1;não;;Manhã fria com névoa acinzentada e ar muito parado.
+9dd2b5b5-b2e6-4a19-85db-29a7b716261b;2026-09-25T19:11:25.906Z;Descarte irregular de lixo;Crítica;Em análise;Cambuci;'-23.572682;'-46.619131;3;não;;Descarte de pneus às margens do córrego.
+bed0dc0a-7507-4695-9a91-a76f5ae7e064;2026-09-25T15:23:55.012Z;Descarte irregular de lixo;Baixa;Descartada;Campo Limpo;'-23.641595;'-46.759873;0;não;;Descarte de pneus às margens do córrego.
+ec55c050-9036-4b0f-ba7f-5bf37b3cff08;2026-09-24T18:53:02.980Z;Inversão térmica;Alta;Resolvida;Bela Vista;'-23.557917;'-46.640779;1;não;2026-09-26T17:51:18.139Z;Camada de poluição visível no horizonte logo cedo.
+ab21730c-c761-44ee-91cc-f50c1cda612f;2026-09-24T18:15:23.248Z;Desmatamento;Alta;Em análise;Jaraguá;'-23.451293;'-46.745182;1;não;;Corte de árvores nativas em área de mata.
+9b4248b4-a2d0-49a0-b9ec-5c15ca00528f;2026-09-24T07:54:40.919Z;Desmatamento;Média;Em análise;Pedreira;'-23.742262;'-46.636032;3;Represa Billings;;Retirada de mata para abrir terreno, com troncos amontoados.
+51d859bb-a0ef-49e3-a5f1-7ad4966a931f;2026-09-23T18:45:57.533Z;Queimada;Baixa;Aberta;Jardim Ângela;'-23.714875;'-46.770754;0;Represa Guarapiranga;;Queima de lixo no quintal de um imóvel.
+c7c282f8-107c-4227-90ba-6859bbb7b2c1;2026-09-23T03:12:29.338Z;Inversão térmica;Média;Aberta;Sé;'-23.550762;'-46.635353;1;não;;Ar pesado e dificuldade para respirar pela manhã.
+b40a9ffc-959d-4438-9e40-e0f67eaf701e;2026-09-22T14:31:14.034Z;Desmatamento;Alta;Em análise;Parelheiros;'-23.799632;'-46.800355;3;Represa Guarapiranga;;Corte de árvores nativas em área de mata.
+187cb417-903c-4425-8ac0-997b36df1a6d;2026-09-22T03:04:03.933Z;Outros;Média;Aberta;Perdizes;'-23.531091;'-46.682584;0;não;;Vazamento de água limpa na rua há dois dias.
+a314c58b-3c03-4a0e-84dc-c44fa371e008;2026-09-21T18:09:36.271Z;Transporte público;Baixa;Aberta;Penha;'-23.526845;'-46.541817;0;não;;Ponto de ônibus sem cobertura e com banco quebrado.
+b94be659-2d2e-4695-9f9b-f861f70ada15;2026-09-20T03:46:14.345Z;Transporte público;Baixa;Aberta;Sé;'-23.550252;'-46.637971;3;não;;Ônibus da linha não passa há mais de 40 minutos.
+ea2eb876-eeef-4672-9833-beaa1dd2f973;2026-09-20T02:51:26.696Z;Desmatamento;Alta;Aberta;Parelheiros;'-23.799231;'-46.797876;3;Represa Guarapiranga;;Árvores cortadas sem autorização em praça do bairro.
+a884828c-0333-42d4-a044-b699ca64546e;2026-09-19T23:42:15.336Z;Transporte público;Alta;Em análise;Itaquera;'-23.533572;'-46.455976;1;não;;Estação superlotada, plataforma sem espaço para embarque.
+7998e606-e173-4630-a40a-e0989d6dae5d;2026-09-19T16:32:39.154Z;Alagamento;Média;Resolvida;Lapa;'-23.525278;'-46.707187;0;não;2026-09-22T08:45:13.746Z;"Rua completamente alagada após a chuva; carros não conseguem passar."
+93b12773-bce7-4402-bebe-f5aa00c8caf0;2026-09-19T10:50:04.682Z;Trânsito;Baixa;Em análise;Pinheiros;'-23.561341;'-46.698264;0;não;;Trânsito parado por causa de um buraco grande na pista.
+dc5aac2a-8bcf-4977-a866-4728d52b00ab;2026-09-18T09:47:58.128Z;Desmatamento;Média;Aberta;Brasilândia;'-23.466234;'-46.685971;2;não;;Máquinas derrubando vegetação próxima à represa.
+bc88d884-24c8-42b8-9f34-d0d2141ec425;2026-09-18T07:13:58.023Z;Descarte irregular de lixo;Crítica;Em análise;Sapopemba;'-23.598708;'-46.508692;1;não;;Descarte de pneus às margens do córrego.
+80450d2a-5d7c-4ba0-8cec-59bf4bd0313a;2026-09-17T15:17:56.132Z;Poluição do ar;Crítica;Aberta;República;'-23.541395;'-46.641436;1;não;;Ônibus soltando muita fumaça escura no ponto final.
+0436db48-3fb4-47cc-920d-f6ec26e23ff0;2026-09-17T12:19:22.264Z;Desmatamento;Alta;Aberta;Pedreira;'-23.741865;'-46.637743;2;Represa Billings;;Árvores cortadas sem autorização em praça do bairro.
+c6b9ab46-7d0a-4701-876a-ad735628fe01;2026-09-17T09:52:03.769Z;Desmatamento;Alta;Em análise;Região Represa Billings;'-23.796998;'-46.548844;2;Represa Billings;;Máquinas derrubando vegetação próxima à represa.
+17d57f3c-8d51-4071-a07f-8428258c13ad;2026-09-16T15:36:13.815Z;Descarte irregular de lixo;Alta;Em análise;Cambuci;'-23.572315;'-46.625395;1;não;;Entulho e móveis velhos jogados na calçada.
+edf4834a-ea92-46a6-b2fb-a6ed718cc993;2026-09-16T08:32:42.774Z;Invasão de manancial;Média;Aberta;Jardim Ângela;'-23.766867;'-46.771338;1;Represa Guarapiranga;;Aterro irregular sendo feito na beira da represa.
+778413e9-b052-417e-ac3f-3f19e545213d;2026-09-15T15:40:34.504Z;Outros;Média;Aberta;Saúde;'-23.620070;'-46.634335;2;não;;Poste com fiação exposta após o temporal.
+6602f5df-a85d-458b-a9cb-5f994782ca2a;2026-09-15T14:53:37.291Z;Transporte público;Crítica;Resolvida;Jabaquara;'-23.639004;'-46.636427;1;não;2026-09-17T08:23:50.386Z;Linha de trem operando com velocidade reduzida desde cedo.
+657c2cc2-b4b3-423b-98d4-29b2d9122c9b;2026-09-14T09:46:51.152Z;Desmatamento;Alta;Em análise;Jardim Ângela;'-23.728127;'-46.745746;0;Represa Guarapiranga;;Máquinas derrubando vegetação próxima à represa.
+c42fda33-f9d4-4f4c-a80b-d8fda07fa4cb;2026-09-13T18:51:44.618Z;Outros;Baixa;Em análise;Vila Mariana;'-23.593110;'-46.632732;0;não;;Poste com fiação exposta após o temporal.
+f259ad48-48fb-44df-bbde-7a7d47094974;2026-09-13T18:06:05.597Z;Descarte irregular de lixo;Média;Aberta;Cambuci;'-23.574675;'-46.616300;0;não;;Lixo acumulado em terreno baldio atraindo ratos.
+5dfdf454-99fb-4cc2-ab05-7ed991881ff5;2026-09-13T15:29:40.062Z;Descarte irregular de lixo;Média;Aberta;Campo Limpo;'-23.641727;'-46.763079;3;não;;Descarte de pneus às margens do córrego.
+4e092cae-98ca-417b-b559-e49c7a554341;2026-09-12T17:50:54.834Z;Desmatamento;Média;Aberta;Parelheiros;'-23.840570;'-46.817536;2;Represa Guarapiranga;;Corte de árvores nativas em área de mata.
+c8a69926-f656-4af0-8259-d256b7742d90;2026-09-12T16:58:17.044Z;Transporte público;Baixa;Descartada;Sé;'-23.545575;'-46.635574;0;não;;Ônibus da linha não passa há mais de 40 minutos.
+be7efd99-f5f7-460b-92c4-cac5a4258e16;2026-09-11T23:40:09.756Z;Poluição do ar;Média;Em análise;Brás;'-23.539050;'-46.620396;0;não;;Fumaça preta saindo da chaminé de uma fábrica há horas.
+02d943d2-cacf-420b-afe3-6578a83137fa;2026-09-11T19:55:33.026Z;Desmatamento;Média;Resolvida;Parelheiros;'-23.841513;'-46.823203;1;Represa Guarapiranga;2026-09-13T15:19:50.714Z;Máquinas derrubando vegetação próxima à represa.
+7da1266a-5998-472a-899d-b9a42f0eff52;2026-09-11T02:50:07.286Z;Invasão de manancial;Média;Aberta;Região Represa Billings;'-23.802633;'-46.547193;2;Represa Billings;;Novas casas sendo erguidas em área de proteção ambiental.
+fc974542-1fd5-4af4-9e64-4f7b7f767943;2026-09-10T21:42:22.320Z;Outros;Média;Em análise;Vila Mariana;'-23.592953;'-46.639875;0;não;;Barulho excessivo de obra durante a madrugada.
+5349a559-a99b-4df2-86a5-92d27ee56960;2026-09-10T12:59:19.573Z;Transporte público;Alta;Resolvida;Jabaquara;'-23.647847;'-46.645209;0;não;2026-09-12T01:14:27.814Z;Ponto de ônibus sem cobertura e com banco quebrado.
+409b102d-0579-423d-ad20-77f355862841;2026-09-10T08:50:37.088Z;Alagamento;Crítica;Aberta;Vila Prudente;'-23.586408;'-46.578868;2;não;;"Rua completamente alagada após a chuva; carros não conseguem passar."
+7a3190fa-2fb9-403b-9408-e889642d40a0;2026-09-08T11:38:48.194Z;Descarte irregular de lixo;Alta;Resolvida;Brasilândia;'-23.467324;'-46.681773;2;não;2026-09-09T14:06:20.234Z;Descarte de pneus às margens do córrego.
+74ee9ec4-8a28-4b18-bde2-48bd09458b33;2026-09-07T16:50:10.335Z;Inversão térmica;Média;Resolvida;Liberdade;'-23.559549;'-46.632677;2;não;2026-09-10T08:27:52.774Z;Ar pesado e dificuldade para respirar pela manhã.
+b9c92a2c-4e81-4122-8d5b-3f0161c3001f;2026-09-06T23:16:05.556Z;Outros;Baixa;Descartada;Vila Mariana;'-23.594068;'-46.633207;0;não;;Barulho excessivo de obra durante a madrugada.
+67b724bf-c5ab-461a-96a6-52a3bc7af941;2026-09-06T08:21:48.077Z;Transporte público;Baixa;Aberta;Penha;'-23.527659;'-46.550693;2;não;;Linha de trem operando com velocidade reduzida desde cedo.
+ed426c2b-838c-49ec-9c0e-bd24bca8abe3;2026-09-06T00:37:30.429Z;Alagamento;Média;Resolvida;Ipiranga;'-23.584062;'-46.606212;1;não;2026-09-08T06:16:27.673Z;Água invadindo calçadas e comércios próximos ao córrego.
+5f0eb4c7-b9f6-4453-915a-b2af45ec8f05;2026-09-05T23:34:22.780Z;Inversão térmica;Média;Resolvida;Liberdade;'-23.564361;'-46.636856;2;não;2026-09-08T07:21:44.503Z;Camada de poluição visível no horizonte logo cedo.
+f2d6258c-9758-44e5-a698-b8700ef41a4b;2026-09-05T18:51:43.958Z;Descarte irregular de lixo;Crítica;Resolvida;Jardim Ângela;'-23.764637;'-46.772262;2;Represa Guarapiranga;2026-09-07T00:20:45.698Z;Entulho e móveis velhos jogados na calçada.
+99791a36-115b-426a-9746-500fa55105ca;2026-09-04T01:02:08.849Z;Poluição do ar;Baixa;Aberta;Santa Cecília;'-23.537997;'-46.647743;0;não;;Ônibus soltando muita fumaça escura no ponto final.
+1599b09b-ae0a-4271-acb8-75b865a3d8a1;2026-09-03T22:25:19.622Z;Queimada;Média;Em análise;Jaraguá;'-23.453076;'-46.739712;1;não;;Queima de lixo no quintal de um imóvel.
+4e8e0aa2-200e-44ab-82f2-c41f1ae26d22;2026-09-01T13:15:32.707Z;Inversão térmica;Alta;Resolvida;Liberdade;'-23.562824;'-46.630540;2;não;2026-09-02T02:40:28.458Z;Camada de poluição visível no horizonte logo cedo.
+c07cc475-398e-40ee-a6ea-075a26a1f1d9;2026-08-31T21:40:27.314Z;Desmatamento;Média;Resolvida;Brasilândia;'-23.469107;'-46.683895;3;não;2026-09-01T05:20:11.595Z;Retirada de mata para abrir terreno, com troncos amontoados.
+f5f36cd5-3890-4e34-9ffe-cf022e3b600d;2026-08-31T09:49:07.140Z;Transporte público;Alta;Resolvida;Penha;'-23.525768;'-46.551935;2;não;2026-09-02T13:20:14.986Z;Linha de trem operando com velocidade reduzida desde cedo.
+4ef5a047-2b10-4058-817e-a3a87e18985a;2026-08-30T03:51:41.754Z;Descarte irregular de lixo;Média;Aberta;Cambuci;'-23.567442;'-46.620300;2;não;;Descarte de pneus às margens do córrego.
+3c731345-3ca5-495a-8932-b19e0e7526a7;2026-08-30T03:25:25.369Z;Queimada;Média;Resolvida;Guaianases;'-23.538206;'-46.417083;0;não;2026-09-01T09:11:03.843Z;Incêndio em vegetação às margens da avenida.
+dbdd65a6-bcce-4eb7-b6ca-20514488e439;2026-08-29T22:21:27.844Z;Trânsito;Baixa;Aberta;Santana;'-23.507490;'-46.621931;2;não;;Caminhão quebrado ocupando a faixa da direita.
+ea67c0b8-4813-45c6-ba99-2a4bfe86510b;2026-08-29T20:53:23.297Z;Inversão térmica;Baixa;Descartada;Sé;'-23.555774;'-46.630350;0;não;;Camada de poluição visível no horizonte logo cedo.
+be98a577-bfd8-4252-a18a-e04a4dc3fe41;2026-08-29T16:49:22.817Z;Poluição do ar;Alta;Em análise;Lapa;'-23.525220;'-46.698078;0;não;;Ônibus soltando muita fumaça escura no ponto final.

@@ -1,20 +1,12 @@
-﻿node.exe : npm notice run mobile@1.0.0 npx
-At line:1 char:1
-+ & "C:\Program Files\nodejs/node.exe" "C:\Users\duduz\AppData\Roaming\ ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (npm notice run mobile@1.0.0 npx:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-npm notice run expo export --platform web --output-dir dist
+$ npx expo export --platform web --output-dir dist
+
 env: load .env
 env: export EXPO_PUBLIC_API_URL
 Using src/app as the root directory for Expo Router.
 React Compiler enabled
 Starting Metro Bundler
 
-| (node:19748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-| (Use `node --trace-warnings ...` to show where the warning was created)
-Web Bundled 1030ms node_modules\expo-router\entry.js (1879 modules)
+Web Bundled 6601ms node_modules\expo-router\entry.js (1880 modules)
 
 › Assets (37):
 node_modules\@expo\vector-icons\build\vendor\react-native-vector-icons\Fonts\AntDesign.3f78af31cca60105799838a1a7a59fbd.ttf (130KB)
@@ -51,7 +43,7 @@ node_modules\expo-router\assets\unmatched.20e71bdf79e3a97bf55fd9e164041578.png (
 
 › web bundles (2):
 _expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css (11KB)
-_expo/static/js/web/entry-f60c383982d76e1c05bc1e6663e3ca7c.js (4.1MB)
+_expo/static/js/web/entry-46f35c5e459c8b79d36836e2ac84c0a3.js (4.1MB)
 
 › Files (3):
 favicon.ico (15KB)
@@ -59,3 +51,5 @@ index.html (1.5KB)
 metadata.json (49B)
 
 Exported: dist
+npm notice run mobile@1.0.0 npx
+npm notice run expo export --platform web --output-dir dist

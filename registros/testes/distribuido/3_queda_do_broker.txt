@@ -1,0 +1,63 @@
+[23:52:39.232] == Teste 3 — Queda do RabbitMQ e consistência eventual (Transactional Outbox)
+[23:52:39.389] Estatísticas antes: 65 ocorrências na visão de leitura (relatorios-service)
+[23:52:41.428] >> docker compose stop rabbitmq
+   Container ecoradar-rabbitmq-1 Stopping 
+    Container ecoradar-rabbitmq-1 Stopped
+[23:52:41.450] Ponto da invasão: -23.8, -46.64 (Represa Billings) — a mais de 1,5 km dos 4 alerta(s) de manancial dos últimos 30 min, para não cair na deduplicação
+[23:52:41.469] POST /api/ocorrencias (broker fora) -> HTTP 201 id=37f70094-e6f0-415e-8d81-34430b8af8ee instância=ocorrencias-2
+[23:52:41.480] POST /api/ocorrencias (broker fora) -> HTTP 201 id=b8e7c111-ba10-4a1c-907c-fd376c4f86bb instância=ocorrencias-1
+[23:52:41.488] POST /api/ocorrencias (broker fora) -> HTTP 201 id=3d5e4e86-0f3a-4604-99fc-72ec25ce61fa instância=ocorrencias-2
+[23:52:41.495] POST /api/ocorrencias (broker fora) -> HTTP 201 id=903661f5-b01d-45c9-a2e9-fd8acd04727b instância=ocorrencias-1
+[23:52:41.507] POST /api/ocorrencias (broker fora) -> HTTP 201 id=d1eb65f5-adbc-4823-bcb3-20b497ca207c instância=ocorrencias-2
+[23:52:41.511] Outbox com o broker fora: 5 evento(s) PENDENTE(S) — nada foi perdido, está guardado no banco
+[23:52:41.515] /api/ocorrencias/ready -> HTTP 503 {"banco":"ok","broker":"falha"} (serviço segue atendendo)
+[23:52:59.391] Broker ficou fora por 20.0 s
+[23:53:00.204] >> docker compose start rabbitmq
+   Container ecoradar-rabbitmq-1 Starting 
+    Container ecoradar-rabbitmq-1 Started
+[23:53:06.618] rabbitmq está healthy novamente (6.4 s)
+[23:53:06.623] Outbox zerado 7.2 s após religar o broker (reconexão com backoff exponencial)
+[23:53:20.786] Relatórios atualizados: 65 -> 70 ocorrências (21.4 s após religar)
+[23:53:20.792] Alerta gerado após a volta do broker: "Invasão de manancial em área de manancial" (ALTA)
+[23:53:22.501] >> Trechos dos logs: perda de conexão, backoff exponencial, reconexão e publicação do outbox
+   ocorrencias-service-2-1  | {"nivel":"warn","time":"2026-09-28T02:52:39.894Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","motivo":"canal encerrado","msg":"Conexão com o RabbitMQ perdida; reconectando com backoff exponencial"
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:52:39.894Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","tentativa":1,"atrasoMs":811,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-2-1  | {"nivel":"warn","time":"2026-09-28T02:52:40.707Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","err":{"type":"Error","message":"connect ECONNREFUSED 172.18.0.3:5672","stack":"…","errno":-111,"code":
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:52:40.708Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","tentativa":2,"atrasoMs":2331,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-2-1  | {"nivel":"warn","time":"2026-09-28T02:52:46.949Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOT
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:52:46.949Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","tentativa":3,"atrasoMs":4470,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-2-1  | {"nivel":"warn","time":"2026-09-28T02:52:54.907Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOT
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:52:54.907Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","tentativa":4,"atrasoMs":9475,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:52:56.008Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","requestId":"d70547f8-1b15-4d9d-9193-3984f1b039e8","req":{"method":"GET","url":"/api/ocorrencias/sistema/outbox","host":"lo
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:53:04.430Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","componente":"amqp","tentativasAnteriores":4,"msg":"Conectado ao RabbitMQ (AMQP)"}
+   ocorrencias-service-2-1  | {"nivel":"info","time":"2026-09-28T02:53:05.009Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","quantidade":5,"msg":"Eventos do outbox publicados no RabbitMQ"}
+   ocorrencias-service-1-1  | {"nivel":"warn","time":"2026-09-28T02:52:39.897Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","motivo":"canal encerrado","msg":"Conexão com o RabbitMQ perdida; reconectando com backoff exponencial"
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:52:39.897Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","tentativa":1,"atrasoMs":1152,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-1-1  | {"nivel":"warn","time":"2026-09-28T02:52:41.052Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","err":{"type":"Error","message":"connect ECONNREFUSED 172.18.0.3:5672","stack":"…","errno":-111,"code":
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:52:41.053Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","tentativa":2,"atrasoMs":2326,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:52:41.509Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","requestId":"ae57f001ae6f29342f283029be4f7396","req":{"method":"GET","url":"/api/ocorrencias/sistema/outbox","host":"localh
+   ocorrencias-service-1-1  | {"nivel":"warn","time":"2026-09-28T02:52:47.309Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOT
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:52:47.309Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","tentativa":3,"atrasoMs":3910,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-1-1  | {"nivel":"warn","time":"2026-09-28T02:52:55.119Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOT
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:52:55.119Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","tentativa":4,"atrasoMs":9340,"msg":"Nova tentativa de conexão AMQP agendada"}
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:53:04.506Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","componente":"amqp","tentativasAnteriores":4,"msg":"Conectado ao RabbitMQ (AMQP)"}
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:53:06.622Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","requestId":"ee68df3435f526d99c8d1473d865af7e","req":{"method":"GET","url":"/api/ocorrencias/sistema/outbox","host":"localh
+   ocorrencias-service-1-1  | {"nivel":"info","time":"2026-09-28T02:53:21.204Z","servico":"ocorrencias-service","instancia":"ocorrencias-1","requestId":"345b6b91-8c97-4c4d-83aa-2a2a0ed7bb98","req":{"method":"GET","url":"/api/ocorrencias/sistema/outbox","host":"lo
+   relatorios-service-1     | {"nivel":"warn","time":"2026-09-28T02:52:39.885Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","motivo":"canal encerrado","msg":"Conexão com o RabbitMQ perdida; reconectando com backoff exponencial"}
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:52:39.885Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativa":1,"atrasoMs":1131,"msg":"Nova tentativa de conexão AMQP agendada"}
+   relatorios-service-1     | {"nivel":"warn","time":"2026-09-28T02:52:41.019Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","err":{"type":"Error","message":"connect ECONNREFUSED 172.18.0.3:5672","stack":"…","errno":-111,"code":"E
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:52:41.019Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativa":2,"atrasoMs":1785,"msg":"Nova tentativa de conexão AMQP agendada"}
+   relatorios-service-1     | {"nivel":"warn","time":"2026-09-28T02:52:46.734Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOTFO
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:52:46.734Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativa":3,"atrasoMs":4128,"msg":"Nova tentativa de conexão AMQP agendada"}
+   relatorios-service-1     | {"nivel":"warn","time":"2026-09-28T02:52:54.765Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","err":{"type":"Error","message":"getaddrinfo ENOTFOUND rabbitmq","stack":"…","errno":-3008,"code":"ENOTFO
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:52:54.765Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativa":4,"atrasoMs":8040,"msg":"Nova tentativa de conexão AMQP agendada"}
+   relatorios-service-1     | {"nivel":"warn","time":"2026-09-28T02:53:02.809Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","err":{"type":"Error","message":"connect ECONNREFUSED 172.18.0.3:5672","stack":"…","errno":-111,"code":"E
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:02.809Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativa":5,"atrasoMs":17649,"msg":"Nova tentativa de conexão AMQP agendada"}
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.518Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","fila":"relatorios.eventos","chaves":["ocorrencia.*","alerta.*"],"msg":"Consumidor registrado"}
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.518Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","tentativasAnteriores":5,"msg":"Conectado ao RabbitMQ (AMQP)"}
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.524Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"2ccd7b66-afbc-4e1f-b1c7-e1399ad72da4","tipo":"ocorrencia.criada","requestId":"fe307ffe7da25e2
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.526Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"120b7782-c9f3-4a60-8b76-6abecc34e77a","tipo":"ocorrencia.criada","requestId":"b971327b15a1eb5
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.532Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"56056de8-e728-421a-9030-4566ba663981","tipo":"ocorrencia.criada","requestId":"ee6ade75580a0cf
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.533Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"53241bc1-aa89-409f-bd42-508b4b4b4c74","tipo":"ocorrencia.criada","requestId":"856b55cdcba9c71
+   relatorios-service-1     | {"nivel":"info","time":"2026-09-28T02:53:20.533Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"f805fbd7-6680-46cb-925b-48ecd0362435","tipo":"alerta.criado","requestId":"8ffb8fab2918b6305b8
+[23:53:22.502] ✓ PASSOU: nenhum evento perdido; relatórios e alertas atualizados após a volta do broker (consistência eventual)

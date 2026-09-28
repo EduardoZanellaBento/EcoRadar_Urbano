@@ -1,0 +1,65 @@
+{
+  "executadoEm": "2026-09-28T02:55:33.085Z",
+  "passos": [
+    {
+      "nome": "Backend: checagem de tipos (tsc --noEmit)",
+      "ok": true,
+      "segundos": "6.3",
+      "log": "registros/testes/qualidade/backend-tsc.txt"
+    },
+    {
+      "nome": "Backend: lint (ESLint)",
+      "ok": true,
+      "segundos": "15.8",
+      "log": "registros/testes/qualidade/backend-eslint.txt"
+    },
+    {
+      "nome": "Backend: testes unitários + cobertura (Vitest)",
+      "ok": true,
+      "segundos": "11.6",
+      "log": "registros/testes/unitarios/execucao.txt"
+    },
+    {
+      "nome": "App: checagem de tipos (tsc --noEmit)",
+      "ok": true,
+      "segundos": "4.7",
+      "log": "registros/testes/qualidade/mobile-tsc.txt"
+    },
+    {
+      "nome": "App: lint (expo lint)",
+      "ok": true,
+      "segundos": "22.3",
+      "log": "registros/testes/qualidade/mobile-lint.txt"
+    },
+    {
+      "nome": "Testes: checagem de tipos",
+      "ok": true,
+      "segundos": "2.9",
+      "log": "registros/testes/qualidade/testes-tsc.txt"
+    },
+    {
+      "nome": "Integração via gateway (Vitest)",
+      "ok": true,
+      "segundos": "7.2",
+      "log": "registros/testes/integracao/saida.txt"
+    },
+    {
+      "nome": "E2E com Playwright (Pixel 7 e iPhone 14)",
+      "ok": true,
+      "segundos": "116.9",
+      "log": "registros/testes/e2e/saida.txt"
+    },
+    {
+      "nome": "Sistema distribuído (falhas, broker, circuit breaker, rastreamento)",
+      "ok": true,
+      "segundos": "108.0",
+      "log": "registros/testes/distribuido/saida-console.txt"
+    },
+    {
+      "nome": "Carga leve (autocannon, 1 x 2 réplicas)",
+      "ok": true,
+      "segundos": "89.1",
+      "log": "registros/testes/carga/saida-console.txt"
+    }
+  ]
+}

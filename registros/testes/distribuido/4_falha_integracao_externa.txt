@@ -1,0 +1,11 @@
+[23:53:22.685] == Teste 4 — Falha da integração externa (Open-Meteo) e circuit breaker
+[23:53:23.590] Antes: fonte=ao_vivo circuito=FECHADO
+[23:53:23.593] POST /api/ambiental/integracoes/simular-falha {ativo:true} -> HTTP 200 (requisições passam a ir para um host inexistente .invalid)
+[23:53:23.645] consulta 1: fonte=cache        circuito=FECHADO      52 ms  motivo: Falha ao consultar a Open-Meteo: fetch failed
+[23:53:23.652] consulta 2: fonte=cache        circuito=ABERTO       6 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.656] consulta 3: fonte=cache        circuito=ABERTO       4 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.661] consulta 4: fonte=cache        circuito=ABERTO       5 ms  motivo: Circuito aberto após falhas consecutivas na Open-Meteo; exibindo o último dado válido.
+[23:53:23.663] status-integracoes: {"chamadas":5,"sucessos":1,"falhas":2,"timeouts":0,"rejeitadasCircuitoAberto":2} estado=ABERTO
+[23:53:26.117] Falha simulada desligada; aguardando o resetTimeout (30 s) para o circuito testar a API (MEIO_ABERTO)…
+[23:53:57.071] Recuperado: fonte=ao_vivo circuito=FECHADO atualizadoEm=2026-09-28T02:53:57.066Z
+[23:53:57.071] ✓ PASSOU: circuito abriu, o app mostrou o último dado em cache e a integração se recuperou sozinha

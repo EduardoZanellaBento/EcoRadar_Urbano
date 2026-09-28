@@ -1,0 +1,10 @@
+[23:53:57.108] == Teste 5 — Rastreamento distribuído pelo X-Request-Id
+[23:53:57.184] POST /api/ocorrencias com X-Request-Id: rastreio-1790564037175-ff7ead1b -> HTTP 201; resposta devolveu X-Request-Id=rastreio-1790564037175-ff7ead1b
+[23:54:03.883] Linhas de log com o ID: 6 · serviços: relatorios-service-1, ocorrencias-service-2-1, alertas-service-1, gateway-1
+   relatorios-service-1 | {"nivel":"info","time":"2026-09-28T02:53:57.242Z","servico":"relatorios-service","instancia":"relatorios-1","componente":"amqp","eventoId":"58492185-5656-4986-9256-53075b8ec90e","tipo":"ocorrencia.criada","requestId":"rastreio-
+   ocorrencias-service-2-1 | {"nivel":"info","time":"2026-09-28T02:53:57.178Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","requestId":"rastreio-1790564037175-ff7ead1b","req":{"method":"POST","url":"/api/ocorrencias","host":"localhost","
+   ocorrencias-service-2-1 | {"nivel":"info","time":"2026-09-28T02:53:57.183Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","requestId":"rastreio-1790564037175-ff7ead1b","ocorrenciaId":"d2fc38a3-6de2-4d80-b86a-18fa8f29d788","categoria":"T
+   ocorrencias-service-2-1 | {"nivel":"info","time":"2026-09-28T02:53:57.183Z","servico":"ocorrencias-service","instancia":"ocorrencias-2","requestId":"rastreio-1790564037175-ff7ead1b","res":{"statusCode":201},"responseTime":4.740302999998676,"msg":"req
+   alertas-service-1 | {"nivel":"info","time":"2026-09-28T02:53:57.237Z","servico":"alertas-service","instancia":"alertas-1","componente":"amqp","eventoId":"58492185-5656-4986-9256-53075b8ec90e","tipo":"ocorrencia.criada","requestId":"rastreio-179056403
+   gateway-1 | {"time":"2026-09-28T02:53:57+00:00","servico":"gateway","requestId":"rastreio-1790564037175-ff7ead1b","cliente":"172.18.0.1","metodo":"POST","uri":"/api/ocorrencias","status":201,"bytes":488,"upstream":"172.18.0.8:3000","tempoUpstream":"0
+[23:54:03.883] ✓ PASSOU: o mesmo ID aparece no gateway, no serviço que atendeu e nos consumidores do evento

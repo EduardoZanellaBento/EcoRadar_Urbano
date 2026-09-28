@@ -1,4 +1,4 @@
-﻿# Informações do sistema — gerado em 2026-09-27 16:22:49 -03:00
+﻿# Informações do sistema — gerado em 2026-09-27 23:47:51 -03:00
 Sistema operacional : Microsoft Windows 11 Home 10.0.26200 (build 26200) 64-bit
 Nome do computador  : DESKTOP-A7IRFGL
 CPU                 : AMD Ryzen 5 7600 6-Core Processor — 6 núcleos / 12 threads

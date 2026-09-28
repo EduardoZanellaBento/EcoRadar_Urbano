@@ -1,0 +1,31 @@
+{
+  "executadoEm": "2026-09-28T02:54:03.967Z",
+  "duracaoS": 106,
+  "resultados": [
+    {
+      "teste": "Balanceamento de carga",
+      "ok": true,
+      "resumo": "20 requisições: ocorrencias-2=10, ocorrencias-1=10"
+    },
+    {
+      "teste": "Tolerância a falha de réplica",
+      "ok": true,
+      "resumo": "réplica 2 parada: 20/20 sucesso (todas em ocorrencias-1); religada: {\"ocorrencias-1\":10,\"ocorrencias-2\":10}"
+    },
+    {
+      "teste": "Queda do broker + outbox",
+      "ok": true,
+      "resumo": "5 eventos pendentes com o broker fora ~20 s; outbox zerado e relatórios 65→70 após religar; alerta de manancial gerado"
+    },
+    {
+      "teste": "Falha da Open-Meteo + circuit breaker",
+      "ok": true,
+      "resumo": "circuito ABERTO e fonte \"cache\" durante a falha; FECHADO e \"ao_vivo\" após o resetTimeout"
+    },
+    {
+      "teste": "Rastreamento por X-Request-Id",
+      "ok": true,
+      "resumo": "ID encontrado em: relatorios-service-1, ocorrencias-service-2-1, alertas-service-1, gateway-1"
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for services/ambiental-service/src/dominio/indicadores.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">services/ambiental-service/src/dominio</a> indicadores.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">90.62% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>58/64</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">91.42% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>64/70</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>10/10</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">97.67% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>42/43</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Regras ambientais complementares ao IQAr: inversão térmica, nível de córregos e
+ * controle de frequência de eventos publicados no broker.
+ */
+&nbsp;
+// ----- Inversão térmica -------------------------------------------------------------
+&nbsp;
+export type IntensidadeInversao = 'FRACA' | 'MODERADA' | 'FORTE';
+&nbsp;
+export interface ResultadoInversao {
+  inversao: boolean;
+  /** temp_300m − temp_superficie (°C). Positivo = ar mais quente acima: inversão. */
+  diferenca: number;
+  intensidade: IntensidadeInversao | null;
+}
+&nbsp;
+/**
+ * Normalmente a temperatura DIMINUI com a altitude. Há inversão térmica quando a camada
+ * a 300 m está mais quente que a superfície: o ar frio (e poluído) fica "preso" embaixo,
+ * dificultando a dispersão dos poluentes — fenômeno comum nas manhãs de inverno em SP.
+ */
+export function detectarInversao(tempSuperficie: number | null | undefined, temp300m: number | null | undefined): ResultadoInversao {
+  if (typeof tempSuperficie !== 'number' || typeof temp300m !== 'number') {
+    return { inversao: false, diferenca: 0, intensidade: null };
+  }
+  const diferenca = Math.round((temp300m - tempSuperficie) * 10) / 10;
+  if (!(temp300m &gt; tempSuperficie)) return { inversao: false, diferenca, intensidade: null };
+  const intensidade: IntensidadeInversao = diferenca &gt;= 3 ? 'FORTE' : diferenca &gt;= 1 ? 'MODERADA' : 'FRACA';
+  return { inversao: true, diferenca, intensidade };
+}
+&nbsp;
+// ----- Nível do córrego -------------------------------------------------------------
+&nbsp;
+export type SituacaoCorrego = 'NORMAL' | 'ATENCAO' | 'ALERTA' | 'EXTRAVASAMENTO';
+&nbsp;
+/**
+ * Classifica o nível em relação à cota de alerta:
+ *   &lt; 80% da cota: NORMAL · 80–100%: ATENÇÃO · &gt; cota: ALERTA · &gt; 130% da cota: EXTRAVASAMENTO
+ */
+export function avaliarNivelCorrego(nivelCm: number | null | undefined, cotaAlertaCm: number | null | undefined): SituacaoCorrego | null {
+  if (typeof nivelCm !== 'number' || typeof cotaAlertaCm !== 'number' || cotaAlertaCm &lt;= 0) return null;
+  if (nivelCm &gt; cotaAlertaCm * 1.3) return 'EXTRAVASAMENTO';
+  if (nivelCm &gt; cotaAlertaCm) return 'ALERTA';
+  if (nivelCm &gt;= cotaAlertaCm * 0.8) return 'ATENCAO';
+  return 'NORMAL';
+}
+&nbsp;
+// ----- Controle de frequência de eventos ---------------------------------------------
+&nbsp;
+/**
+ * Evita inundar o broker: enquanto uma condição persiste (ex.: IQAr ruim), o evento da
+ * mesma estação/tipo é publicado no máximo uma vez por janela. A deduplicação "de negócio"
+ * (30 min por área) fica no alertas-service.
+ */
+export class LimitadorEventos {
+  private readonly ultimos = new Map&lt;string, number&gt;();
+&nbsp;
+  constructor(
+    private readonly janelaMs = 60_000,
+    private readonly agora: () =&gt; number = Date.now,
+  ) {}
+&nbsp;
+  /** Retorna true se o evento pode ser publicado agora (e registra o envio). */
+  permitir(chave: string): boolean {
+    const t = this.agora();
+    const ultimo = this.ultimos.get(chave);
+    if (ultimo !== undefined &amp;&amp; t - ultimo &lt; this.janelaMs) return false;
+    this.ultimos.set(chave, t);
+    return true;
+  }
+&nbsp;
+  /** Esquece a chave (ex.: quando a condição volta ao normal). */
+  liberar(chave: string): void {
+    this.ultimos.delete(chave);
+  }
+}
+&nbsp;
+// ----- Média móvel -------------------------------------------------------------------
+&nbsp;
+/** Janela deslizante de leituras por estação (suaviza ruído antes do cálculo do IQAr). */
+export class JanelaMovel {
+  private readonly valores = new Map&lt;string, number[]&gt;();
+&nbsp;
+  constructor(private readonly tamanho = 12) {}
+&nbsp;
+  adicionar(chave: string, valor: number | null | undefined): number | null {
+    if (typeof valor !== 'number' || !Number.isFinite(valor)) return this.media(chave);
+    const lista = this.valores.get(chave) ?? [];
+    lista.push(valor);
+    while (lista.length &gt; this.tamanho) lista.shift();
+    this.valores.set(chave, lista);
+    return this.media(chave);
+  }
+&nbsp;
+  media(chave: string): number | null {
+    const lista = this.valores.get(chave);
+    if (!lista?.length) return null;
+    return Math.round((lista.reduce((a, b) =&gt; a + b, 0) / lista.length) * 100) / 100;
+  }
+}
+&nbsp;
+// ----- Clima (códigos WMO da Open-Meteo) ------------------------------------------------
+&nbsp;
+export function descricaoTempo(codigo: number | null | undefined): string {
+  if (codigo === null || codigo === undefined) return 'Indisponível';
+  if (codigo === 0) return 'Céu limpo';
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (codigo === 1) <span class="cstat-no" title="statement not covered" >return 'Predominantemente limpo';</span>
+  if (codigo === 2) return 'Parcialmente nublado';
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (codigo === 3) <span class="cstat-no" title="statement not covered" >return 'Nublado';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (codigo === 45 || codigo === 48) <span class="cstat-no" title="statement not covered" >return 'Nevoeiro';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (codigo &gt;= 51 &amp;&amp; codigo &lt;= 57) <span class="cstat-no" title="statement not covered" >return 'Garoa';</span>
+  if (codigo &gt;= 61 &amp;&amp; codigo &lt;= 67) return 'Chuva';
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (codigo &gt;= 71 &amp;&amp; codigo &lt;= 77) <span class="cstat-no" title="statement not covered" >return 'Neve';</span>
+  if (codigo &gt;= 80 &amp;&amp; codigo &lt;= 82) return 'Pancadas de chuva';
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (codigo &gt;= 95) return 'Trovoadas';
+<span class="cstat-no" title="statement not covered" >  return 'Condição desconhecida';</span>
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-09-28T02:49:41.612Z
+            </div>
+        <script src="../../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../../sorter.js"></script>
+        <script src="../../../../block-navigation.js"></script>
+    </body>
+</html>
+    

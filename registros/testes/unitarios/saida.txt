@@ -1,0 +1,148 @@
+
+ RUN  v5.0.2 C:/dev/APS/backend
+      Coverage enabled with v8
+
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr (CETESB/CONAMA 491) › índice por poluente > limites superiores de cada faixa do MP2,5 caem exatamente nos índices 40/80/120/200 2ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr (CETESB/CONAMA 491) › índice por poluente > interpola dentro da faixa 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr (CETESB/CONAMA 491) › índice por poluente > classifica Péssima acima da faixa N4 e limita índices extremos a 500 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr (CETESB/CONAMA 491) › índice por poluente > usa as faixas atuais da CETESB para NO2 e SO2 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr (CETESB/CONAMA 491) › índice por poluente > trata concentração negativa como zero 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr › índice da estação (pior caso) > o índice divulgado é o maior entre os poluentes 1ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr › índice da estação (pior caso) > ignora poluentes sem medição e retorna null sem dados 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr › índice da estação (pior caso) > classe a partir do índice e regra de alerta (≥ Ruim) 0ms
+ ✓ services/ambiental-service/test/iqar.test.ts > IQAr › índice da estação (pior caso) > converte CO de µg/m³ para ppm 0ms
+ ✓ services/ocorrencias-service/test/publicador-outbox.test.ts > outbox › publicador (broker simulado) > publica todos os eventos pendentes em ordem e os marca como publicados 5ms
+ ✓ services/ocorrencias-service/test/publicador-outbox.test.ts > outbox › publicador (broker simulado) > não tenta publicar enquanto o broker está desconectado (eventos ficam guardados) 1ms
+ ✓ services/ocorrencias-service/test/publicador-outbox.test.ts > outbox › publicador (broker simulado) > interrompe o lote na primeira falha para preservar a ordem e publica o restante depois 1ms
+ ✓ services/ocorrencias-service/test/publicador-outbox.test.ts > outbox › publicador (broker simulado) > respeita o tamanho do lote 0ms
+ ✓ services/ocorrencias-service/test/publicador-outbox.test.ts > outbox › publicador (broker simulado) > roda periodicamente com iniciar()/parar() 3ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > dobra o atraso a cada tentativa, sem jitter 2ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > respeita o atraso máximo 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > aplica jitter dentro da faixa configurada 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > comRetry tenta de novo até ter sucesso 2ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > comRetry desiste após o limite e propaga o último erro 2ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › backoff exponencial > comRetry não repete erros não transitórios 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › cache com TTL > expira após o TTL, mas mantém o último valor para degradação graciosa 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › cache com TTL > expirar() força nova busca sem perder o valor 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › geografia > calcula distância Sé–Pinheiros (~7 km) pela fórmula de Haversine 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › geografia > ponto em polígono (ray casting) 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › geografia > identifica o bairro mais próximo (ou nenhum, se estiver longe) 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › erros e eventos > fábrica de erros produz status e códigos padronizados 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › erros e eventos > reconhece erros de banco indisponível e de unicidade 0ms
+ ✓ packages/shared/test/utilitarios.test.ts > shared › erros e eventos > cria envelope de evento válido com correlationId propagado 4ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › ciclo diário > tráfego tem picos de manhã e à tarde e vale mais que de madrugada 2ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › ciclo diário > temperatura máxima à tarde e mínima de madrugada 0ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › ciclo diário > leitura normal fica em faixas plausíveis e respeita os sensores da estação 1ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › cenários de demonstração > ALAGAMENTO leva o nível do córrego acima da cota de alerta 0ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › cenários de demonstração > POLUICAO_CRITICA eleva material particulado a níveis péssimos 0ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › cenários de demonstração > INVERSAO_TERMICA deixa o ar a 300 m mais quente que a superfície 0ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › cenários de demonstração > cenário restrito a uma estação não afeta as demais, e cenário expirado não vale 0ms
+ ✓ services/sensor-simulator/test/modelo.test.ts > simulador › cenários de demonstração > valida a compatibilidade entre cenário e estação 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › idempotência > cria quando a chave nunca foi usada 2ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › idempotência > devolve o registro original quando o MESMO usuário reenvia (modo offline) 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › idempotência > acusa conflito quando OUTRO usuário tenta reaproveitar a chave 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › validação da criação (Zod) > aceita campos vindos do multipart (números como texto) 3ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › validação da criação (Zod) > exige geolocalização e idempotencyKey válidos 1ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › validação da criação (Zod) > rejeita categoria desconhecida e descrição curta 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › filtros de listagem > converte listas separadas por vírgula e aplica padrões 2ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › filtros de listagem > exige lat/lon para filtrar por raio ou ordenar por distância 1ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › filtros de listagem > rejeita valores de enum inválidos e período invertido 1ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › filtros de listagem > interpreta booleanos de texto 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › fluxo de status > permite transições válidas 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › fluxo de status > bloqueia status inalterado e transições inválidas 1ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › confirmação colaborativa > não permite confirmar a própria ocorrência 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › confirmação colaborativa > não permite confirmar ocorrência encerrada 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › confirmação colaborativa > permite que outro cidadão confirme ocorrência em andamento 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › detecção do tipo real da foto > reconhece JPEG, PNG e WebP pelos magic bytes 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › detecção do tipo real da foto > rejeita arquivos que não são imagem (ex.: PDF renomeado) 0ms
+ ✓ services/ocorrencias-service/test/regras.test.ts > ocorrencias › snapshot do evento > serializa datas em ISO e mantém a versão 1ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › política de senha > aceita senha com letras e números e 8+ caracteres 2ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › política de senha > rejeita senha curta, sem número ou sem letra 1ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › política de senha > rejeita senha acima do limite do bcrypt (72) 0ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › validação do cadastro (Zod) > normaliza e-mail e aceita dados válidos 3ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › validação do cadastro (Zod) > aponta cada campo inválido 1ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › validação do cadastro (Zod) > exige senha no login e valida perfil 1ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › utilitários > converte durações para milissegundos 1ms
+ ✓ services/auth-service/test/validacoes.test.ts > auth-service › utilitários > nunca expõe o hash da senha 1ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regras 1–3 › eventos ambientais > IQAr Ruim/Muito Ruim/Péssima gera POLUICAO com severidade proporcional 3ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regras 1–3 › eventos ambientais > IQAr Moderado não gera alerta 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regras 1–3 › eventos ambientais > nível acima da cota gera RISCO_ALAGAMENTO (crítico acima de 130% da cota) 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regras 1–3 › eventos ambientais > inversão térmica gera INVERSAO_TERMICA (ALTA a partir de 3 °C) 1ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regras 1–3 › eventos ambientais > eventos de outros tipos não geram alertas 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 4 › concentração de ocorrências (≥ 3, mesma categoria, 1 km, 60 min) > três ocorrências próximas na última hora disparam o alerta 4ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 4 › concentração de ocorrências (≥ 3, mesma categoria, 1 km, 60 min) > não dispara com só 2 ocorrências, com ocorrências distantes, antigas ou de outra categoria 1ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 4 › concentração de ocorrências (≥ 3, mesma categoria, 1 km, 60 min) > cinco ou mais ocorrências elevam a severidade para ALTA 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 4 › concentração de ocorrências (≥ 3, mesma categoria, 1 km, 60 min) > ocorrências antigas (ex.: dados históricos) não disparam alerta de concentração 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 5 › prioridade em área de manancial > invasão ou desmatamento dentro de manancial gera PRIORITARIO_MANANCIAL 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 5 › prioridade em área de manancial > severidade crítica da ocorrência torna o alerta crítico 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 5 › prioridade em área de manancial > fora do manancial, ou outra categoria, não gera o alerta prioritário 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 6 › deduplicação (mesmo alerta, mesma área, 30 min) > suprime alerta da mesma estação dentro de 30 minutos 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 6 › deduplicação (mesmo alerta, mesma área, 30 min) > permite novamente após 30 minutos, em outra estação ou de outro tipo 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 6 › deduplicação (mesmo alerta, mesma área, 30 min) > situação que piorou (severidade maior) não é repetição: o alerta é emitido 0ms
+ ✓ services/alertas-service/test/motor-regras.test.ts > regra 6 › deduplicação (mesmo alerta, mesma área, 30 min) > alertas de ocorrências são deduplicados por proximidade (1 km) e categoria 1ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › inversão térmica > detecta quando o ar a 300 m está mais quente que a superfície 3ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › inversão térmica > perfil normal (temperatura cai com a altitude) não é inversão 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › inversão térmica > sem sensor de perfil térmico não há detecção 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › nível do córrego > classifica em relação à cota de alerta 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › limitador de eventos e média móvel > publica no máximo um evento por janela para a mesma chave 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › limitador de eventos e média móvel > calcula média móvel com tamanho fixo e ignora valores ausentes 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › avaliação de uma leitura > condições normais não geram eventos e liberam o limitador 1ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › avaliação de uma leitura > IQAr ruim, córrego acima da cota e inversão geram os três eventos 0ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › mensagens e períodos > valida a mensagem MQTT do simulador 4ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › mensagens e períodos > interpreta períodos e escolhe o tamanho da agregação 2ms
+ ✓ services/ambiental-service/test/indicadores.test.ts > ambiental › mensagens e períodos > descreve os códigos de tempo WMO em português 0ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › conversão da resposta > converte unidades, calcula o IQAr (CETESB) e descreve o tempo 5ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › conversão da resposta > tolera campos ausentes 0ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › cache, circuit breaker e degradação graciosa > primeira consulta com a API no ar: fonte "ao_vivo" e valor persistido 23ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › cache, circuit breaker e degradação graciosa > API fora do ar sem nenhum dado anterior: fonte "indisponivel" 1ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › cache, circuit breaker e degradação graciosa > falhas consecutivas abrem o circuito e o serviço passa a servir o cache 3ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › cache, circuit breaker e degradação graciosa > falha simulada redireciona para host inexistente e expira o cache 2ms
+ ✓ services/ambiental-service/test/open-meteo.test.ts > Open-Meteo › cache, circuit breaker e degradação graciosa > recupera o último valor persistido após reinício 1ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > tempo médio de resolução considera apenas as resolvidas 1ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > taxa de validação colaborativa 1ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > ranking de áreas críticas pondera severidade das ocorrências em aberto 1ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > série diária cobre todos os dias, inclusive os sem ocorrências 3ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > monta todas as contagens com rótulos em português 2ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › indicadores > valida filtros (período invertido é rejeitado) 2ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › CSV > escapa separador, aspas, quebras de linha e fórmulas 0ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › CSV > gera arquivo com BOM, cabeçalho e CRLF 0ms
+ ✓ services/relatorios-service/test/relatorio.test.ts > relatórios › PDF > gera um PDF válido com as seções principais 55ms
+
+ Test Files  10 passed (10)
+      Tests  105 passed (105)
+   Start at  23:49:33
+   Duration  7.84s (import 95%, transform 4%, worker 1%)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   95.15 |     88.6 |   89.92 |   97.47 |                   
+ ...ges/shared/src |    90.9 |    92.59 |   67.85 |   91.56 |                   
+  backoff.ts       |   91.66 |      100 |      60 |     100 |                   
+  cache.ts         |     100 |       90 |     100 |     100 | 35                
+  erros.ts         |   78.12 |    86.36 |   46.15 |      75 | 19-24,26,29,32    
+ ...ce/src/dominio |     100 |    90.62 |     100 |     100 |                   
+  motor-regras.ts  |     100 |    90.62 |     100 |     100 | 158-162,185,218   
+ ...ce/src/dominio |   95.48 |    92.62 |     100 |   99.02 |                   
+  avaliacao.ts     |     100 |    82.35 |     100 |     100 | 73-75,92          
+  indicadores.ts   |   90.62 |    91.42 |     100 |   97.67 | 116               
+ ...rc/integracoes |      92 |    83.58 |   82.35 |   98.43 |                   
+  open-meteo.ts    |      92 |    83.58 |   82.35 |   98.43 | 128               
+ ...ce/src/dominio |   96.42 |    85.71 |      80 |   95.45 |                   
+  validacoes.ts    |   96.42 |    85.71 |      80 |   95.45 | 54                
+ ...ce/src/dominio |   93.33 |    82.75 |     100 |    96.7 |                   
+  ...dor-outbox.ts |    87.5 |    58.06 |     100 |   93.75 | 102-104           
+  regras.ts        |     100 |    96.42 |     100 |     100 | 52,216            
+ ...ce/src/dominio |     100 |    91.11 |     100 |     100 |                   
+  relatorio.ts     |     100 |    91.11 |     100 |     100 | 73,119-120        
+ ...or/src/dominio |   98.48 |     87.5 |     100 |     100 |                   
+  modelo.ts        |   98.48 |     87.5 |     100 |     100 | 72,78-84,102-116  
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 95.15% ( 589/619 )
+Branches     : 88.6% ( 451/509 )
+Functions    : 89.92% ( 116/129 )
+Lines        : 97.47% ( 501/514 )
+================================================================================

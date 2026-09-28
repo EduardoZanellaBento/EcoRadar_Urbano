@@ -1,30 +1,33 @@
+$ npx vitest run --config integracao/vitest.config.ts
+
 
  RUN  v5.0.2 C:/dev/APS/tests
 
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 1. cadastro de novo cidadão devolve token e perfil CIDADAO 72ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 2. login com as credenciais cadastradas 83ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 3. cria ocorrência com foto (multipart) e a foto fica disponível em /uploads 32ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 4. reenvio com a mesma idempotencyKey NÃO duplica (200 + mesmo id) 32ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 5. lista por raio (PostGIS ST_DWithin) com distância calculada 26ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 6. confirmação colaborativa: outro cidadão confirma uma única vez; o autor não pode confirmar 50ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 7. agente altera o status (com comentário) e o histórico é gravado 43ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 8. estatísticas (CQRS, alimentadas por eventos) refletem a nova ocorrência e o status 1073ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 9. exporta PDF e CSV (arquivos salvos como evidência) 345ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 10. dados ambientais: IQAr das estações e integração Open-Meteo 30ms
- ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 11. cenário do simulador gera alerta recebido por um cliente Socket.IO 544ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 401 sem token e com token inválido 29ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 401 para senha incorreta 71ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 403 quando um cidadão tenta alterar status ou trocar perfis 22ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 404 para ocorrência inexistente e rota inexistente 32ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 422 com detalhes por campo para dados inválidos 32ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 413 para foto acima de 5 MB e 415 para arquivo que não é imagem 93ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 409 para e-mail já cadastrado e chave de idempotência de outro usuário 79ms
- ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > todas as respostas trazem X-Request-Id e o formato { erro: { codigo, mensagem, requestId } } 15ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 1. cadastro de novo cidadão devolve token e perfil CIDADAO 67ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 2. login com as credenciais cadastradas 66ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 3. cria ocorrência com foto (multipart) e a foto fica disponível em /uploads 49ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 4. reenvio com a mesma idempotencyKey NÃO duplica (200 + mesmo id) 26ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 5. lista por raio (PostGIS ST_DWithin) com distância calculada 45ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 6. confirmação colaborativa: outro cidadão confirma uma única vez; o autor não pode confirmar 28ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 7. agente altera o status (com comentário) e o histórico é gravado 34ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 8. estatísticas (CQRS, alimentadas por eventos) refletem a nova ocorrência e o status 1056ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 9. exporta PDF e CSV (arquivos salvos como evidência) 560ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 10. dados ambientais: IQAr das estações e integração Open-Meteo 20ms
+ ✓ integracao/fluxo-completo.test.ts > Fluxo completo via gateway > 11. cenário do simulador gera alerta recebido por um cliente Socket.IO 534ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 401 sem token e com token inválido 8ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 401 para senha incorreta 64ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 403 quando um cidadão tenta alterar status ou trocar perfis 9ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 404 para ocorrência inexistente e rota inexistente 6ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 422 com detalhes por campo para dados inválidos 10ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 413 para foto acima de 5 MB e 415 para arquivo que não é imagem 129ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 409 para e-mail já cadastrado e chave de idempotência de outro usuário 68ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > 429 após 10 logins errados por minuto para o MESMO e-mail, sem bloquear outros usuários do mesmo IP 693ms
+ ✓ integracao/fluxo-completo.test.ts > Respostas de erro padronizadas > todas as respostas trazem X-Request-Id e o formato { erro: { codigo, mensagem, requestId } } 5ms
 
  Test Files  1 passed (1)
-      Tests  19 passed (19)
-   Start at  18:30:27
-   Duration  3.17s (tests 96%, import 2%, transform 1%)
+      Tests  20 passed (20)
+   Start at  23:50:14
+   Duration  4.77s (tests 84%, import 14%, transform 1%)
 
 JSON report written to C:/dev/APS/registros/testes/integracao/resultado.json
 JUNIT report written to C:/dev/APS/registros/testes/integracao/junit.xml

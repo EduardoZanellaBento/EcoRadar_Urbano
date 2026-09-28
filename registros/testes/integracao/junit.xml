@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="19" failures="0" errors="0" time="2.9686388">
-    <testsuite name="integracao/fluxo-completo.test.ts" timestamp="2026-09-27T21:30:30.915Z" hostname="DESKTOP-A7IRFGL" tests="19" failures="0" errors="0" skipped="0" time="2.9686388">
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 1. cadastro de novo cidadão devolve token e perfil CIDADAO" time="0.0722271">
+<testsuites name="vitest tests" tests="20" failures="0" errors="0" time="3.7463168">
+    <testsuite name="integracao/fluxo-completo.test.ts" timestamp="2026-09-28T02:50:18.996Z" hostname="DESKTOP-A7IRFGL" tests="20" failures="0" errors="0" skipped="0" time="3.7463168">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 1. cadastro de novo cidadão devolve token e perfil CIDADAO" time="0.0665609">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 2. login com as credenciais cadastradas" time="0.0832506">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 2. login com as credenciais cadastradas" time="0.0663863">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 3. cria ocorrência com foto (multipart) e a foto fica disponível em /uploads" time="0.0315381">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 3. cria ocorrência com foto (multipart) e a foto fica disponível em /uploads" time="0.0492838">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 4. reenvio com a mesma idempotencyKey NÃO duplica (200 + mesmo id)" time="0.0315903">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 4. reenvio com a mesma idempotencyKey NÃO duplica (200 + mesmo id)" time="0.0261757">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 5. lista por raio (PostGIS ST_DWithin) com distância calculada" time="0.0262021">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 5. lista por raio (PostGIS ST_DWithin) com distância calculada" time="0.0445164">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 6. confirmação colaborativa: outro cidadão confirma uma única vez; o autor não pode confirmar" time="0.0503833">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 6. confirmação colaborativa: outro cidadão confirma uma única vez; o autor não pode confirmar" time="0.0284502">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 7. agente altera o status (com comentário) e o histórico é gravado" time="0.0425689">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 7. agente altera o status (com comentário) e o histórico é gravado" time="0.0339298">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 8. estatísticas (CQRS, alimentadas por eventos) refletem a nova ocorrência e o status" time="1.0729652">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 8. estatísticas (CQRS, alimentadas por eventos) refletem a nova ocorrência e o status" time="1.0561616">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 9. exporta PDF e CSV (arquivos salvos como evidência)" time="0.3448811">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 9. exporta PDF e CSV (arquivos salvos como evidência)" time="0.5600864">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 10. dados ambientais: IQAr das estações e integração Open-Meteo" time="0.0299334">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 10. dados ambientais: IQAr das estações e integração Open-Meteo" time="0.0198813">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 11. cenário do simulador gera alerta recebido por um cliente Socket.IO" time="0.5442298">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Fluxo completo via gateway &gt; 11. cenário do simulador gera alerta recebido por um cliente Socket.IO" time="0.533805">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 401 sem token e com token inválido" time="0.029115">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 401 sem token e com token inválido" time="0.0080938">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 401 para senha incorreta" time="0.0708447">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 401 para senha incorreta" time="0.0641752">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 403 quando um cidadão tenta alterar status ou trocar perfis" time="0.0223084">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 403 quando um cidadão tenta alterar status ou trocar perfis" time="0.0086325">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 404 para ocorrência inexistente e rota inexistente" time="0.0315571">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 404 para ocorrência inexistente e rota inexistente" time="0.006324">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 422 com detalhes por campo para dados inválidos" time="0.0321345">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 422 com detalhes por campo para dados inválidos" time="0.0099582">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 413 para foto acima de 5 MB e 415 para arquivo que não é imagem" time="0.0928358">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 413 para foto acima de 5 MB e 415 para arquivo que não é imagem" time="0.1290151">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 409 para e-mail já cadastrado e chave de idempotência de outro usuário" time="0.0787256">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 409 para e-mail já cadastrado e chave de idempotência de outro usuário" time="0.0681083">
         </testcase>
-        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; todas as respostas trazem X-Request-Id e o formato { erro: { codigo, mensagem, requestId } }" time="0.0146778">
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; 429 após 10 logins errados por minuto para o MESMO e-mail, sem bloquear outros usuários do mesmo IP" time="0.6933955">
+        </testcase>
+        <testcase classname="integracao/fluxo-completo.test.ts" name="Respostas de erro padronizadas &gt; todas as respostas trazem X-Request-Id e o formato { erro: { codigo, mensagem, requestId } }" time="0.0054049">
         </testcase>
     </testsuite>
 </testsuites>
