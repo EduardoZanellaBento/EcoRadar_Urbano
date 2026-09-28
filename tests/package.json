@@ -8,7 +8,7 @@
     "navegadores": "node scripts/instalar-navegadores.mjs",
     "integracao": "vitest run --config integracao/vitest.config.ts",
     "e2e": "node scripts/com-navegadores.mjs playwright test --config e2e/playwright.config.ts",
-    "distribuido": "tsx distribuido/executar.ts",
+    "distribuido": "node scripts/com-navegadores.mjs tsx distribuido/executar.ts",
     "carga": "tsx carga/executar.ts",
     "prints-infra": "node scripts/com-navegadores.mjs tsx infra/prints.ts",
     "typecheck": "tsc --noEmit"
