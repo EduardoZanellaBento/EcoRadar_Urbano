@@ -34,3 +34,9 @@ tests/**/.auth/
 npm-debug.log*
 *.log
 !registros/**/*.log
+
+# Documentação (trabalho escrito): ambiente virtual do gerador e temporários
+documentacao/.venv/
+documentacao/__pycache__/
+documentacao/figuras/.render.html
+documentacao/.cache_imagens/

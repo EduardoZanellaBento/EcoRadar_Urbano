@@ -1,0 +1,29 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 26
+    rankSpacing: 40
+---
+flowchart TB
+    sim["sensor-simulator"]
+    oc["ocorrencias-service<br/>(publicador do outbox)"]
+    amb["ambiental-service"]
+    ex{{"RabbitMQ · exchange topic<br/>ecoradar.eventos"}}
+    qa[["fila alertas.eventos<br/>ocorrencia.* · ambiental.*"]]
+    qr[["fila relatorios.eventos<br/>ocorrencia.* · alerta.*"]]
+    al["alertas-service"]
+    rel["relatorios-service"]
+    dlq[("DLQ &lt;fila&gt;.dlq<br/>via ecoradar.dlx")]
+    app["App móvel"]
+
+    sim -- "MQTT QoS 1<br/>ecoradar/sensores/{id}/leituras" --> amb
+    oc -- "ocorrencia.criada<br/>ocorrencia.confirmada<br/>ocorrencia.status_alterado" --> ex
+    amb -- "ambiental.limite_excedido<br/>ambiental.inversao_termica" --> ex
+    ex --> qa
+    ex --> qr
+    qa --> al
+    qr --> rel
+    al -- "alerta.criado<br/>alerta.encerrado" --> ex
+    qa -. "falha repetida" .-> dlq
+    qr -. "falha repetida" .-> dlq
+    al -. "Socket.IO: ocorrencia:nova · alerta:novo" .-> app

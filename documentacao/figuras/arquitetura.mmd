@@ -1,0 +1,32 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 20
+    rankSpacing: 40
+---
+flowchart TB
+    app["<b>App móvel EcoRadar</b> — React Native + Expo (Android, iOS e Web)"]
+    gw["<b>API Gateway — Nginx</b> · porta 8080 (a única exposta)<br/>roteamento por prefixo · round-robin · WebSocket · X-Request-Id"]
+
+    subgraph ms["Microsserviços — Node.js 24 + Fastify 5 (rede interna do Docker Compose)"]
+        direction TB
+        auth["<b>auth-service</b><br/>JWT · bcrypt · perfis"]
+        oc["<b>ocorrencias-service</b> ×2<br/>PostGIS · outbox"]
+        amb["<b>ambiental-service</b><br/>MQTT · IQAr · breaker"]
+        al["<b>alertas-service</b><br/>regras · Socket.IO"]
+        rel["<b>relatorios-service</b><br/>CQRS · PDF e CSV"]
+        sim["<b>sensor-simulator</b><br/>6 estações virtuais"]
+        auth ~~~ al
+        oc ~~~ rel
+        amb ~~~ sim
+    end
+
+    mq[("<b>RabbitMQ 4.3</b><br/>AMQP: eventos · MQTT: leituras")]
+    pg[("<b>PostgreSQL 18 + PostGIS 3.6</b><br/>um schema por serviço")]
+    om(["<b>Open-Meteo</b><br/>API pública de ar e clima"])
+
+    app <== "HTTP REST + Socket.IO" ==> gw
+    gw == "/api/* e /socket.io" ==> ms
+    ms <== "AMQP e MQTT" ==> mq
+    ms == "SQL" ==> pg
+    ms -. "HTTPS · timeout · cache · breaker" .-> om

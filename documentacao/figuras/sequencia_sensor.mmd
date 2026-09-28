@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant SIM as sensor-simulator
+    participant MQ as RabbitMQ (MQTT e AMQP)
+    participant AMB as ambiental
+    participant DB as PostgreSQL
+    participant AL as alertas
+    participant App as App móvel
+    loop a cada 5 s, para cada uma das 6 estações
+        SIM->>MQ: MQTT QoS 1, tópico ecoradar/sensores/{id}/leituras
+    end
+    MQ->>AMB: leitura (assinatura MQTT)
+    AMB->>AMB: Zod, média móvel, IQAr (CETESB), inversão, córrego
+    AMB->>DB: grava a leitura (série temporal)
+    alt IQAr Ruim ou pior, córrego acima da cota ou inversão
+        AMB->>MQ: ambiental.limite_excedido ou ambiental.inversao_termica
+        MQ->>AL: fila alertas.eventos
+        AL->>DB: inbox, regras 1 a 3, deduplicação de 30 min
+        AL-->>App: Socket.IO alerta:novo (banner, badge, notificação)
+    else condição normal
+        AMB->>AMB: libera o limitador de eventos da estação
+    end

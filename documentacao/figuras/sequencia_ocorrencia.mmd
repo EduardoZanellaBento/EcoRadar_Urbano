@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    participant App as App móvel
+    participant GW as Nginx
+    participant OC as ocorrencias (réplica 1 ou 2)
+    participant DB as PostgreSQL PostGIS
+    participant MQ as RabbitMQ
+    participant AL as alertas
+    participant RE as relatorios
+    App->>GW: POST /api/ocorrencias (foto, idempotencyKey)
+    GW->>OC: round-robin, X-Request-Id
+    OC->>DB: chave já usada? ST_Contains (manancial)
+    OC->>DB: BEGIN, ocorrência + histórico + outbox, COMMIT
+    OC-->>App: 201 Created (200 com o original, se reenvio)
+    loop a cada 1 s (FOR UPDATE SKIP LOCKED)
+        OC->>MQ: ocorrencia.criada (publisher confirm)
+    end
+    MQ->>AL: fila alertas.eventos
+    AL->>DB: inbox, motor de regras, deduplicação
+    MQ->>RE: fila relatorios.eventos
+    RE->>DB: projeção (só se versão maior)
+    AL-->>App: Socket.IO ocorrencia:nova / alerta:novo
+    AL->>MQ: alerta.criado
+    MQ->>RE: alerta.criado (estatísticas)

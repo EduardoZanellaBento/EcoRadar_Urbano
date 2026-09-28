@@ -1,0 +1,37 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 8
+    rankSpacing: 60
+---
+flowchart LR
+    cid(["👤 Cidadão"])
+    age(["👤 Agente<br/>(herda Cidadão)"])
+    adm(["👤 Administrador<br/>(herda Agente)"])
+    sen(["⚙ Sensor / estação IoT"])
+    ext(["⚙ Open-Meteo<br/>(serviço externo)"])
+
+    subgraph sistema["<b>Sistema EcoRadar Urbano</b><br/>&nbsp;"]
+        direction TB
+        uc1(["UC01 Cadastrar-se e autenticar"])
+        uc2(["UC02 Registrar ocorrência com foto e GPS"])
+        uc3(["UC03 Consultar mapa e lista com filtros e raio"])
+        uc4(["UC04 Confirmar ocorrência de outro cidadão"])
+        uc5(["UC05 Consultar qualidade ambiental (IQAr)"])
+        uc6(["UC06 Receber alertas em tempo real"])
+        uc7(["UC07 Registrar sem conexão e sincronizar"])
+        uc8(["UC08 Gerar e exportar relatórios (PDF/CSV)"])
+        uc9(["UC09 Consultar status do sistema"])
+        uc10(["UC10 Alterar status de ocorrência"])
+        uc11(["UC11 Encerrar alerta"])
+        uc12(["UC12 Alterar perfil de usuário"])
+        uc13(["UC13 Disparar cenário e simular falha externa"])
+        uc14(["UC14 Publicar leituras ambientais"])
+        uc15(["UC15 Fornecer dados de ar e clima"])
+    end
+
+    cid --- uc1 & uc2 & uc3 & uc4 & uc5 & uc6 & uc7 & uc8 & uc9
+    age --- uc10 & uc11
+    adm --- uc12 & uc13
+    sen --- uc14
+    ext --- uc15

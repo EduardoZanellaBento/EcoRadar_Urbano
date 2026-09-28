@@ -1,0 +1,19 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 16
+    rankSpacing: 32
+---
+flowchart TB
+    ini["index<br/>(redireciona)"] --> onb["onboarding<br/>(1º acesso)"] --> log["login"]
+    log <--> cad["cadastro"]
+    ini --> abas
+    log --> abas["<b>(abas)</b> — barra inferior<br/>Mapa · Ocorrências · Ambiente · Alertas (badge) · Perfil"]
+    cad --> abas
+    abas -- "Mapa" --> nova["ocorrencia/<br/>nova"]
+    abas -- "Mapa, Lista" --> det["ocorrencia/<br/>[id]"]
+    nova --> det
+    abas -- "Perfil" --> rel["relatorios"]
+    abas -- "Perfil" --> sts["status"]
+    abas -- "Perfil" --> env["envios"]
+    abas -- "Perfil" --> pai["painel<br/>(agente/admin)"]

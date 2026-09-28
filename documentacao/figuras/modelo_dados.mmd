@@ -1,0 +1,47 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 14
+    rankSpacing: 30
+---
+flowchart TB
+    subgraph s0["schema auth"]
+        usu["<b>usuarios</b><br/>id PK · email UK<br/>senha_hash · perfil"]
+    end
+    subgraph s1["schema ocorrencias"]
+        direction TB
+        man["<b>areas_manancial</b><br/>id PK · nome<br/>geom (MultiPolygon 4326)"]
+        oco["<b>ocorrencias</b><br/>id PK · idempotency_key UK<br/>categoria · status · versao<br/>localizacao (Point 4326)"]
+        his["<b>historico_status</b><br/>id PK<br/>ocorrencia_id FK"]
+        con["<b>confirmacoes</b><br/>PK (ocorrencia_id,<br/>usuario_id)"]
+        out["<b>outbox</b><br/>id PK · payload<br/>publicado_em"]
+        man -. "ST_Contains" .-> oco
+        oco -- "1:N" --> his
+        oco -- "1:N" --> con
+        oco -. "mesma<br/>transação" .-> out
+    end
+    subgraph s2["schema ambiental"]
+        direction TB
+        est["<b>estacoes</b><br/>id PK · cota_alerta_cm"]
+        lei["<b>leituras</b><br/>id PK · estacao_id FK<br/>iqar · inversao"]
+        cac["<b>cache_integracoes</b><br/>chave PK · dados"]
+        est -- "1:N" --> lei
+        lei ~~~ cac
+    end
+    subgraph s3["schema alertas"]
+        direction TB
+        ina["<b>eventos_processados</b><br/>evento_id PK (inbox)"]
+        ale["<b>alertas</b><br/>id PK · tipo · status<br/>severidade · chave_area"]
+        rec["<b>ocorrencias_recentes</b><br/>id PK · versao"]
+        ina ~~~ ale ~~~ rec
+    end
+    subgraph s4["schema relatorios"]
+        direction TB
+        inr["<b>eventos_processados</b><br/>evento_id PK (inbox)"]
+        vie["<b>ocorrencias_view</b><br/>id PK · status · versao"]
+        alv["<b>alertas_view</b><br/>id PK · tipo · status"]
+        inr ~~~ vie ~~~ alv
+    end
+    s0 ~~~ s2
+    s1 ~~~ s3
+    s1 ~~~ s4
