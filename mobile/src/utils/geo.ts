@@ -1,4 +1,4 @@
-import type { ColecaoMananciais } from '@/tipos';
+import type { Alerta, ColecaoMananciais } from '@/tipos';
 
 export interface Ponto {
   latitude: number;
@@ -13,6 +13,17 @@ export function distanciaKm(a: Ponto, b: Ponto): number {
   const dLon = rad(b.longitude - a.longitude);
   const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.latitude)) * Math.cos(rad(b.latitude)) * Math.sin(dLon / 2) ** 2;
   return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+/** Itens do mais próximo ao mais distante de `origem`, com a distância em km. */
+export function ordenarPorDistancia<T extends Ponto>(origem: Ponto, itens: T[]): { item: T; km: number }[] {
+  return itens.map((item) => ({ item, km: distanciaKm(origem, item) })).sort((a, b) => a.km - b.km);
+}
+
+/** Alerta sem coordenadas vale para a cidade toda; os demais, dentro do raio do usuário + o raio do próprio alerta. */
+export function alertaAlcanca(alerta: Pick<Alerta, 'latitude' | 'longitude' | 'raioKm'>, local: Ponto | null, raioKm: number): boolean {
+  if (!local || alerta.latitude === null || alerta.longitude === null) return true;
+  return distanciaKm(local, { latitude: alerta.latitude, longitude: alerta.longitude }) <= raioKm + (alerta.raioKm ?? 0);
 }
 
 /** Ray casting sobre um anel [lon, lat] (ordem GeoJSON). */

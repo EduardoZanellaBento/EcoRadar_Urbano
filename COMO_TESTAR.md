@@ -135,7 +135,7 @@ Dica para o item 7: para voltar ao normal, use **Normalizar leituras** no painel
 | Porta 8081 (Metro) em uso | `npx expo start --clear --port 8082` (libere a 8082 no firewall, como no passo 4). |
 | Docker parado / *"O Docker não está respondendo"* | Abra o **Docker Desktop**, espere *Engine running* e rode `scripts\iniciar.ps1` de novo. |
 | Nada funciona na rede local | Alternativa por túnel: instale o cloudflared (`winget install Cloudflare.cloudflared`), rode `cloudflared tunnel --url http://localhost:8080`, copie a URL `https://...trycloudflare.com` para `EXPO_PUBLIC_API_URL` em `mobile/.env` e inicie o Expo com `npx expo start --tunnel --clear`. |
-| Mapa em branco no Android | O Expo Go já traz a chave do Google Maps; verifique a internet do celular (os mapas vêm da internet). |
+| Mapa em branco no Android | No Android o fundo do mapa vem do OpenStreetMap pelo gateway (`/tiles`), porque o Google Maps do Expo Go não carrega. Verifique se o celular acessa o gateway (mesma rede Wi-Fi) e se o PC tem internet. |
 | Localização não aparece | Permita a localização para o Expo Go nas configurações do celular. |
 
 ## 10. Parar tudo e regenerar as evidências

@@ -10,7 +10,7 @@ import { contarPendentes, useFilaOffline } from '@/estado/filaOffline';
 import { usePreferencias } from '@/estado/preferencias';
 import { useSessao } from '@/estado/sessao';
 import type { Alerta, Ocorrencia } from '@/tipos';
-import { distanciaKm } from '@/utils/geo';
+import { alertaAlcanca } from '@/utils/geo';
 import { notificarAlerta } from './notificacoes';
 import { sincronizarFila } from './sincronizacao';
 
@@ -57,8 +57,7 @@ export function useMonitorConexao() {
 
 function dentroDoRaio(alerta: Alerta): boolean {
   const { ultimaLocalizacao, raioAlertasKm } = usePreferencias.getState();
-  if (!ultimaLocalizacao || alerta.latitude === null || alerta.longitude === null) return true;
-  return distanciaKm(ultimaLocalizacao, { latitude: alerta.latitude, longitude: alerta.longitude }) <= raioAlertasKm + (alerta.raioKm ?? 0);
+  return alertaAlcanca(alerta, ultimaLocalizacao, raioAlertasKm);
 }
 
 /**

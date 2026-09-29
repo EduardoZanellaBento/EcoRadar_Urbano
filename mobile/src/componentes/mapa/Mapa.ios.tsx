@@ -6,16 +6,7 @@ import { aneisExternos } from '@/utils/geo';
 import { Icone } from '../Icone';
 import type { PropsMapa } from './tipos';
 
-/** Estilo escuro para o Google Maps (Android). No iOS usa-se userInterfaceStyle. */
-const ESTILO_ESCURO = [
-  { elementType: 'geometry', stylers: [{ color: '#1d2c2a' }] },
-  { elementType: 'labels.text.fill', stylers: [{ color: '#9fb5b0' }] },
-  { elementType: 'labels.text.stroke', stylers: [{ color: '#101413' }] },
-  { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#2c3d3a' }] },
-  { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#0e2a3a' }] },
-  { featureType: 'poi', stylers: [{ visibility: 'off' }] },
-];
-
+/** iOS: react-native-maps com o Apple Maps (sem chave). O Android usa Mapa.android.tsx. */
 export default function Mapa(p: PropsMapa) {
   const ref = useRef<MapView>(null);
   const delta = p.regiaoInicial.delta ?? 0.3;
@@ -52,7 +43,6 @@ export default function Mapa(p: PropsMapa) {
       rotateEnabled={false}
       pitchEnabled={false}
       userInterfaceStyle={p.modoEscuro ? 'dark' : 'light'}
-      customMapStyle={p.modoEscuro ? ESTILO_ESCURO : []}
       onPress={(e) => p.aoTocarMapa?.(e.nativeEvent.coordinate)}
       accessibilityLabel="Mapa de ocorrências ambientais"
     >

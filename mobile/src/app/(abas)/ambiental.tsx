@@ -1,18 +1,33 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { useMemo, useState } from 'react';
+import { router } from 'expo-router';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { LineChart } from 'react-native-gifted-charts';
-import { Card, Chip, ProgressBar, SegmentedButtons, Text, useTheme } from 'react-native-paper';
+import { ActivityIndicator, Button, Card, Chip, ProgressBar, SegmentedButtons, Text, TouchableRipple, useTheme } from 'react-native-paper';
 import { mensagemDeErro } from '@/api/cliente';
-import { chaves, useLeiturasEstacao, useResumoAmbiental } from '@/api/consultas';
+import { chaves, useAlertas, useLeiturasEstacao, useMananciais, useResumoAmbiental } from '@/api/consultas';
 import { Bloco } from '@/componentes/Esqueleto';
 import { EstadoVazio } from '@/componentes/EstadoVazio';
 import { EtiquetaIqar } from '@/componentes/Etiquetas';
 import { Icone } from '@/componentes/Icone';
+import { usePreferencias } from '@/estado/preferencias';
+import { obterLocalizacao } from '@/servicos/localizacao';
 import { IQAR, SERIES } from '@/tema/cores';
 import type { TemaEcoRadar } from '@/tema/tema';
 import type { Estacao, PontoSerie } from '@/tipos';
-import { hora, numero, tempoRelativo } from '@/utils/formatacao';
+import { distancia, hora, numero, tempoRelativo } from '@/utils/formatacao';
+import { alertaAlcanca, manancialLocal, ordenarPorDistancia, type Ponto } from '@/utils/geo';
+
+/** Até esta distância a estação representa o local do usuário; além dela, só os dados da cidade. */
+const RAIO_ESTACAO_KM = 15;
+/** Córrego só entra no status do local quando está realmente perto (o risco de alagamento é localizado). */
+const RAIO_CORREGO_KM = 5;
+
+type EstacaoComDistancia = { item: Estacao; km: number };
+
+type SituacaoCorrego = NonNullable<Estacao['corrego']>['situacao'];
+const situacaoCorrego = (s: SituacaoCorrego) =>
+  s === 'EXTRAVASAMENTO' ? 'Transbordando' : s === 'ALERTA' ? 'Acima da cota' : s === 'ATENCAO' ? 'Atenção' : 'Normal';
 
 type Metrica = 'iqar' | 'pm25' | 'temperatura' | 'nivelCorregoCm';
 const METRICAS: Record<Metrica, { rotulo: string; unidade: string }> = {
@@ -132,7 +147,161 @@ function GraficoEstacao({ estacoes }: { estacoes: Estacao[] }) {
   );
 }
 
-function CartaoEstacao({ e }: { e: Estacao }) {
+function LinhaStatus({ icone, cor, titulo, texto, aoPressionar, testID }: { icone: string; cor: string; titulo: string; texto: string; aoPressionar?: () => void; testID?: string }) {
+  const tema = useTheme<TemaEcoRadar>();
+  const conteudo = (
+    <View style={estilos.linha}>
+      <View style={[estilos.bolha, { backgroundColor: tema.colors.surfaceVariant }]}>
+        <Icone nome={icone} cor={cor} tamanho={18} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text variant="labelLarge">{titulo}</Text>
+        <Text variant="bodySmall" style={{ color: tema.extra.tintaSecundaria }}>
+          {texto}
+        </Text>
+      </View>
+      {aoPressionar && <Icone nome="chevron-right" cor={tema.extra.tintaFraca} />}
+    </View>
+  );
+  if (!aoPressionar) return <View testID={testID}>{conteudo}</View>;
+  return (
+    <TouchableRipple onPress={aoPressionar} borderless style={{ borderRadius: 10 }} accessibilityRole="button" testID={testID}>
+      {conteudo}
+    </TouchableRipple>
+  );
+}
+
+/** Status completo do ambiente onde o usuário está, a partir das estações mais próximas. */
+function CartaoLocal({ local, proximas, cidade }: { local: Ponto; proximas: EstacaoComDistancia[]; cidade: string }) {
+  const tema = useTheme<TemaEcoRadar>();
+  const raioAlertasKm = usePreferencias((s) => s.raioAlertasKm);
+  const alertas = useAlertas('ATIVO');
+  const mananciais = useMananciais();
+
+  // Ar, inversão e córrego dependem de uma estação por perto; alertas e manancial valem em qualquer ponto.
+  const cobertas = proximas.filter((p) => p.km <= RAIO_ESTACAO_KM);
+  const principal = cobertas.find((p) => p.item.online && p.item.iqar) ?? cobertas[0];
+  const e = principal?.item;
+  const l = e?.leitura;
+  /** Complemento quando o dado vem de outra estação que não a principal. */
+  const origem = (p: EstacaoComDistancia) => (p.item.id === e?.id ? '' : ` · ${p.item.bairro}, a ${distancia(p.km)}`);
+  const termica = cobertas.find((p) => p.item.leitura?.tempSuperficie != null);
+  const corrego = proximas.find((p) => p.item.corrego && p.km <= RAIO_CORREGO_KM);
+  const alertasPerto = alertas.data ? alertas.data.itens.filter((a) => alertaAlcanca(a, local, raioAlertasKm)) : null;
+  const manancial = manancialLocal(local, mananciais.data);
+
+  return (
+    <Card style={[estilos.cartao, estilos.destaque, { borderLeftColor: e?.iqar ? IQAR[e.iqar.classe].cor : tema.colors.outline }]} testID="cartao-local">
+      <Card.Title
+        title="Onde você está"
+        subtitle={principal ? `Estação ${principal.item.bairro} · a ${distancia(principal.km)} de você` : 'Nenhuma estação por perto'}
+        left={(p) => <Icone nome="crosshairs-gps" tamanho={p.size} cor={tema.colors.primary} />}
+      />
+      <Card.Content style={{ gap: 12 }}>
+        {e ? (
+          <>
+            <View style={estilos.linha}>
+              {e.iqar ? <EtiquetaIqar classe={e.iqar.classe} indice={e.iqar.indice} grande /> : <Text>Sem IQAr</Text>}
+              <Text variant="bodySmall" style={{ flex: 1, color: tema.extra.tintaSecundaria }}>
+                {e.iqar ? IQAR[e.iqar.classe].recomendacao : 'A estação não enviou leituras recentes.'}
+                {e.iqar?.poluenteDominante ? ` Poluente dominante: ${e.iqar.poluenteDominante}.` : ''}
+              </Text>
+            </View>
+            <View style={estilos.grade}>
+              <Valor rotulo="MP2,5" valor={l?.pm25} unidade=" µg/m³" />
+              <Valor rotulo="Temperatura" valor={l?.temperatura} unidade=" °C" />
+              <Valor rotulo="Umidade" valor={l?.umidade} unidade="%" />
+            </View>
+          </>
+        ) : (
+          <Text variant="bodySmall" style={{ color: tema.extra.tintaSecundaria }} testID="local-sem-estacao">
+            {proximas.length > 0
+              ? `A estação mais próxima (${proximas[0].item.bairro}) fica a ${distancia(proximas[0].km)}, longe demais para representar o ar daqui. Abaixo, a média de ${cidade}.`
+              : `Abaixo, a média de ${cidade}.`}
+          </Text>
+        )}
+        <View style={{ gap: 10 }}>
+          {termica &&
+            (termica.item.inversao.ativa ? (
+              <LinhaStatus
+                testID="local-inversao"
+                icone="thermometer-alert"
+                cor="#c98500"
+                titulo={`Inversão térmica ${termica.item.inversao.intensidade?.toLowerCase() ?? ''}`.trim()}
+                texto={`A dispersão dos poluentes está prejudicada${origem(termica)}.`}
+              />
+            ) : (
+              <LinhaStatus testID="local-inversao" icone="thermometer-lines" cor="#16a34a" titulo="Sem inversão térmica" texto={`Perfil térmico normal${origem(termica)}.`} />
+            ))}
+          {corrego?.item.corrego && (
+            <LinhaStatus
+              testID="local-corrego"
+              icone="waves-arrow-up"
+              cor={
+                corrego.item.corrego.situacao === 'ALERTA' || corrego.item.corrego.situacao === 'EXTRAVASAMENTO'
+                  ? '#d03b3b'
+                  : corrego.item.corrego.situacao === 'ATENCAO'
+                    ? '#c98500'
+                    : '#16a34a'
+              }
+              titulo={`${corrego.item.corrego.nome}: ${situacaoCorrego(corrego.item.corrego.situacao)}`}
+              texto={`Nível ${numero(corrego.item.corrego.nivelCm, ' cm')} (cota de alerta ${numero(corrego.item.corrego.cotaAlertaCm, ' cm')}) · a ${distancia(corrego.km)}`}
+            />
+          )}
+          {alertasPerto &&
+            (alertasPerto.length > 0 ? (
+              <LinhaStatus
+                testID="local-alertas"
+                icone="bell-ring"
+                cor="#d03b3b"
+                titulo={alertasPerto.length === 1 ? '1 alerta ativo perto de você' : `${alertasPerto.length} alertas ativos perto de você`}
+                texto={alertasPerto.length === 1 ? alertasPerto[0].titulo : `${alertasPerto[0].titulo} e mais ${alertasPerto.length - 1}`}
+                aoPressionar={() => router.push('/(abas)/alertas')}
+              />
+            ) : (
+              <LinhaStatus testID="local-alertas" icone="bell-check-outline" cor="#16a34a" titulo="Nenhum alerta ativo perto de você" texto={`Raio de ${raioAlertasKm} km (ajustável no Perfil).`} />
+            ))}
+          {manancial && (
+            <LinhaStatus
+              testID="local-manancial"
+              icone="water"
+              cor={tema.colors.primary}
+              titulo="Área de proteção de manancial"
+              texto={`${manancial} · invasões e desmatamento registrados aqui têm prioridade de fiscalização.`}
+            />
+          )}
+        </View>
+        {e && (
+          <Text variant="labelSmall" style={{ color: tema.extra.tintaFraca }}>
+            {e.nome} · {e.online ? 'transmitindo' : 'sem sinal'}
+            {e.ultimaLeituraEm ? ` · leitura ${tempoRelativo(e.ultimaLeituraEm)}` : ''}
+          </Text>
+        )}
+      </Card.Content>
+    </Card>
+  );
+}
+
+function CartaoSemLocal({ localizando, aoLocalizar }: { localizando: boolean; aoLocalizar: () => void }) {
+  const tema = useTheme<TemaEcoRadar>();
+  return (
+    <Card style={estilos.cartao} testID="cartao-local-indisponivel">
+      <Card.Content style={estilos.linha}>
+        {localizando ? <ActivityIndicator size="small" /> : <Icone nome="crosshairs-question" cor={tema.colors.primary} />}
+        <Text variant="bodyMedium" style={{ flex: 1 }}>
+          {localizando ? 'Buscando sua localização…' : 'Ative a localização para ver primeiro o status do ambiente onde você está.'}
+        </Text>
+        {!localizando && (
+          <Button mode="contained-tonal" compact onPress={aoLocalizar}>
+            Localizar
+          </Button>
+        )}
+      </Card.Content>
+    </Card>
+  );
+}
+
+function CartaoEstacao({ e, km }: { e: Estacao; km?: number | null }) {
   const tema = useTheme<TemaEcoRadar>();
   const l = e.leitura;
   const cota = e.corrego?.cotaAlertaCm ?? null;
@@ -149,6 +318,7 @@ function CartaoEstacao({ e }: { e: Estacao }) {
               <Text variant="labelSmall" style={{ color: tema.extra.tintaFraca }}>
                 {e.online ? 'Transmitindo' : 'Sem sinal'} {e.ultimaLeituraEm ? `· ${tempoRelativo(e.ultimaLeituraEm)}` : ''}
                 {e.cenario ? ` · cenário ${e.cenario}` : ''}
+                {km != null ? ` · a ${distancia(km)} de você` : ''}
               </Text>
             </View>
           </View>
@@ -186,7 +356,7 @@ function CartaoEstacao({ e }: { e: Estacao }) {
                 {e.corrego.nome}: {numero(e.corrego.nivelCm, ' cm')}
               </Text>
               <Text variant="labelMedium" style={{ color: alertaCorrego ? '#d03b3b' : tema.extra.tintaFraca, fontWeight: '700' }}>
-                {e.corrego.situacao === 'EXTRAVASAMENTO' ? 'Transbordando' : e.corrego.situacao === 'ALERTA' ? 'Acima da cota' : e.corrego.situacao === 'ATENCAO' ? 'Atenção' : 'Normal'}
+                {situacaoCorrego(e.corrego.situacao)}
               </Text>
             </View>
             <ProgressBar progress={proporcao} color={alertaCorrego ? '#d03b3b' : tema.colors.primary} style={{ height: 8, borderRadius: 4 }} />
@@ -207,6 +377,19 @@ export default function TelaAmbiental() {
   const r = resumo.data;
   const om = r?.openMeteo;
 
+  const local = usePreferencias((s) => s.ultimaLocalizacao);
+  // obterLocalizacao grava a posição em ultimaLocalizacao (preferências), que alimenta o cartão do local
+  const [localizando, setLocalizando] = useState(true);
+  useEffect(() => {
+    void obterLocalizacao().then(() => setLocalizando(false));
+  }, []);
+  const localizar = useCallback(async () => {
+    setLocalizando(true);
+    await obterLocalizacao();
+    setLocalizando(false);
+  }, []);
+  const proximas = useMemo(() => (local && r ? ordenarPorDistancia(local, r.estacoes) : null), [local, r]);
+
   if (resumo.isLoading) {
     return (
       <View style={{ padding: 16, gap: 12 }}>
@@ -224,13 +407,27 @@ export default function TelaAmbiental() {
   const corFonte = fonte === 'ao_vivo' ? '#16a34a' : fonte === 'cache' ? '#c98500' : '#d03b3b';
   const clima = om?.dados?.clima;
   const ar = om?.dados?.ar;
+  // Dentro da área monitorada, as estações seguem a ordem de distância; fora dela, a ordem original.
+  const ordem: { item: Estacao; km: number | null }[] =
+    proximas?.[0] && proximas[0].km <= RAIO_ESTACAO_KM ? proximas : r.estacoes.map((item) => ({ item, km: null }));
+  const naArea = ordem[0]?.km != null;
 
   return (
     <ScrollView
       contentContainerStyle={{ paddingVertical: 8, paddingBottom: 32 }}
-      refreshControl={<RefreshControl refreshing={resumo.isRefetching} onRefresh={() => void qc.invalidateQueries({ queryKey: chaves.resumo })} />}
+      refreshControl={
+        <RefreshControl
+          refreshing={resumo.isRefetching}
+          onRefresh={() => {
+            void localizar();
+            void qc.invalidateQueries({ queryKey: chaves.resumo });
+          }}
+        />
+      }
       testID="tela-ambiental"
     >
+      {local && proximas ? <CartaoLocal local={local} proximas={proximas} cidade={r.cidade.nome} /> : <CartaoSemLocal localizando={localizando} aoLocalizar={() => void localizar()} />}
+
       <Card style={estilos.cartao} testID="cartao-iqar-cidade">
         <Card.Content style={{ gap: 10 }}>
           <Text variant="labelLarge" style={{ color: tema.extra.tintaFraca }}>
@@ -265,7 +462,8 @@ export default function TelaAmbiental() {
       <Card style={estilos.cartao} testID="cartao-open-meteo">
         <Card.Title
           title="Dados Open-Meteo"
-          subtitle="Qualidade do ar e clima (API pública)"
+          subtitle={`Qualidade do ar e clima em ${r.cidade.nome} (API pública)`}
+          subtitleNumberOfLines={2}
           left={(p) => <Icone nome="weather-partly-cloudy" tamanho={p.size} cor={tema.colors.primary} />}
         />
         <Card.Content style={{ gap: 10 }}>
@@ -312,13 +510,14 @@ export default function TelaAmbiental() {
         </Card.Content>
       </Card>
 
-      <GraficoEstacao estacoes={r.estacoes} />
+      {/* key: ao descobrir a posição, o gráfico reabre na estação mais próxima */}
+      <GraficoEstacao key={ordem[0]?.item.id} estacoes={ordem.map((o) => o.item)} />
 
       <Text variant="titleMedium" style={estilos.secao}>
-        Estações de monitoramento
+        {naArea ? 'Estações (mais próximas primeiro)' : 'Estações de monitoramento'}
       </Text>
-      {r.estacoes.map((e) => (
-        <CartaoEstacao key={e.id} e={e} />
+      {ordem.map(({ item, km }) => (
+        <CartaoEstacao key={item.id} e={item} km={km} />
       ))}
       <Text variant="labelSmall" style={[estilos.secao, { color: tema.extra.tintaFraca }]}>
         Estações virtuais (simulador MQTT). IQAr conforme CETESB / Resolução CONAMA nº 491/2018.
@@ -334,6 +533,8 @@ const estilos = StyleSheet.create({
   grade: { flexDirection: 'row', flexWrap: 'wrap', rowGap: 8 },
   valor: { width: '33.3%', paddingRight: 6 },
   faixa: { flexDirection: 'row', alignItems: 'center', gap: 8, padding: 10, borderRadius: 10 },
+  destaque: { borderLeftWidth: 5 },
+  bolha: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   secao: { marginHorizontal: 20, marginTop: 12, marginBottom: 4 },
   dica: { padding: 6, borderRadius: 6 },
 });
